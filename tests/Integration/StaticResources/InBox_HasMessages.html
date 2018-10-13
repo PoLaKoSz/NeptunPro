@@ -1,0 +1,1182 @@
+﻿
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="">
+<head><title>
+	Neptun.Net Hallgato_16
+</title><meta http-equiv="X-UA-Compatible" content="IE=edge" /><link id="Link1" rel="shortcut&#32;icon" href="favicon.ico" type="image/x-icon" /><link id="Link2" rel="icon" href="favicon.ico" type="image/ico" /><link href="App_Themes/TimeTable/dailog.css" rel="stylesheet" type="text/css" /><link href="App_Themes/TimeTable/calendar.css" rel="stylesheet" type="text/css" /><link href="App_Themes/TimeTable/dp.css" rel="stylesheet" type="text/css" /><link href="App_Themes/TimeTable/alert.css" rel="stylesheet" type="text/css" /><link href="App_Themes/TimeTable/main.css" rel="stylesheet" type="text/css" /><link href="App_Themes/FileUpload/css/jquery.fileupload-ui.css" rel="stylesheet" type="text/css" /><link href="App_Themes/FileUpload/css/bootstrap.min.css" rel="stylesheet" type="text/css" /><link href="App_Themes/ContextMenu/jquery.contextMenu.css" rel="stylesheet" type="text/css" /><link href="App_Themes/jHtmlArea/jHtmlArea.ColorPickerMenu.css" rel="stylesheet" type="text/css" /><link href="App_Themes/jHtmlArea/jHtmlArea.css" rel="stylesheet" type="text/css" /><link href="App_Themes/FullCalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" /><link href="App_Themes/FullCalendar/fullcalendar.print.min.css" rel="stylesheet" media="print" type="text/css" /><link href="App_Themes/FullCalendar/fullcalendar.customstyles.css" rel="stylesheet" type="text/css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<style type="text/css">
+.style1
+{
+width: 81px;
+}
+.print_table
+{
+position: absolute;
+left: -9999px;
+}
+</style>
+<link href="App_Themes/Skin_Neptun_GFX/jquery.datepicker.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_Neptun_GFX/jquery.widget.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_Neptun_GFX/jquery-ui.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_Neptun_GFX/neptun-modern.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Skin_Neptun_GFX/skin_neptun_gfx.css" type="text/css" rel="stylesheet" /></head>
+<body onunload="javascript:Unload();">
+<form method="post" action="./main.aspx" id="form1" autocomplete="off">
+<input type="hidden" name="ToolkitScriptManager1_HiddenField" id="ToolkitScriptManager1_HiddenField" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPaA8FDzhkNjMwY2ViMWFkOGFmNBgCBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WGwUJYnRuTGFuZ18wBQlidG5MYW5nXzEFCWJ0bkxhbmdfMgULYnRuc2tpblBpbmsFC2J0bnNraW5CbHVlBQxidG5za2luR3JlZW4FDWJ0bnNraW5PcmFuZ2UFDmJ0bnNraW5UZWFjaGVyBQ1idG5za2luUHVycGxlBR5pbWdTa2luQ2hvb3NlclBhcnRpYWxseVNpZ2h0ZWQFHXVwQm94ZXMkdXBCb3hlc0J1dHRvbnMkYnRuUnNzBSF1cEJveGVzJHVwQm94ZXNCdXR0b25zJGJ0bk1lc3NhZ2UFInVwQm94ZXMkdXBCb3hlc0J1dHRvbnMkYnRuRmF2b3JpdGUFInVwQm94ZXMkdXBCb3hlc0J1dHRvbnMkYnRuQ2FsZW5kYXIFH3VwQm94ZXMkdXBCb3hlc0J1dHRvbnMkYnRuRm9ydW0FJnVwQm94ZXMkdXBSU1MkZ2RnUlNTJGdkZ1JTU19SZWZyZXNoQnRuBSR1cEJveGVzJHVwUlNTJGdkZ1JTUyRnZGdSU1NfQ2xvc2VCdG4FMnVwQm94ZXMkdXBNZXNzYWdlJGdkZ01lc3NhZ2UkZ2RnTWVzc2FnZV9SZWZyZXNoQnRuBTB1cEJveGVzJHVwTWVzc2FnZSRnZGdNZXNzYWdlJGdkZ01lc3NhZ2VfQ2xvc2VCdG4FNXVwQm94ZXMkdXBDYWxlbmRhciRnZGdDYWxlbmRhciRnZGdDYWxlbmRhcl9SZWZyZXNoQnRuBTN1cEJveGVzJHVwQ2FsZW5kYXIkZ2RnQ2FsZW5kYXIkZ2RnQ2FsZW5kYXJfQ2xvc2VCdG4FPXVwQm94ZXMkdXBDYWxlbmRhciRnZGdDYWxlbmRhciRjdGwzNSRjYWxlbmRhciR1cFBhbmVsJGNoa1RpbWUFPXVwQm94ZXMkdXBDYWxlbmRhciRnZGdDYWxlbmRhciRjdGwzNSRjYWxlbmRhciR1cFBhbmVsJGNoa0V4YW0FPXVwQm94ZXMkdXBDYWxlbmRhciRnZGdDYWxlbmRhciRjdGwzNSRjYWxlbmRhciR1cFBhbmVsJGNoa1Rhc2sFRHVwQm94ZXMkdXBDYWxlbmRhciRnZGdDYWxlbmRhciRjdGwzNSRjYWxlbmRhciR1cFBhbmVsJGNoa0tvbnp1bHRhY2lvBTp1cEJveGVzJHVwRm9ydW0kZ2RnRm9ydW0kdXBQYXJlbnQkZ2FkZ2V0JGdhZGdldF9SZWZyZXNoQnRuBTh1cEJveGVzJHVwRm9ydW0kZ2RnRm9ydW0kdXBQYXJlbnQkZ2FkZ2V0JGdhZGdldF9DbG9zZUJ0bgVXdXBCb3hlcyR1cEZvcnVtJGdkZ0ZvcnVtJHVwUGFyZW50JGdhZGdldCRjdGwzNSRWU19GYXZvdXJpdGVUb3BpY3NfZ2FkU21hbGwxJGx2RmF2VG9waWNzDxQrAA5kZGRkZGQVAQJJRGRmZGRkZgL/////D2Q8S7lGC0jOgowEgoO+hXvyL8gjLKnQ1zDcJAccqq8lvQ==" />
+
+
+<script src="/hallgato/WebResource.axd?d=8jZa8K7B3zwhAR1fDl96m7kLAt0eRkXouTiil1tlV84wZeFqKg6iwZkd8jfm1riaWV1lEK6HpkzQooTbVl31-3fnvL81G7yD2mYZJy8Pj4WoRibzxSmm6YKPM3HfX0HFSpJ11KhprdajlCIgaHMuhb2YulP_Lx37vsmpISyeRwk1&amp;t=636741092612822308" type="text/javascript"></script>
+<script src="/hallgato/ScriptResource.axd?d=A1AED1US7sWdmedaK2ZhAWm4xdeAmCTsf7LApd2iIyq3W6qiwhdL4Epo1xhAcHIhadSXnKEz2EU-WGrVO_rcMXUIENGInWpOBit4vGxIpgri9uNQTnWRdPZvBOf73-vOunxxAfG2Cfmttgiy1XyqKLq_IswfLwNORfjg1uvDexzWVgn_6aLsHB60CN34xtAt0&amp;t=ffffffffea1d4cd3" type="text/javascript"></script>
+<script src="/hallgato/ScriptResource.axd?d=f5wcV6mDYMRPr8cXAjsm4qcKchH-PHpPrr9dWneNE29J5ghnpsJKQDapBo7xKsdJu6wYTaN_5ABoi8LFqcMI-j0xUGKMskrj_gqJKgZkgjwqfpfsCErqxgRJGrBH19UuyqttbwrjLrzstXlydJ2jbnnLpPa7hsa-vRluagiIpbs1&amp;t=ffffffffea1d4cd3" type="text/javascript"></script>
+<script src="/hallgato/ScriptResource.axd?d=drwn-ZFMmKKNz34kc-8irJx_5LdCQDxtFIO0msRKY4-K6y5rjRDyisndzZospxXsg4f4SdWYxkcgWykRcvn4PjjIugTI8pAIhXKpcYfmv0dWtjvMRe7FckWiCzByz-fJfLY_X-r73t-YWvAe3_3j7QqE3btTVJIf6PW-_OxTJbg1&amp;t=ffffffffea1d4cd3" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+var __cultureInfo = {"name":"hu-HU","numberFormat":{"CurrencyDecimalDigits":2,"CurrencyDecimalSeparator":",","IsReadOnly":false,"CurrencyGroupSizes":[3],"NumberGroupSizes":[3],"PercentGroupSizes":[3],"CurrencyGroupSeparator":" ","CurrencySymbol":"Ft","NaNSymbol":"nem szám","CurrencyNegativePattern":8,"NumberNegativePattern":1,"PercentPositivePattern":1,"PercentNegativePattern":1,"NegativeInfinitySymbol":"mínusz végtelen","NegativeSign":"-","NumberDecimalDigits":2,"NumberDecimalSeparator":",","NumberGroupSeparator":" ","CurrencyPositivePattern":3,"PositiveInfinitySymbol":"végtelen","PositiveSign":"+","PercentDecimalDigits":2,"PercentDecimalSeparator":",","PercentGroupSeparator":" ","PercentSymbol":"%","PerMilleSymbol":"‰","NativeDigits":["0","1","2","3","4","5","6","7","8","9"],"DigitSubstitution":1},"dateTimeFormat":{"AMDesignator":"de.","Calendar":{"MinSupportedDateTime":"\/Date(-62135596800000)\/","MaxSupportedDateTime":"\/Date(253402297199999)\/","AlgorithmType":1,"CalendarType":1,"Eras":[1],"TwoDigitYearMax":2029,"IsReadOnly":false},"DateSeparator":".","FirstDayOfWeek":1,"CalendarWeekRule":0,"FullDateTimePattern":"yyyy. MMMM d. H:mm:ss","LongDatePattern":"yyyy. MMMM d.","LongTimePattern":"H:mm:ss","MonthDayPattern":"MMMM d.","PMDesignator":"du.","RFC1123Pattern":"ddd, dd MMM yyyy HH\u0027:\u0027mm\u0027:\u0027ss \u0027GMT\u0027","ShortDatePattern":"yyyy.MM.dd.","ShortTimePattern":"H:mm","SortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd\u0027T\u0027HH\u0027:\u0027mm\u0027:\u0027ss","TimeSeparator":":","UniversalSortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd HH\u0027:\u0027mm\u0027:\u0027ss\u0027Z\u0027","YearMonthPattern":"yyyy. MMMM","AbbreviatedDayNames":["V","H","K","Sze","Cs","P","Szo"],"ShortestDayNames":["V","H","K","Sze","Cs","P","Szo"],"DayNames":["vasárnap","hétfő","kedd","szerda","csütörtök","péntek","szombat"],"AbbreviatedMonthNames":["jan.","febr.","márc.","ápr.","máj.","jún.","júl.","aug.","szept.","okt.","nov.","dec.",""],"MonthNames":["január","február","március","április","május","június","július","augusztus","szeptember","október","november","december",""],"IsReadOnly":false,"NativeCalendarName":"Gergely-naptár","AbbreviatedMonthGenitiveNames":["jan.","febr.","márc.","ápr.","máj.","jún.","júl.","aug.","szept.","okt.","nov.","dec.",""],"MonthGenitiveNames":["január","február","március","április","május","június","július","augusztus","szeptember","október","november","december",""]},"eras":[1,"i.sz.",null,0]};//]]>
+</script>
+
+<script src="/hallgato/ScriptResource.axd?d=zgvCmPbObHgx0c988rDR-iv-C_lw3Bh0qdGsJ-6DDNqu5Tq1DVRpCfC4B6IiAybag_k90si3t8atk4P0xB80vAKpKBetZ74iZ2aeTP_FiMvbLlwpGzzbwuGHAU5aBVGE0&amp;t=ffffffffa5177bee" type="text/javascript"></script>
+<script src="javascript/jquery.min.js" type="text/javascript"></script>
+<script src="javascript/jquery.ui.min.sda.js" type="text/javascript"></script>
+<script src="javascript/jquery.ui.min.js" type="text/javascript"></script>
+<script src="javascript/jquery.dialogextend.js" type="text/javascript"></script>
+<script src="javascript/jquery.tmpl.js" type="text/javascript"></script>
+<script src="javascript/neptun.js" type="text/javascript"></script>
+<script src="javascript/neptun2.js" type="text/javascript"></script>
+<script src="javascript/SDAModal.js" type="text/javascript"></script>
+<script src="javascript/webkit.js" type="text/javascript"></script>
+<script src="javascript/jquery.inputmask.js" type="text/javascript"></script>
+<script src="javascript/jquery-autocomplete_combobox.js" type="text/javascript"></script>
+<script src="javascript/SDAWebTab.js" type="text/javascript"></script>
+<script src="javascript/jquery.contextMenu.js" type="text/javascript"></script>
+<script src="javascript/jquery.ui.position.js" type="text/javascript"></script>
+<script src="javascript/jHtmlArea-0.7.5.min.js" type="text/javascript"></script>
+<script src="javascript/jHtmlArea.ColorPickerMenu-0.7.0.min.js" type="text/javascript"></script>
+<script src="javascript/jquery.mousewheel.min.js" type="text/javascript"></script>
+<script src="javascript/jquery-jtemplates.js" type="text/javascript"></script>
+<script src="javascript/tile-drag.js" type="text/javascript"></script>
+<script src="javascript/jquery.multiselect.js" type="text/javascript"></script>
+<script src="javascript/HtmlEditor/ckeditor.js" type="text/javascript"></script>
+<script src="javascript/HtmlEditor/adapters/jquery.js" type="text/javascript"></script>
+<script src="javascript/jquery.fixedheadertable.js" type="text/javascript"></script>
+<script src="javascript/MasterPass/common.js" type="text/javascript"></script>
+<script src="javascript/MasterPass/index.js" type="text/javascript"></script>
+<script src="javascript/MasterPass/MasterPass.client.js" type="text/javascript"></script>
+<script src="javascript/jquery.charactercounter.js" type="text/javascript"></script>
+<script src="/hallgato/ScriptResource.axd?d=noQiJLY5MuNiC6ueIr4nHtTXtVn8l2iyeDp6bjpouBGJnhLpt9TpDIoIBdW7IXZjWX4SZouLWGb6kb-NZKJ_Za0kibjawBPcKz4HQGzH2a9rgIQEI9Tuw5vSiVWy7kBCOyhjwXouWGgM7P6-__k1KP7gojTmJN6bjTR82ADqwgs1&amp;t=ffffffffa3e8e9f1" type="text/javascript"></script>
+<script src="/hallgato/ScriptResource.axd?d=AZtUtPr8dlf0FbLqBCbTi2KUhNRr-6V2rTt6ogiKGuxziFtMmz5_kulIz_Ow0HVL7sOmCryxONYZ6ipZ0bxpcM7_x1I9B8LbXkCG_INXBmUwSaNiPlkLJo9d7y8XWlZZ2sSuPF5gMThci262M1oi41ylwI4YM3UMa8fTUYmGBdZTl8TJPRPC1EhyyNQb-Egj0&amp;t=ffffffffea1d4cd3" type="text/javascript"></script>
+<script src="/hallgato/ScriptResource.axd?d=gGRL3PRfQckqNZA300KYr2rPlyCQoxfVcL_eWdpRI2H411mgIMGqp4Ehk0esRihAu2bL3gbpFVnMwqizq0_tYBBSCYMEulfCKpd0pKSMVejCHJUBGTFJCofcUg516mZtinHb1IoSq46fm7ddfiubem7avAJSju4U6O37bRLPJ801&amp;t=ffffffffea1d4cd3" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+var PageMethods = function() {
+PageMethods.initializeBase(this);
+this._timeout = 0;
+this._userContext = null;
+this._succeeded = null;
+this._failed = null;
+}
+PageMethods.prototype = {
+_get_path:function() {
+ var p = this.get_path();
+ if (p) return p;
+ else return PageMethods._staticInstance.get_path();},
+GotoCampus:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GotoCampus',false,{},succeededCallback,failedCallback,userContext); },
+GetStringFromJS:function(ID,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetStringFromJS',false,{ID:ID},succeededCallback,failedCallback,userContext); },
+SetSearchPanelState:function(searchpanelclientid,panelstate,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SetSearchPanelState',false,{searchpanelclientid:searchpanelclientid,panelstate:panelstate},succeededCallback,failedCallback,userContext); },
+SetGadgetSortedList:function(clientid,gadgetid,col,row,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SetGadgetSortedList',false,{clientid:clientid,gadgetid:gadgetid,col:col,row:row},succeededCallback,failedCallback,userContext); },
+GetLeftGadgetSortedList:function(leftboxid,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetLeftGadgetSortedList',false,{leftboxid:leftboxid},succeededCallback,failedCallback,userContext); },
+SetLeftGadgetSortedList:function(leftboxid,gadgetlist,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SetLeftGadgetSortedList',false,{leftboxid:leftboxid,gadgetlist:gadgetlist},succeededCallback,failedCallback,userContext); },
+SetGadgetSkinState:function(gadgetid,skin,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SetGadgetSkinState',false,{gadgetid:gadgetid,skin:skin},succeededCallback,failedCallback,userContext); },
+LogOutFromJS:function(link,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'LogOutFromJS',false,{link:link},succeededCallback,failedCallback,userContext); },
+GetICS:function(ID,fromDate,toDate,trainingId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetICS',false,{ID:ID,fromDate:fromDate,toDate:toDate,trainingId:trainingId},succeededCallback,failedCallback,userContext); },
+GetExcel:function(ID,fromDate,toDate,trainingId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetExcel',false,{ID:ID,fromDate:fromDate,toDate:toDate,trainingId:trainingId},succeededCallback,failedCallback,userContext); },
+SavePanelState:function(data,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SavePanelState',false,{data:data},succeededCallback,failedCallback,userContext); },
+SaveLeftBoxState:function(visible,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SaveLeftBoxState',false,{visible:visible},succeededCallback,failedCallback,userContext); },
+SaveModernListViewState:function(visible,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SaveModernListViewState',false,{visible:visible},succeededCallback,failedCallback,userContext); },
+SaveHeaderState:function(visible,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SaveHeaderState',false,{visible:visible},succeededCallback,failedCallback,userContext); },
+Ping:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'Ping',false,{},succeededCallback,failedCallback,userContext); },
+SavePopupState:function(state,PopupID,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SavePopupState',false,{state:state,PopupID:PopupID},succeededCallback,failedCallback,userContext); },
+ClearPopupState:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'ClearPopupState',false,{},succeededCallback,failedCallback,userContext); },
+SaveCollapsiblePanelState:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SaveCollapsiblePanelState',false,{},succeededCallback,failedCallback,userContext); },
+SaveThesisOrderByStudent:function(IDs,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SaveThesisOrderByStudent',false,{IDs:IDs},succeededCallback,failedCallback,userContext); },
+SaveErasmusjelentkezesSorrend:function(IDs,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SaveErasmusjelentkezesSorrend',false,{IDs:IDs},succeededCallback,failedCallback,userContext); },
+IsExistKervenyMellekletFileName:function(KervenyID,FileName,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'IsExistKervenyMellekletFileName',false,{KervenyID:KervenyID,FileName:FileName},succeededCallback,failedCallback,userContext); },
+CheckMessageRecivingUserPermission:function(NeptunCodes,NeptunCodesBCC,ClientID,strIsBCC,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'CheckMessageRecivingUserPermission',false,{NeptunCodes:NeptunCodes,NeptunCodesBCC:NeptunCodesBCC,ClientID:ClientID,strIsBCC:strIsBCC},succeededCallback,failedCallback,userContext); }}
+PageMethods.registerClass('PageMethods',Sys.Net.WebServiceProxy);
+PageMethods._staticInstance = new PageMethods();
+PageMethods.set_path = function(value) { PageMethods._staticInstance.set_path(value); }
+PageMethods.get_path = function() { return PageMethods._staticInstance.get_path(); }
+PageMethods.set_timeout = function(value) { PageMethods._staticInstance.set_timeout(value); }
+PageMethods.get_timeout = function() { return PageMethods._staticInstance.get_timeout(); }
+PageMethods.set_defaultUserContext = function(value) { PageMethods._staticInstance.set_defaultUserContext(value); }
+PageMethods.get_defaultUserContext = function() { return PageMethods._staticInstance.get_defaultUserContext(); }
+PageMethods.set_defaultSucceededCallback = function(value) { PageMethods._staticInstance.set_defaultSucceededCallback(value); }
+PageMethods.get_defaultSucceededCallback = function() { return PageMethods._staticInstance.get_defaultSucceededCallback(); }
+PageMethods.set_defaultFailedCallback = function(value) { PageMethods._staticInstance.set_defaultFailedCallback(value); }
+PageMethods.get_defaultFailedCallback = function() { return PageMethods._staticInstance.get_defaultFailedCallback(); }
+PageMethods.set_enableJsonp = function(value) { PageMethods._staticInstance.set_enableJsonp(value); }
+PageMethods.get_enableJsonp = function() { return PageMethods._staticInstance.get_enableJsonp(); }
+PageMethods.set_jsonpCallbackParameter = function(value) { PageMethods._staticInstance.set_jsonpCallbackParameter(value); }
+PageMethods.get_jsonpCallbackParameter = function() { return PageMethods._staticInstance.get_jsonpCallbackParameter(); }
+PageMethods.set_path("main.aspx");
+PageMethods.GotoCampus= function(onSuccess,onFailed,userContext) {PageMethods._staticInstance.GotoCampus(onSuccess,onFailed,userContext); }
+PageMethods.GetStringFromJS= function(ID,onSuccess,onFailed,userContext) {PageMethods._staticInstance.GetStringFromJS(ID,onSuccess,onFailed,userContext); }
+PageMethods.SetSearchPanelState= function(searchpanelclientid,panelstate,onSuccess,onFailed,userContext) {PageMethods._staticInstance.SetSearchPanelState(searchpanelclientid,panelstate,onSuccess,onFailed,userContext); }
+PageMethods.SetGadgetSortedList= function(clientid,gadgetid,col,row,onSuccess,onFailed,userContext) {PageMethods._staticInstance.SetGadgetSortedList(clientid,gadgetid,col,row,onSuccess,onFailed,userContext); }
+PageMethods.GetLeftGadgetSortedList= function(leftboxid,onSuccess,onFailed,userContext) {PageMethods._staticInstance.GetLeftGadgetSortedList(leftboxid,onSuccess,onFailed,userContext); }
+PageMethods.SetLeftGadgetSortedList= function(leftboxid,gadgetlist,onSuccess,onFailed,userContext) {PageMethods._staticInstance.SetLeftGadgetSortedList(leftboxid,gadgetlist,onSuccess,onFailed,userContext); }
+PageMethods.SetGadgetSkinState= function(gadgetid,skin,onSuccess,onFailed,userContext) {PageMethods._staticInstance.SetGadgetSkinState(gadgetid,skin,onSuccess,onFailed,userContext); }
+PageMethods.LogOutFromJS= function(link,onSuccess,onFailed,userContext) {PageMethods._staticInstance.LogOutFromJS(link,onSuccess,onFailed,userContext); }
+PageMethods.GetICS= function(ID,fromDate,toDate,trainingId,onSuccess,onFailed,userContext) {PageMethods._staticInstance.GetICS(ID,fromDate,toDate,trainingId,onSuccess,onFailed,userContext); }
+PageMethods.GetExcel= function(ID,fromDate,toDate,trainingId,onSuccess,onFailed,userContext) {PageMethods._staticInstance.GetExcel(ID,fromDate,toDate,trainingId,onSuccess,onFailed,userContext); }
+PageMethods.SavePanelState= function(data,onSuccess,onFailed,userContext) {PageMethods._staticInstance.SavePanelState(data,onSuccess,onFailed,userContext); }
+PageMethods.SaveLeftBoxState= function(visible,onSuccess,onFailed,userContext) {PageMethods._staticInstance.SaveLeftBoxState(visible,onSuccess,onFailed,userContext); }
+PageMethods.SaveModernListViewState= function(visible,onSuccess,onFailed,userContext) {PageMethods._staticInstance.SaveModernListViewState(visible,onSuccess,onFailed,userContext); }
+PageMethods.SaveHeaderState= function(visible,onSuccess,onFailed,userContext) {PageMethods._staticInstance.SaveHeaderState(visible,onSuccess,onFailed,userContext); }
+PageMethods.Ping= function(onSuccess,onFailed,userContext) {PageMethods._staticInstance.Ping(onSuccess,onFailed,userContext); }
+PageMethods.SavePopupState= function(state,PopupID,onSuccess,onFailed,userContext) {PageMethods._staticInstance.SavePopupState(state,PopupID,onSuccess,onFailed,userContext); }
+PageMethods.ClearPopupState= function(onSuccess,onFailed,userContext) {PageMethods._staticInstance.ClearPopupState(onSuccess,onFailed,userContext); }
+PageMethods.SaveCollapsiblePanelState= function(onSuccess,onFailed,userContext) {PageMethods._staticInstance.SaveCollapsiblePanelState(onSuccess,onFailed,userContext); }
+PageMethods.SaveThesisOrderByStudent= function(IDs,onSuccess,onFailed,userContext) {PageMethods._staticInstance.SaveThesisOrderByStudent(IDs,onSuccess,onFailed,userContext); }
+PageMethods.SaveErasmusjelentkezesSorrend= function(IDs,onSuccess,onFailed,userContext) {PageMethods._staticInstance.SaveErasmusjelentkezesSorrend(IDs,onSuccess,onFailed,userContext); }
+PageMethods.IsExistKervenyMellekletFileName= function(KervenyID,FileName,onSuccess,onFailed,userContext) {PageMethods._staticInstance.IsExistKervenyMellekletFileName(KervenyID,FileName,onSuccess,onFailed,userContext); }
+PageMethods.CheckMessageRecivingUserPermission= function(NeptunCodes,NeptunCodesBCC,ClientID,strIsBCC,onSuccess,onFailed,userContext) {PageMethods._staticInstance.CheckMessageRecivingUserPermission(NeptunCodes,NeptunCodesBCC,ClientID,strIsBCC,onSuccess,onFailed,userContext); }
+//]]>
+</script>
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="BF221877" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAGBeW8m4mQtAyCYJk96kd59FwsnM2M5u+dp/4TA980gSiB5fCH+JbgJ2qIL9juIsMddMAFiUQhV2VdPso+AMbRhcvjchfc7qWHpDywNT1/4SWZoYVUuRqgy0AJeK/hSuBOAemgM8kPgOmhQ4XoZYUKyPi87uxQduGV3P+Iu0YJq5Iwn7WejNn261noLAYtOJKbQo/hYh0hMoip2C8sSK7njFrD54syso5dUArc63FYQyFl0pYqI711oDdh+5cpXIITzyUydoUjWa7XefrOtEKgJPFL2z6UAAeE9XslWJzvyAZ0FPT4HcahxzLdnSUoZgHBhH4ijqeyuQN7C3BMdPbHapD0RupRW3NrKe8S2LveXd907+ghEGj9nIKMLzW0I9JXVoRtB5PS8TqK65HX2FKRNEg43VYU7T8G8H4EG3gcFPijcn/+Oo0UrgwtXPFNKYG2zM+dedexaW5nwqDeLfwgjc4Kvmki10SvP9c3LdhWsEOzwwmjyaBI33nA4vfowjKTpsj7TgbaZE7oaU8Jah6KF/fFPDJ9urZMbfE70O5a5HLILvLW8csgVi4aEN2ct9s+ikcG4Krv0blSzbgg6ULB+Oz7f0jtF0Mx/vpdeqX4A4Eak6lolxovqfp+1WKWDSGnd8ACKbcfdFEvOBts6gF8LU7LkK2+B8qoq0GJjaQ4Tdee5r24szkLC8Sv5BnyEpXnBwyEibo/ORSoqz/mj28EJ9eTztdkoC575n1DAXeQTBqfReU6Zs8sBCMADo8MxsCef0kqUVZJBy1aD6QP4r9MOAx5b2oW8EXtH6sQiupuAh0wl7GDX/J6M2cR8mLQq9J8Ik0/7IdyAKCxLfHYAYdgtGoTa4JdlhPruMOg/oDzjjBAq/CGDKpTQqRySWJ/fMvfU34EzVRN9B3N4Fp85X5taCOBXazjXfu6ym+o3RrhRj+kyZqexp9h+R9LRqEqdVQPV3kYnoXqE+Idde3k930VAIWJuqJ413iYC8M12ivu54gVDR0jnO5wxFePBAw2ehRC2Pu62FPCqhItep+IOQjZaiLyYft4tY2SKdZEpih6HerMsf2/RkS59z6QVV61KfzdxCGJS37FrDMDf9qkOiH2o6PUpEtPHvdXjL5XG2a/bKQeUsGOcsazotk3rSWuzr8dEDUycgLxX3MntMdExVeYgKnBYlSV/jxX9B0b7sOAkZzaEFPDbH9BF9vaDz42NE3Je0Tu7OkcK4Iy0uqki58a4oIxLBisuP+uCAWI6QFha8w3NrFuTzUilSL3fCUEkIn36oi7QfiyeeQwTKCzyc8cIEkzz4X2x3O0oQkjSJxZ6AU+2atKbMadRhkTxflgWhcOnJopKu5TWsiDGa773W7bAn1iYGvV8mYotIlV60gOoG9SSes71kP5axZA2Vlcds0JzOsxZSXtJkzUl94leAc2y8NRXV9G4G167YQWpCa+LPfjOWe+ahrFdYUhemB6bbgp2iKstm7RmMb4SbSB9gB2zSbnpCYYRlp8vhrAEQXY1oSJBRS5sJW60hau3VpoGT1QvV+Xtxi3n5z0iN6seh/32civT8F0j9UzRYkMu9AQX6IjAziS7sEZim4T+Pf6rompT7dXgQJ47Fl+PI/pDiFQida9tWUboSOlRrVjf7wbsOeKKErXjEI3+rJ4Qjp2DXdQwi9Y939jom49aELFozONqmiZow10wMa8qodMIar3Dgg/78oARDtECgh27A1D8Vgm9Lo+Yjt2BcQ6/4Myj8+mCfLRmTpxSkdWaAlWMPZ6FnFLiJltCzK3c9iK3Qu+E1zb3wsbsTUVbTBuK08Zu38aJWycp56VTCNysLqyMK4Wo49wUKAa1SaXZ0jnbTIWwROQM/dvZeuTNlRCPTsXxbR/rR0DpsJWa0MTxi61eSa3JhHa14BfzReHk68cn0+7Za2ttTJMDlHCWsg9b02VpG9U2w82V+GLpDtrpwLb9VKIH84iJVyGYcOA8v56vlcQXxpAkxNg/MfJd3ec4mXulYlk0DranB4lmtK4VyDtM7dQaaziikf33erUQ7dynIG1N1/TPzfl0tA7Jb1VMrQG/eRG/OpQgw3kT+wz2I+iWtcLdlZg==" />
+<fieldset>
+<legend></legend>
+<input type="hidden" id="visited" value="" />
+<input name="ActiveModalBehaviourID" type="hidden" id="ActiveModalBehaviourID" />
+<input name="progressalerttype" type="hidden" id="progressalerttype" value="progress" />
+<input name="NoMatchString" type="hidden" id="NoMatchString" value="A&#32;listában&#32;nincs&#32;ilyen&#32;elem!" />
+<input name="hiddenEditLabel" type="hidden" id="hiddenEditLabel" />
+
+<span id="txtlcid" style="visibility: hidden; display: none;">1038</span>
+<input id="btndef" type="submit" name="btndef" value="Button" onclick="return false;"
+style="display: none" />
+
+<input type="hidden" name="hfCountDownTime" id="hfCountDownTime" value="300" />
+<div id="upEditLabelIcon">
+	
+<div id="upEditLabelIcon_editLabelIcon" class="editLabelIcon" onmouseout="editLabelHideIcon(this)" onmouseover="editLabelShowIcon(this,&#32;true,&#32;&#39;hiddenEditLabel&#39;)">
+<a onclick="getAttributeForEditLabelModal(&#39;stringResID&#39;,&#32;&#39;hiddenEditLabel&#39;);&#32;editLabelHideIcon(this);" id="upEditLabelIcon_lbtnEditLabel" href="javascript:__doPostBack(&#39;upEditLabelIcon$lbtnEditLabel&#39;,&#39;&#39;)">Felirat szerkesztése</a>
+<span id="spanNotEdit">Nem szerkeszthető</span>
+<div style="border-top: 1px solid black; margin-top: 3px; padding-top: 3px;">
+<a onclick="getAttributeForEditLabelModal(&#39;rolerequestinfo&#39;,&#32;&#39;hiddenEditLabel&#39;);&#32;editLabelHideIcon(this);" id="upEditLabelIcon_lbtnRoleRequest" href="javascript:__doPostBack(&#39;upEditLabelIcon$lbtnRoleRequest&#39;,&#39;&#39;)">Jogosultság igénylése</a>
+</div>
+<span id ="spanNotRequest">Jogosultság nem igényelhető</span>
+</div>
+
+</div>
+<div id="mainPageHeader">
+<div class="top_training">
+<div style="float:left;">
+<div id="span_changeproject" style="display:;">
+<div style="float:left;">
+<div id="SDAUpdatePanel3">
+	
+<label></label><a id="SDAUpdatePanel3_lbtnChangeProject" title="Váltás&#32;Neptun&#32;Meet&#32;Street-re" href="javascript:__doPostBack(&#39;SDAUpdatePanel3$lbtnChangeProject&#39;,&#39;&#39;)">Váltás Neptun Meet Street-re</a>
+
+</div>
+</div>
+&nbsp;<span id="separator_changeproject">|</span>&nbsp;
+</div>
+</div>
+<div style="float:left;">
+<div id="SDAUpdatePanel2">
+	
+<label></label>
+
+</div>
+</div>
+<div style="float:left;">
+
+
+
+</div>
+<div style="float:left;">
+<div style="float:left;">
+<div id="SDAUpdatePanel1">
+	
+<label></label><a id="SDAUpdatePanel1_lbtnChangeTraining" title="Képzés" href="javascript:__doPostBack(&#39;SDAUpdatePanel1$lbtnChangeTraining&#39;,&#39;&#39;)">Képzés</a>
+
+</div>
+</div>
+<div style="float:right;">
+<span id="separator">&nbsp;|&nbsp;</span>
+<span id="lblTrainingName">Mérnök informatikus - alapképzés (BA/BSc)(NBNEMI)(Felv. éve:2018/19/1[Nappali]) (Jogv. kezd.:2018.09.04.)</span>
+
+</div>
+</div>
+</div>
+<div class="top_logout_link">
+<label></label><a onclick="DoLogOut(-1);return&#32;false;" id="lbtnQuit" title="Kijelentkezés" href="javascript:__doPostBack(&#39;lbtnQuit&#39;,&#39;&#39;)">Kijelentkezés</a>
+</div>
+<div class="top_logout">
+<div id="upTraining">
+	
+<label></label>
+<label></label>
+<span id="upTraining_topname">Poszlovszki Tamás - BH6YG8</span>
+&nbsp;| &nbsp; (<span id="upTraining_lblRemainingTime" title="Automatikus&#32;kilépés&#32;ennyi&#32;idő&#32;múlva."></span>)
+&nbsp;
+
+</div>
+</div>
+<div style="clear: both;"></div>
+</div>
+<div id="panHeader" class="panHeader" role="banner" style="display:none;">
+<table class="main_table">
+<tr>
+<td class="main_header_l">
+<table class="main_header_l_table" style="width: 396px;">
+<tr class="main_header_l_training">
+<td class="main_header_l_training_td">
+<div id="divNeptunIcon" class="neptunlogoclick" onclick="try{javascript:loaddefaultpage(&#39;&#39;);}catch(e){}"></div>
+</td>
+</tr>
+</table>
+<div id="upChooser">
+	
+<table>
+<tr class="header_left_system">
+<td class="chooser_first_td">&nbsp;
+</td>
+<td id="upChooser_chooser_neptun" class="NeptunChooserSelected">
+<label></label><a id="upChooser_btnNeptun" title="Tanulmányi&#32;rendszer" href="javascript:__doPostBack(&#39;upChooser$btnNeptun&#39;,&#39;&#39;)">Tanulmányi rendszer</a>
+</td>
+	
+<td id="upChooser_chooser_kollab" class="KollabChooser">
+<label></label><a id="upChooser_btnKollab" title="Neptun&#32;Meet&#32;Street" href="javascript:__doPostBack(&#39;upChooser$btnKollab&#39;,&#39;&#39;)">Neptun Meet Street</a>
+</td>
+	
+</tr>
+</table>
+
+</div>
+</td>
+<td class="main_header_m"></td>
+<td class="main_header_r">
+<div class="main_header_r_table_skin">
+<div class="skinsmallimage" style="display: none;">
+<label for="imageBlue" class="hiddenforlabel">
+Blue</label>
+<input id="imageBlue" type="image" style="display: none;" alt="kék" />
+<label for="imageGreen" class="hiddenforlabel">
+kék</label>
+<input id="imageGreen" type="image" style="display: none;" alt="Green" />
+<label for="imagePink" class="hiddenforlabel">
+Pink</label>
+<input id="imagePink" type="image" style="display: none;" alt="Rózsaszín" />
+<label for="imagePurple" class="hiddenforlabel">
+Rózsaszín</label>
+<input id="imagePurple" type="image" style="display: none;" alt="Lila" />
+<label for="imageOrange" class="hiddenforlabel">
+Narancssárga</label>
+<input id="imageOrange" type="image" style="display: none;" alt="Orange" />
+<label for="imageTeacher" class="hiddenforlabel">
+Tanár</label>
+<input id="imageTeacher" type="image" style="display: none;" alt="Teacher" />
+
+
+</div>
+<div class="langskinpartially">
+<div class="langchooser" style="float:left;">
+<div class="langchoosercollapsed">
+<img id="imgLanguageChooser" tabindex="1" title="Nyelvek" onblur="" onfocus="" alt="Nyelvek" src="App_Themes/New_Common_Images/globe33.png" alt="Nyelvek" height="27" style="margin-right:5px; cursor:pointer;" />
+</div>
+<div id="divLang" class="langchooserimgcollapsed"><input type="image" name="btnLang_0" id="btnLang_0" tabindex="2" title="Magyar" class="languagechooserbutton" src="./App_Themes/Common_Images/flag_hu.png" src="App_Themes/Common_Images/flag_hu.png" alt="Magyar" onclick="javascript:dochangeLanguage(&#39;0&#39;,&#39;1038&#39;);return&#32;false;" /><input type="image" name="btnLang_1" id="btnLang_1" tabindex="3" title="English" class="languagechooserbutton" src="./App_Themes/Common_Images/flag_en.png" onmouseout="javascript:langmouseout(&#39;btnLang_1&#39;,&#32;&#39;58&#39;);" onmouseover="javascript:langmouseover(&#39;btnLang_1&#39;);" src="App_Themes/Common_Images/flag_en.png" alt="English" onclick="javascript:dochangeLanguage(&#39;1&#39;,&#39;1033&#39;);return&#32;false;" style="filter:alpha(opacity=58);opacity:0.58;-moz-opacity:0.58;" /><input type="image" name="btnLang_2" id="btnLang_2" tabindex="4" title="Deutsch" class="languagechooserbutton" src="./App_Themes/Common_Images/flag_de.png" onmouseout="javascript:langmouseout(&#39;btnLang_2&#39;,&#32;&#39;58&#39;);" onmouseover="javascript:langmouseover(&#39;btnLang_2&#39;);" src="App_Themes/Common_Images/flag_de.png" alt="Deutsch" onclick="javascript:dochangeLanguage(&#39;2&#39;,&#39;1031&#39;);return&#32;false;" style="filter:alpha(opacity=58);opacity:0.58;-moz-opacity:0.58;" /></div>
+</div>
+<div class="skinchooser" >
+<div class="skinchoosercollapsed" >
+<img id="imgSkinChooser" tabindex="5" title="Témák" onblur="" onfocus="" alt="Témák" src="App_Themes/New_Common_Images/skin_selector.png" alt="Témák" height="27" style="margin-right:5px; cursor:pointer;" />
+</div>
+<div class="skinchooserimgcollapsed" >
+<div>
+<input type="image" name="btnskinPink" id="btnskinPink" tabindex="6" class="skinchooserimg_pink&#32;skinchooserimg" onblur="" onfocus="" src="App_Themes/New_Common_Images/skin_pink_new.png" alt="Rózsaszín" onclick="javascript:SkinChoose(&#39;Skin_Neptun_Pink&#39;);return&#32;false;" style="margin-bottom:5px;cursor:pointer;" />
+<input type="image" name="btnskinBlue" id="btnskinBlue" tabindex="7" class="skinchooserimg_blue&#32;skinchooserimg" onblur="" onfocus="" src="App_Themes/New_Common_Images/skin_blue_new.png" alt="kék" onclick="javascript:SkinChoose(&#39;Skin_Neptun_Gfx&#39;);return&#32;false;" style="margin-bottom:5px;cursor:pointer;" />
+<input type="image" name="btnskinGreen" id="btnskinGreen" tabindex="8" class="skinchooserimg_green&#32;skinchooserimg" onblur="" onfocus="" src="App_Themes/New_Common_Images/skin_green_new.png" alt="Zöld" onclick="javascript:SkinChoose(&#39;Skin_Neptun_Lime&#39;);return&#32;false;" style="margin-bottom:5px;cursor:pointer;" />
+<input type="image" name="btnskinOrange" id="btnskinOrange" tabindex="9" class="skinchooserimg_orange&#32;skinchooserimg" onblur="" onfocus="" src="App_Themes/New_Common_Images/skin_orange_new.png" alt="Narancs" onclick="javascript:SkinChoose(&#39;Skin_Neptun_Orange&#39;);return&#32;false;" style="margin-bottom:5px;cursor:pointer;" />
+<input type="image" name="btnskinTeacher" id="btnskinTeacher" tabindex="10" class="skinchooserimg_teacher&#32;skinchooserimg" onblur="" onfocus="" src="App_Themes/New_Common_Images/skin_teacher_new.png" alt="Tanár" onclick="javascript:SkinChoose(&#39;Skin_Neptun_Classic&#39;);return&#32;false;" style="margin-bottom:5px;cursor:pointer;" />
+<input type="image" name="btnskinPurple" id="btnskinPurple" tabindex="11" class="skinchooserimg_purple&#32;skinchooserimg" onblur="" onfocus="" src="App_Themes/New_Common_Images/skin_city_new.png" alt="Lila" onclick="javascript:SkinChoose(&#39;Skin_Neptun_NewYork&#39;);return&#32;false;" style="margin-bottom:5px;cursor:pointer;" />
+
+</div>
+</div>
+</div>
+<div class="skin_partiallysighted">
+<input type="image" name="imgSkinChooserPartiallySighted" id="imgSkinChooserPartiallySighted" tabindex="12" title="Kontrasztos&#32;megjelenítés" src="App_Themes/New_Common_Images/skin_gyengenlatoknak.png" onblur="" onfocus="" alt="Kontrasztos&#32;megjelenítés" onclick="javascript:SkinChoose(&#39;Skin_Neptun_PartiallySighted&#39;);" style="margin-bottom:5px;cursor:pointer;" />
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="panCloseHeader" class="OpenHeader" onclick="ShowHeader(this)" onblur="" onfocus="" role="button" title="Fejléc&#32;kinyitása" aria-labelledby="headerlabel">
+&nbsp;
+</div>
+<label id="headerlabel" class="hiddenforlabel">Fejléc kinyitása</label>
+<table class="top_menu_wrapper">
+<tr>
+<td class="top_menu_left"></td>
+<td class="top_menu_mid" role="navigation">
+<span id="Menu_neptun_neptun"><ul id="mb1" class="menubar&#32;root-level" role="menubar"><li id="mb1_Sajatadatok" class="menu-parent" role="menuitem" tabindex="0" aria-haspopup="true" onfocus="" onblur="">Saját adatok<ul class="menu" role="menu" onfocus="" onblur="" aria-hidden="true"><div class="menuitemfirst" role="separator" tabindex="-1"></div><li id="mb1_Sajatadatok_Szemelyesadatok" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=0101">Személyes adatok</li><li id="mb1_Sajatadatok_Kepzettsegek" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=0102">Képzettségek</li><li id="mb1_Sajatadatok_Elerhetosegek" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=0103">Elérhetőségek</li><li id="mb1_Sajatadatok_Beallitasok" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=0104">Beállítások</li><li id="mb1_Sajatadatok_Adatmodositasok" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=0106">Adatmódosítások</li><div class="menuitemlast" role="separator" tabindex="-1"></div></ul></li><li id="mb1_Tanulmanyok" class="menu-parent" role="menuitem" tabindex="0" aria-haspopup="true" onfocus="" onblur="">Tanulmányok<ul class="menu" role="menu" onfocus="" onblur="" aria-hidden="true"><div class="menuitemfirst" role="separator" tabindex="-1"></div><li id="mb1_Tanulmanyok_Kepzesadatok" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=0201">Képzés adatok</li><li id="mb1_Tanulmanyok_Felevesadatok" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=0202">Féléves adatok</li><li id="mb1_Tanulmanyok_Órarend" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=0203">Órarend</li><li id="mb1_Tanulmanyok_Tanulmanyiatlagok" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=0205">Tanulmányi átlagok</li><li id="mb1_Tanulmanyok_Leckekonyv" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=0206">Leckekönyv</li><li id="mb1_Tanulmanyok_Mintatanterv" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=02101">Mintatanterv</li><li id="mb1_Tanulmanyok_Merfoldkovek" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=0211">Mérföldkövek</li><li id="mb1_Tanulmanyok_Szakmaigyakorlat" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=0216">Szakmai gyakorlat</li><li id="mb1_Tanulmanyok_Konzultaciok" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=0221">Konzultációk</li><li id="mb1_Tanulmanyok_Elorehaladas" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=0222">Előrehaladás</li><li id="mb1_Tanulmanyok_Hivatalosbejegyzesek" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=h_officional_remark">Hivatalos bejegyzések</li><li id="mb1_Tanulmanyok_Szakdolgozat/Szakdolgozatjelentkezes" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=0223">Szakdolgozat/Szakdolgozat jelentkezés</li><div class="menuitemlast" role="separator" tabindex="-1"></div></ul></li><li id="mb1_Targyak" class="menu-parent" role="menuitem" tabindex="0" aria-haspopup="true" onfocus="" onblur="">Tárgyak<ul class="menu" role="menu" onfocus="" onblur="" aria-hidden="true"><div class="menuitemfirst" role="separator" tabindex="-1"></div><li id="mb1_Targyak_Felvetttargyak" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=0304">Felvett tárgyak</li><li id="mb1_Targyak_Felvettkurzusok" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=0302">Felvett kurzusok</li><li id="mb1_Targyak_Targyfelvetel" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=0303">Tárgyfelvétel</li><li id="mb1_Targyak_Feladatok" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=0305">Feladatok</li><li id="mb1_Targyak_Megajanlottjegyek" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=0306">Megajánlott jegyek</li><div class="menuitemlast" role="separator" tabindex="-1"></div></ul></li><li id="mb1_Vizsgak" class="menu-parent" role="menuitem" tabindex="0" aria-haspopup="true" onfocus="" onblur="">Vizsgák<ul class="menu" role="menu" onfocus="" onblur="" aria-hidden="true"><div class="menuitemfirst" role="separator" tabindex="-1"></div><li id="mb1_Vizsgak_Vizsgajelentkezes" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=0401">Vizsgajelentkezés</li><li id="mb1_Vizsgak_Felvettvizsgak" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=0402">Felvett vizsgák</li><div class="menuitemlast" role="separator" tabindex="-1"></div></ul></li><li id="mb1_Penzugyek" class="menu-parent" role="menuitem" tabindex="0" aria-haspopup="true" onfocus="" onblur="">Pénzügyek<ul class="menu" role="menu" onfocus="" onblur="" aria-hidden="true"><div class="menuitemfirst" role="separator" tabindex="-1"></div><li id="mb1_Penzugyek_Befizetes" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=0501">Befizetés</li><li id="mb1_Penzugyek_Szamlak" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=0502">Számlák</li><li id="mb1_Penzugyek_Tranzakcioslista" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=0503">Tranzakciós lista</li><li id="mb1_Penzugyek_Ösztondijak,kifizetesek" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=0505">Ösztöndíjak, kifizetések</li><li id="mb1_Penzugyek_Beallitasok" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=0516">Beállítások</li><div class="menuitemlast" role="separator" tabindex="-1"></div></ul></li><li id="mb1_Informacio" class="menu-parent" role="menuitem" tabindex="0" aria-haspopup="true" onfocus="" onblur="">Információ<ul class="menu" role="menu" onfocus="" onblur="" aria-hidden="true"><div class="menuitemfirst" role="separator" tabindex="-1"></div><li id="mb1_Informacio_Idoszakok" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=1301">Időszakok</li><li id="mb1_Informacio_Hallgatokkeresese" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=1302">Hallgatók keresése</li><li id="mb1_Informacio_Jegyzetkeresese" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=1303">Jegyzet keresése</li><li id="mb1_Informacio_Szervezetiegysegek" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=1305">Szervezeti egységek</li><li id="mb1_Informacio_Dokumentumok" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=1313">Dokumentumok</li><li id="mb1_Informacio_Lekerdezesek/Informaciok" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=1314">Lekérdezések/Információk</li><li id="mb1_Informacio_Általanosnyomtatvanyok" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=c_generic_forms">Általános nyomtatványok</li><li id="mb1_Informacio_Targy/kurzuslista" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=h_institutionalsubjects">Tárgy / kurzus lista</li><li id="mb1_Informacio_Neptunelektronikustananyagok" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=c_elektronikus_tananyagok">Neptun elektronikus tananyagok</li><div class="menuitemlast" role="separator" tabindex="-1"></div></ul></li><li id="mb1_Ügyintezes" class="menu-parent" role="menuitem" tabindex="0" aria-haspopup="true" onfocus="" onblur="">Ügyintézés<ul class="menu" role="menu" onfocus="" onblur="" aria-hidden="true"><div class="menuitemfirst" role="separator" tabindex="-1"></div><li id="mb1_Ügyintezes_Kollegiumijelentkezes" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=1402">Kollégiumi jelentkezés</li><li id="mb1_Ügyintezes_Szakiranyjelentkezes" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=1403">Szakirányjelentkezés</li><li id="mb1_Ügyintezes_Zarovizsgak" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=1311">Záróvizsgák</li><li id="mb1_Ügyintezes_Kerdoivek" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=1405">Kérdőívek</li><li id="mb1_Ügyintezes_Átsorolasikerelem" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=1406">Átsorolási kérelem</li><li id="mb1_Ügyintezes_Kervenyek" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=1407">Kérvények</li><li id="mb1_Ügyintezes_Diakigazolvanyigenyles" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=h_scapplicationform">Diákigazolvány igénylés</li><li id="mb1_Ügyintezes_Diakhiteligenyles" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=h_diakhitel_igenyles">Diákhitel igénylés</li><li id="mb1_Ügyintezes_Szakosodas" class="menu-item" role="menuitemradio" tabindex="-1" onfocus="" onblur="" targeturl="main.aspx?ismenuclick=true&amp;ctrl=h_szakvaltas">Szakosodás</li><div class="menuitemlast" role="separator" tabindex="-1"></div></ul></li></ul></span>
+
+
+</td>
+<td class="top_menu_right"></td>
+</tr>
+</table>
+<table style="height: 100%;" cellpadding="0" cellspacing="0" class="main_function_table">
+<tr>
+<td class="left_icons"></td>
+<td class="left_boxes">
+<div id="upBoxes">
+	
+<table class="boxestable" style="height: 100%;" cellpadding="0" cellspacing="0" role="complementary">
+<tr>
+<td class="leftbuttons_td">
+<div id="upBoxes_upBoxesButtons">
+		
+<table>
+<tr id="upBoxes_upBoxesButtons_trRSS">
+			<td>
+<input type="image" name="upBoxes$upBoxesButtons$btnRss" id="upBoxes_upBoxesButtons_btnRss" title="Aktualitások" onblur="" onfocus="" onmouseover="src=&#39;App_Themes/New_Common_Images/actuel_icon.jpg&#39;" onmouseout="" src="App_Themes/New_Common_Images/actuel_icon.jpg" alt="Aktualitások" />
+</td>
+		</tr>
+		
+<tr>
+<td>
+<input type="image" name="upBoxes$upBoxesButtons$btnMessage" id="upBoxes_upBoxesButtons_btnMessage" title="Üzenetek" onblur="" onfocus="" onmouseover="src=&#39;App_Themes/New_Common_Images/message_icon.jpg&#39;" onmouseout="" src="App_Themes/New_Common_Images/message_icon.jpg" alt="Üzenetek" />
+</td>
+</tr>
+<tr>
+<td>
+<input type="image" name="upBoxes$upBoxesButtons$btnFavorite" id="upBoxes_upBoxesButtons_btnFavorite" title="Kedvenc&#32;funkciók" onblur="" onfocus="" onmouseover="src=&#39;App_Themes/New_Common_Images/favorit_icon.jpg&#39;" onmouseout="src=&#39;App_Themes/New_Common_Images/favorit_icon_gray.jpg&#39;" src="App_Themes/New_Common_Images/favorit_icon_gray.jpg" alt="Kedvenc&#32;funkciók" />
+</td>
+</tr>
+<tr>
+<td>
+<input type="image" name="upBoxes$upBoxesButtons$btnCalendar" id="upBoxes_upBoxesButtons_btnCalendar" title="Naptár" onblur="" onfocus="" onmouseover="src=&#39;App_Themes/New_Common_Images/calendar_icon.jpg&#39;" onmouseout="" src="App_Themes/New_Common_Images/calendar_icon.jpg" alt="Naptár" />
+</td>
+</tr>
+<tr>
+<td>
+
+</td>
+</tr>
+</table>
+
+	</div>
+</td>
+<td id="upBoxes_leftbox" class="leftbox" style="display:;">
+<div id="upBoxes_upRSS">
+		
+<span id="upBoxes_upRSS_gdgRSS" style="display:inline-block;"><div id="upBoxes_upRSS_gdgRSS_gdgRSS"><div id="upBoxes_upRSS_gdgRSS_gdgRSS_divChooseColor" class="gadgetchoosecolor"><table id="upBoxes_upRSS_gdgRSS_bodytableChooseColor" width="100%" cellSpacing="0px" cellPadding="0px">
+			<tr>
+				<td class="gadgetbodyleft"></td>
+				<td><img class="gadgetimage" cmd="1" alt="" src="App_Themes/New_Common_Images/gadget_cc_gray.png" /><img class="gadgetimage" cmd="2" alt="" src="App_Themes/New_Common_Images/gadget_cc_brawn.png" /><img class="gadgetimage" cmd="3" alt="" src="App_Themes/New_Common_Images/gadget_cc_orange.png" /><img class="gadgetimage" cmd="4" alt="" src="App_Themes/New_Common_Images/gadget_cc_pink.png" /><img class="gadgetimage" cmd="5" alt="" src="App_Themes/New_Common_Images/gadget_cc_yellow.png" /><img class="gadgetimage" cmd="6" alt="" src="App_Themes/New_Common_Images/gadget_cc_green.png" /><img class="gadgetimage" cmd="7" alt="" src="App_Themes/New_Common_Images/gadget_cc_blue.png" /><img class="gadgetimage" cmd="8" alt="" src="App_Themes/New_Common_Images/gadget_cc_viola.png" /><img class="gadgetimage" cmd="delete" alt="" src="App_Themes/Common_Images/no.gif" /></td>
+				<td class="gadgetbodyright"></td>
+			</tr>
+			<tr>
+				<td colspan="3" class="nostyle"><table class="nostyle" width="100%">
+					<tr class="nostyle">
+						<td class="GadgetFooterLeftCorner"></td>
+						<td class="sp_footerbody"></td>
+						<td class="GadgetFooterRightCorner"></td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+		</table>
+		</div><table class="Gadget">
+			<tr>
+				<td class="HeaderLeftCorner"></td>
+				<td class="GadgetHeaderPanelTitle" name="gadgetheadertitle"><img id="upBoxes_upRSS_gdgRSS_gdgRSS_ColorBtn" title="Színválasztás" class="gadgettitleimage" alt="Színválasztás" src="App_Themes/New_Common_Images/gadget_cc_default.png" alt="Színválasztás" /><span title="Aktualitások&#32;(0&#32;ms)">Aktualitások</span></td>
+				<td class="GadgetHeaderPanelButtonLeftMenu" name="gadgetheaderbutton"><input type="image" name="upBoxes$upRSS$gdgRSS$gdgRSS_RefreshBtn" id="upBoxes_upRSS_gdgRSS_gdgRSS_RefreshBtn" title="Frissítés" class="gadgetbutton" src="App_Themes/Skin_Neptun_GFX/16_ghb_refresh.png" alt="Frissítés" /><input type="image" name="upBoxes$upRSS$gdgRSS$gdgRSS_CloseBtn" id="upBoxes_upRSS_gdgRSS_gdgRSS_CloseBtn" title="Bezárás" class="gadgetbutton" src="App_Themes/Skin_Neptun_GFX/16_ghb_close.png" alt="Bezárás" /></td>
+				<td class="HeaderRightCorner"></td>
+			</tr>
+			<tr>
+				<td class="gadgetbodyleft"></td>
+				<td colspan="2" class="GadgetBody"><table id="upBoxes_upRSS_gdgRSS_gdgRSS_body" class="nostyle" width="100%">
+					<tr>
+						<td class="GadgetHeaderSubtitle"><span></span></td>
+					</tr>
+					<tr class="nostyle">
+						<td class="gadgetbodyinner" width="100%">
+<div id="upBoxes_upRSS_gdgRSS_ctl35_RssInfo1_upScript">
+
+</div>
+<style>
+.aktualitasokFejlec {
+display: block;
+margin-top: -5px;
+}
+</style>
+<div id="upBoxes_upRSS_gdgRSS_ctl35_RssInfo1_upMain">
+	
+<script type="text/html" id="myTemplate">
+<li><strong>${Title.Content}</strong></li>
+<li style="list-style-type: none;">${Content.Content}</li>
+</script>
+<div>
+<table id="upBoxes_upRSS_gdgRSS_ctl35_RssInfo1_upMain_tblElegedettsegFelmeresEredmeny" class="newsTable">
+		<tr class="newsRow">
+			<td class="TitleLeft" style="font-weight:&#32;bold;&#32;padding-top:&#32;3px;">
+<img src="App_Themes/New_Common_Images/exclamation-red.png" style="float: left; margin-right: 5px;" />
+<span id="RssInfo1_lblElegedettsegFelmeresEredmenyFejlec" class="aktualitasokFejlec">Hallgatói felmérés</span>
+</td>
+		</tr>
+		<tr>
+			<td>
+<span id="RssInfo1_lblElegedettsegFelmeresEredmenyTargy">A 2017-es Neptun Hallgatói Felmérés eredményei megtekinthetők Facebook oldalunkon:</span>
+<a href="https://www.facebook.com/pg/NeptunRendszer/photos/?tab=album&album_id=10155702910209000" id="upBoxes_upRSS_gdgRSS_ctl35_RssInfo1_upMain_btnElegedettsegFelmeresEredmeny" class="link" target="_blank">NeptunRendszer</a>
+</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+	
+<table id="upBoxes_upRSS_gdgRSS_ctl35_RssInfo1_upMain_neptunMobile" class="newsTable">
+		<tr class="newsRow">
+			<td class="TitleLeft" style="font-weight:&#32;bold;">
+<span id="RssInfo1_lblNeptunMobile">Neptun okostelefonra</span>
+</td>
+		</tr>
+		<tr>
+			<td style="width:&#32;200px">
+<span id="RssInfo1_lblNeptunMobileText">Próbálja ki az ingyenes Neptun mobilalkalmazást <a href="https://play.google.com/store/apps/details?id=hu.SDA.NeptunMobile.Android">Android</a>, <a href="https://www.microsoft.com/hu-hu/store/p/neptun/9nblggh685h4"> Windows</a> vagy  <a href="https://itunes.apple.com/hu/app/neptun/id1046455470?ls=1&mt=8">iOS</a> rendszerű okostelefonon.</span>
+</td>
+		</tr>
+		<tr>
+			<td>
+<a id="upBoxes_upRSS_gdgRSS_ctl35_RssInfo1_upMain_a1" style="font-weight:&#32;bold;&#32;cursor:&#32;pointer;" onclick="window.open(&#39;pages/Aspx/SMSPortal.aspx?type=creditcardpayment&#39;,&#39;_blank&#39;);"></a>
+</td>
+		</tr>
+	</table>
+	
+
+
+</div>
+<div id="items">
+<ul id="newsListRoot">
+</ul>
+</div>
+
+</div>
+
+</td>
+					</tr>
+					<tr>
+						<td class="GadgetFooterMenu"></td>
+					</tr>
+				</table>
+				</td>
+				<td class="gadgetbodyright"></td>
+			</tr>
+			<tr>
+				<td class="GadgetFooterLeftCorner"></td>
+				<td colspan="2" class="GadgetFooter"></td>
+				<td class="GadgetFooterRightCorner"></td>
+			</tr>
+		</table>
+		</div></span>
+
+	</div>
+<div id="upBoxes_upMessage">
+		
+<span id="upBoxes_upMessage_gdgMessage" style="display:inline-block;"><div id="upBoxes_upMessage_gdgMessage_gdgMessage"><div id="upBoxes_upMessage_gdgMessage_gdgMessage_divChooseColor" class="gadgetchoosecolor"><table id="upBoxes_upMessage_gdgMessage_bodytableChooseColor" width="100%" cellSpacing="0px" cellPadding="0px">
+			<tr>
+				<td class="gadgetbodyleft"></td>
+				<td><img class="gadgetimage" cmd="1" alt="" src="App_Themes/New_Common_Images/gadget_cc_gray.png" /><img class="gadgetimage" cmd="2" alt="" src="App_Themes/New_Common_Images/gadget_cc_brawn.png" /><img class="gadgetimage" cmd="3" alt="" src="App_Themes/New_Common_Images/gadget_cc_orange.png" /><img class="gadgetimage" cmd="4" alt="" src="App_Themes/New_Common_Images/gadget_cc_pink.png" /><img class="gadgetimage" cmd="5" alt="" src="App_Themes/New_Common_Images/gadget_cc_yellow.png" /><img class="gadgetimage" cmd="6" alt="" src="App_Themes/New_Common_Images/gadget_cc_green.png" /><img class="gadgetimage" cmd="7" alt="" src="App_Themes/New_Common_Images/gadget_cc_blue.png" /><img class="gadgetimage" cmd="8" alt="" src="App_Themes/New_Common_Images/gadget_cc_viola.png" /><img class="gadgetimage" cmd="delete" alt="" src="App_Themes/Common_Images/no.gif" /></td>
+				<td class="gadgetbodyright"></td>
+			</tr>
+			<tr>
+				<td colspan="3" class="nostyle"><table class="nostyle" width="100%">
+					<tr class="nostyle">
+						<td class="GadgetFooterLeftCorner"></td>
+						<td class="sp_footerbody"></td>
+						<td class="GadgetFooterRightCorner"></td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+		</table>
+		</div><table class="Gadget">
+			<tr>
+				<td class="HeaderLeftCorner"></td>
+				<td class="GadgetHeaderPanelTitle" name="gadgetheadertitle"><img id="upBoxes_upMessage_gdgMessage_gdgMessage_ColorBtn" title="Színválasztás" class="gadgettitleimage" alt="Színválasztás" src="App_Themes/New_Common_Images/gadget_cc_default.png" alt="Színválasztás" /><span title="Üzenetek&#32;(0&#32;ms)">Üzenetek</span></td>
+				<td class="GadgetHeaderPanelButtonLeftMenu" name="gadgetheaderbutton"><input type="image" name="upBoxes$upMessage$gdgMessage$gdgMessage_RefreshBtn" id="upBoxes_upMessage_gdgMessage_gdgMessage_RefreshBtn" title="Frissítés" class="gadgetbutton" src="App_Themes/Skin_Neptun_GFX/16_ghb_refresh.png" alt="Frissítés" /><input type="image" name="upBoxes$upMessage$gdgMessage$gdgMessage_CloseBtn" id="upBoxes_upMessage_gdgMessage_gdgMessage_CloseBtn" title="Bezárás" class="gadgetbutton" src="App_Themes/Skin_Neptun_GFX/16_ghb_close.png" alt="Bezárás" /></td>
+				<td class="HeaderRightCorner"></td>
+			</tr>
+			<tr>
+				<td class="gadgetbodyleft"></td>
+				<td colspan="2" class="GadgetBody"><table id="upBoxes_upMessage_gdgMessage_gdgMessage_body" class="nostyle" width="100%">
+					<tr>
+						<td class="GadgetHeaderSubtitle"><span></span></td>
+					</tr>
+					<tr class="nostyle">
+						<td class="gadgetbodyinner" width="100%">
+<table class="messagetable">
+<tr>
+<td>
+<a id="_lnkInbox" href="main.aspx?ismenuclick=true&amp;ctrl=inbox">Beérkezett üzenetek</a>
+</td>
+</tr>
+<tr>
+<td>
+<a id="_lnkOutBox" href="main.aspx?ismenuclick=true&amp;ctrl=outbox">Elküldött üzenetek</a>
+</td>
+</tr>
+<tr>
+<td>
+<a id="_lnkOptions" href="main.aspx?ismenuclick=true&amp;ctrl=rules">Beállítások</a>
+</td>
+</tr>
+<tr>
+<td>
+<a id="_lnkDirectory" href="main.aspx?ismenuclick=true&amp;ctrl=directory">Címtár</a>
+</td>
+</tr>
+</table>
+</td>
+					</tr>
+					<tr>
+						<td class="GadgetFooterMenu"></td>
+					</tr>
+				</table>
+				</td>
+				<td class="gadgetbodyright"></td>
+			</tr>
+			<tr>
+				<td class="GadgetFooterLeftCorner"></td>
+				<td colspan="2" class="GadgetFooter"></td>
+				<td class="GadgetFooterRightCorner"></td>
+			</tr>
+		</table>
+		</div></span>
+
+	</div>
+<div id="upBoxes_upfavorites">
+		
+
+
+	</div>
+<div id="upBoxes_upCalendar">
+		
+<span id="upBoxes_upCalendar_gdgCalendar" style="display:inline-block;"><div id="upBoxes_upCalendar_gdgCalendar_gdgCalendar"><div id="upBoxes_upCalendar_gdgCalendar_gdgCalendar_divChooseColor" class="gadgetchoosecolor"><table id="upBoxes_upCalendar_gdgCalendar_bodytableChooseColor" width="100%" cellSpacing="0px" cellPadding="0px">
+			<tr>
+				<td class="gadgetbodyleft"></td>
+				<td><img class="gadgetimage" cmd="1" alt="" src="App_Themes/New_Common_Images/gadget_cc_gray.png" /><img class="gadgetimage" cmd="2" alt="" src="App_Themes/New_Common_Images/gadget_cc_brawn.png" /><img class="gadgetimage" cmd="3" alt="" src="App_Themes/New_Common_Images/gadget_cc_orange.png" /><img class="gadgetimage" cmd="4" alt="" src="App_Themes/New_Common_Images/gadget_cc_pink.png" /><img class="gadgetimage" cmd="5" alt="" src="App_Themes/New_Common_Images/gadget_cc_yellow.png" /><img class="gadgetimage" cmd="6" alt="" src="App_Themes/New_Common_Images/gadget_cc_green.png" /><img class="gadgetimage" cmd="7" alt="" src="App_Themes/New_Common_Images/gadget_cc_blue.png" /><img class="gadgetimage" cmd="8" alt="" src="App_Themes/New_Common_Images/gadget_cc_viola.png" /><img class="gadgetimage" cmd="delete" alt="" src="App_Themes/Common_Images/no.gif" /></td>
+				<td class="gadgetbodyright"></td>
+			</tr>
+			<tr>
+				<td colspan="3" class="nostyle"><table class="nostyle" width="100%">
+					<tr class="nostyle">
+						<td class="GadgetFooterLeftCorner"></td>
+						<td class="sp_footerbody"></td>
+						<td class="GadgetFooterRightCorner"></td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+		</table>
+		</div><table class="Gadget">
+			<tr>
+				<td class="HeaderLeftCorner"></td>
+				<td class="GadgetHeaderPanelTitle" name="gadgetheadertitle"><img id="upBoxes_upCalendar_gdgCalendar_gdgCalendar_ColorBtn" title="Színválasztás" class="gadgettitleimage" alt="Színválasztás" src="App_Themes/New_Common_Images/gadget_cc_default.png" alt="Színválasztás" /><span title="Naptár&#32;(0&#32;ms)">Naptár</span></td>
+				<td class="GadgetHeaderPanelButtonLeftMenu" name="gadgetheaderbutton"><input type="image" name="upBoxes$upCalendar$gdgCalendar$gdgCalendar_RefreshBtn" id="upBoxes_upCalendar_gdgCalendar_gdgCalendar_RefreshBtn" title="Frissítés" class="gadgetbutton" src="App_Themes/Skin_Neptun_GFX/16_ghb_refresh.png" alt="Frissítés" /><input type="image" name="upBoxes$upCalendar$gdgCalendar$gdgCalendar_CloseBtn" id="upBoxes_upCalendar_gdgCalendar_gdgCalendar_CloseBtn" title="Bezárás" class="gadgetbutton" src="App_Themes/Skin_Neptun_GFX/16_ghb_close.png" alt="Bezárás" /></td>
+				<td class="HeaderRightCorner"></td>
+			</tr>
+			<tr>
+				<td class="gadgetbodyleft"></td>
+				<td colspan="2" class="GadgetBody"><table id="upBoxes_upCalendar_gdgCalendar_gdgCalendar_body" class="nostyle" width="100%">
+					<tr>
+						<td class="GadgetHeaderSubtitle"><span></span></td>
+					</tr>
+					<tr class="nostyle">
+						<td class="gadgetbodyinner" width="100%">
+<div id="upBoxes_upCalendar_gdgCalendar_ctl35_calendar_upPanel">
+	
+
+<table id="calendar_calendar" class="calendar" cellspacing="0" cellpadding="2" width="100%">
+		<tr><td colspan="7" bgcolor="#036EB6"><table class="calendar_titlestyle" cellspacing="0" width="100%">
+			<tr><td class="NextPrev" width="15%"><font color="White"><b><a href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','V6818')" style="color:White"><div class='divCalendar' id='mainfunctionarrowprevdiv' title='Vissza'><img id='mainfunctionarrowprev' border='0' width='4' height='7' src='App_Themes/New_Common_Images/arrow_left.png' alt='Vissza' /></div></a></b></font></td><td align="center" width="70%"><font color="White"><b>2018. október</b></font></td><td class="NextPrev" align="right" width="15%"><font color="White"><b><a href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','V6879')" style="color:White"><div class='divCalendar' id='mainfunctionarrownextdiv' title='Előre'><img id='mainfunctionarrownext' border='0' width='4' height='7' src='App_Themes/New_Common_Images/arrow_right.png' alt='Előre' /></div></a></b></font></td></tr>
+		</table></td></tr><tr><td class="DayHeader" align="center" bgcolor="#E7F4FC"><font color="#036EB6">H</font></td><td class="DayHeader" align="center" bgcolor="#E7F4FC"><font color="#036EB6">K</font></td><td class="DayHeader" align="center" bgcolor="#E7F4FC"><font color="#036EB6">Sze</font></td><td class="DayHeader" align="center" bgcolor="#E7F4FC"><font color="#036EB6">Cs</font></td><td class="DayHeader" align="center" bgcolor="#E7F4FC"><font color="#036EB6">P</font></td><td class="DayHeader" align="center" bgcolor="#E7F4FC"><font color="#036EB6">Szo</font></td><td class="DayHeader" align="center" bgcolor="#E7F4FC"><font color="#036EB6">V</font></td></tr><tr><td title="[Óra]&#32;Matematika&#32;I.&#32;-&#32;Analízis&#32;I.&#32;(NMXAN1HBNE)&#32;&#32;-&#32;NIK_EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páratlan&#32;hét&#32;(Dr&#32;Vajda&#32;István)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Szoftvertervezés&#32;és&#32;-fejlesztés&#32;I.&#32;(NIXSF1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páratlan&#32;hét&#32;(Dr.&#32;Vámossy&#32;Zoltán;Kiss&#32;Dániel)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6841')">24</a></font></td><td title="[Óra]&#32;Diszkrét&#32;matematika&#32;és&#32;lineáris&#32;algebra&#32;I.&#32;(NMXDM1HBNE)&#32;&#32;-&#32;G13&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Berta&#32;Gábor)&#32;(BC.2.203)Hely:&#32;BC.2.203&#10;[Óra]&#32;Bevezetés&#32;a&#32;informatikába&#32;(NIXBI1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Tóthné&#32;Laufer&#32;Edit)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Matematika&#32;I.&#32;-&#32;Analízis&#32;I.&#32;(NMXAN1HBNE)&#32;&#32;-&#32;NIK_GY_13&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Dr.&#32;Kósi&#32;Krisztián)&#32;(BC.4.401)Hely:&#32;BC.4.401" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6842')">25</a></font></td><td title="[Óra]&#32;Matematika&#32;I.&#32;-&#32;Analízis&#32;I.&#32;(NMXAN1HBNE)&#32;&#32;-&#32;NIK_EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páratlan&#32;hét&#32;(Dr&#32;Vajda&#32;István)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Makroökonómia&#32;(GGXKG1HBNE)&#32;&#32;-&#32;KG2-EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Dr.&#32;Kiss&#32;Mariann)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Bevezetés&#32;a&#32;informatikába&#32;(NIXBI1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Tóthné&#32;Laufer&#32;Edit)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6843')">26</a></font></td><td title="[Óra]&#32;Diszkrét&#32;matematika&#32;és&#32;lineáris&#32;algebra&#32;I.&#32;(NMXDM1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páratlan&#32;hét&#32;(Szőke&#32;Magdolna)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Patronálás&#32;(NNIPATHBNE)&#32;&#32;-&#32;PAT_13&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Pick&#32;András&#32;György)&#32;(BA.F.02)Hely:&#32;BA.F.02&#10;[Óra]&#32;Matematika&#32;I.&#32;-&#32;Analízis&#32;I.&#32;(NMXAN1HBNE)&#32;&#32;-&#32;NIK_GY_13&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Dr.&#32;Kósi&#32;Krisztián)&#32;(BC.4.403)Hely:&#32;BC.4.403" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6844')">27</a></font></td><td title="[Óra]&#32;Szoftvertervezés&#32;és&#32;-fejlesztés&#32;I.&#32;(NIXSF1HBNE)&#32;&#32;-&#32;L16&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Fröhlich&#32;Martin&#32;Michel)&#32;(BA.2.14)Hely:&#32;BA.2.14" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6845')">28</a></font></td><td class="calendar_othermonthdaystyle" align="center" bgcolor="#FAFAFA" width="14%"><font color="Gainsboro"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6846')">29</a></font></td><td class="calendar_othermonthdaystyle" align="center" bgcolor="#FAFAFA" width="14%"><font color="Gainsboro"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6847')">30</a></font></td></tr><tr><td title="[Óra]&#32;Matematika&#32;I.&#32;-&#32;Analízis&#32;I.&#32;(NMXAN1HBNE)&#32;&#32;-&#32;NIK_EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páros&#32;hét&#32;(Dr&#32;Vajda&#32;István)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Szoftvertervezés&#32;és&#32;-fejlesztés&#32;I.&#32;(NIXSF1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páros&#32;hét&#32;(Dr.&#32;Vámossy&#32;Zoltán;Kiss&#32;Dániel)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6848')">1</a></font></td><td title="[Óra]&#32;Diszkrét&#32;matematika&#32;és&#32;lineáris&#32;algebra&#32;I.&#32;(NMXDM1HBNE)&#32;&#32;-&#32;G13&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Berta&#32;Gábor)&#32;(BC.2.203)Hely:&#32;BC.2.203&#10;[Óra]&#32;Bevezetés&#32;a&#32;informatikába&#32;(NIXBI1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Tóthné&#32;Laufer&#32;Edit)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Matematika&#32;I.&#32;-&#32;Analízis&#32;I.&#32;(NMXAN1HBNE)&#32;&#32;-&#32;NIK_GY_13&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Dr.&#32;Kósi&#32;Krisztián)&#32;(BC.4.401)Hely:&#32;BC.4.401" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6849')">2</a></font></td><td title="[Óra]&#32;Diszkrét&#32;matematika&#32;és&#32;lineáris&#32;algebra&#32;I.&#32;(NMXDM1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páros&#32;hét&#32;(Szőke&#32;Magdolna)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Makroökonómia&#32;(GGXKG1HBNE)&#32;&#32;-&#32;KG2-EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Dr.&#32;Kiss&#32;Mariann)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Bevezetés&#32;a&#32;informatikába&#32;(NIXBI1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Tóthné&#32;Laufer&#32;Edit)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Szoftvertervezés&#32;és&#32;-fejlesztés&#32;I.&#32;(NIXSF1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páros&#32;hét&#32;(Kiss&#32;Dániel;Dr.&#32;Vámossy&#32;Zoltán)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6850')">3</a></font></td><td title="[Óra]&#32;Diszkrét&#32;matematika&#32;és&#32;lineáris&#32;algebra&#32;I.&#32;(NMXDM1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páros&#32;hét&#32;(Szőke&#32;Magdolna)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Patronálás&#32;(NNIPATHBNE)&#32;&#32;-&#32;PAT_13&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Pick&#32;András&#32;György)&#32;(BA.F.02)Hely:&#32;BA.F.02&#10;[Óra]&#32;Matematika&#32;I.&#32;-&#32;Analízis&#32;I.&#32;(NMXAN1HBNE)&#32;&#32;-&#32;NIK_GY_13&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Dr.&#32;Kósi&#32;Krisztián)&#32;(BC.4.403)Hely:&#32;BC.4.403" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6851')">4</a></font></td><td title="[Óra]&#32;Szoftvertervezés&#32;és&#32;-fejlesztés&#32;I.&#32;(NIXSF1HBNE)&#32;&#32;-&#32;L16&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Fröhlich&#32;Martin&#32;Michel)&#32;(BA.2.14)Hely:&#32;BA.2.14&#10;[Óra]&#32;Villamosságtan&#32;(KVEVIBBBNE)&#32;&#32;-&#32;G16&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páros&#32;hét&#32;(Demeter&#32;Károlyné;Varga&#32;Andrea&#32;Judit;Horváth&#32;György)&#32;(BC.3.304)Hely:&#32;BC.3.304" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6852')">5</a></font></td><td class="calendar_weekendDdystyle" align="center" bgcolor="#FEFEFE" width="14%"><font color="#282828"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6853')">6</a></font></td><td class="calendar_weekendDdystyle" align="center" bgcolor="#FEFEFE" width="14%"><font color="#282828"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6854')">7</a></font></td></tr><tr><td title="[Óra]&#32;Matematika&#32;I.&#32;-&#32;Analízis&#32;I.&#32;(NMXAN1HBNE)&#32;&#32;-&#32;NIK_EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páratlan&#32;hét&#32;(Dr&#32;Vajda&#32;István)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Szoftvertervezés&#32;és&#32;-fejlesztés&#32;I.&#32;(NIXSF1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páratlan&#32;hét&#32;(Dr.&#32;Vámossy&#32;Zoltán;Kiss&#32;Dániel)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6855')">8</a></font></td><td title="[Óra]&#32;Diszkrét&#32;matematika&#32;és&#32;lineáris&#32;algebra&#32;I.&#32;(NMXDM1HBNE)&#32;&#32;-&#32;G13&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Berta&#32;Gábor)&#32;(BC.2.203)Hely:&#32;BC.2.203&#10;[Óra]&#32;Bevezetés&#32;a&#32;informatikába&#32;(NIXBI1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Tóthné&#32;Laufer&#32;Edit)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Matematika&#32;I.&#32;-&#32;Analízis&#32;I.&#32;(NMXAN1HBNE)&#32;&#32;-&#32;NIK_GY_13&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Dr.&#32;Kósi&#32;Krisztián)&#32;(BC.4.401)Hely:&#32;BC.4.401" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6856')">9</a></font></td><td title="[Óra]&#32;Matematika&#32;I.&#32;-&#32;Analízis&#32;I.&#32;(NMXAN1HBNE)&#32;&#32;-&#32;NIK_EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páratlan&#32;hét&#32;(Dr&#32;Vajda&#32;István)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Makroökonómia&#32;(GGXKG1HBNE)&#32;&#32;-&#32;KG2-EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Dr.&#32;Kiss&#32;Mariann)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Bevezetés&#32;a&#32;informatikába&#32;(NIXBI1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Tóthné&#32;Laufer&#32;Edit)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6857')">10</a></font></td><td title="[Óra]&#32;Diszkrét&#32;matematika&#32;és&#32;lineáris&#32;algebra&#32;I.&#32;(NMXDM1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páratlan&#32;hét&#32;(Szőke&#32;Magdolna)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Patronálás&#32;(NNIPATHBNE)&#32;&#32;-&#32;PAT_13&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Pick&#32;András&#32;György)&#32;(BA.F.02)Hely:&#32;BA.F.02&#10;[Óra]&#32;Matematika&#32;I.&#32;-&#32;Analízis&#32;I.&#32;(NMXAN1HBNE)&#32;&#32;-&#32;NIK_GY_13&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Dr.&#32;Kósi&#32;Krisztián)&#32;(BC.4.403)Hely:&#32;BC.4.403" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6858')">11</a></font></td><td title="[Óra]&#32;Szoftvertervezés&#32;és&#32;-fejlesztés&#32;I.&#32;(NIXSF1HBNE)&#32;&#32;-&#32;L16&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Fröhlich&#32;Martin&#32;Michel)&#32;(BA.2.14)Hely:&#32;BA.2.14" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6859')">12</a></font></td><td title="[Óra]&#32;Matematika&#32;I.&#32;-&#32;Analízis&#32;I.&#32;(NMXAN1HBNE)&#32;&#32;-&#32;NIK_EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páratlan&#32;hét&#32;(Dr&#32;Vajda&#32;István)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Szoftvertervezés&#32;és&#32;-fejlesztés&#32;I.&#32;(NIXSF1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páratlan&#32;hét&#32;(Dr.&#32;Vámossy&#32;Zoltán;Kiss&#32;Dániel)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax" class="TodayDay" align="center" bgcolor="#A2D1ED" width="14%"><font color="Firebrick"><a style="color:Firebrick" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6860')">13</a></font></td><td class="calendar_weekendDdystyle" align="center" bgcolor="#FEFEFE" width="14%"><font color="#282828"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6861')">14</a></font></td></tr><tr><td title="[Óra]&#32;Matematika&#32;I.&#32;-&#32;Analízis&#32;I.&#32;(NMXAN1HBNE)&#32;&#32;-&#32;NIK_EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páros&#32;hét&#32;(Dr&#32;Vajda&#32;István)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Szoftvertervezés&#32;és&#32;-fejlesztés&#32;I.&#32;(NIXSF1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páros&#32;hét&#32;(Dr.&#32;Vámossy&#32;Zoltán;Kiss&#32;Dániel)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6862')">15</a></font></td><td title="[Óra]&#32;Diszkrét&#32;matematika&#32;és&#32;lineáris&#32;algebra&#32;I.&#32;(NMXDM1HBNE)&#32;&#32;-&#32;G13&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Berta&#32;Gábor)&#32;(BC.2.203)Hely:&#32;BC.2.203&#10;[Óra]&#32;Bevezetés&#32;a&#32;informatikába&#32;(NIXBI1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Tóthné&#32;Laufer&#32;Edit)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Matematika&#32;I.&#32;-&#32;Analízis&#32;I.&#32;(NMXAN1HBNE)&#32;&#32;-&#32;NIK_GY_13&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Dr.&#32;Kósi&#32;Krisztián)&#32;(BC.4.401)Hely:&#32;BC.4.401" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6863')">16</a></font></td><td title="[Óra]&#32;Diszkrét&#32;matematika&#32;és&#32;lineáris&#32;algebra&#32;I.&#32;(NMXDM1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páros&#32;hét&#32;(Szőke&#32;Magdolna)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Makroökonómia&#32;(GGXKG1HBNE)&#32;&#32;-&#32;KG2-EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Dr.&#32;Kiss&#32;Mariann)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Bevezetés&#32;a&#32;informatikába&#32;(NIXBI1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Tóthné&#32;Laufer&#32;Edit)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Szoftvertervezés&#32;és&#32;-fejlesztés&#32;I.&#32;(NIXSF1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páros&#32;hét&#32;(Kiss&#32;Dániel;Dr.&#32;Vámossy&#32;Zoltán)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6864')">17</a></font></td><td title="[Óra]&#32;Diszkrét&#32;matematika&#32;és&#32;lineáris&#32;algebra&#32;I.&#32;(NMXDM1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páros&#32;hét&#32;(Szőke&#32;Magdolna)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Patronálás&#32;(NNIPATHBNE)&#32;&#32;-&#32;PAT_13&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Pick&#32;András&#32;György)&#32;(BA.F.02)Hely:&#32;BA.F.02&#10;[Óra]&#32;Matematika&#32;I.&#32;-&#32;Analízis&#32;I.&#32;(NMXAN1HBNE)&#32;&#32;-&#32;NIK_GY_13&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Dr.&#32;Kósi&#32;Krisztián)&#32;(BC.4.403)Hely:&#32;BC.4.403" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6865')">18</a></font></td><td title="[Óra]&#32;Szoftvertervezés&#32;és&#32;-fejlesztés&#32;I.&#32;(NIXSF1HBNE)&#32;&#32;-&#32;L16&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Fröhlich&#32;Martin&#32;Michel)&#32;(BA.2.14)Hely:&#32;BA.2.14&#10;[Óra]&#32;Villamosságtan&#32;(KVEVIBBBNE)&#32;&#32;-&#32;G16&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páros&#32;hét&#32;(Demeter&#32;Károlyné;Varga&#32;Andrea&#32;Judit;Horváth&#32;György)&#32;(BC.3.304)Hely:&#32;BC.3.304" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6866')">19</a></font></td><td class="calendar_weekendDdystyle" align="center" bgcolor="#FEFEFE" width="14%"><font color="#282828"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6867')">20</a></font></td><td class="calendar_weekendDdystyle" align="center" bgcolor="#FEFEFE" width="14%"><font color="#282828"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6868')">21</a></font></td></tr><tr><td class="Day" align="center" bgcolor="#FEFEFE" width="14%"><font color="#282828"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6869')">22</a></font></td><td title="[Szünnap]&#32;&#32;&#32;&#32;" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6870')">23</a></font></td><td title="[Óra]&#32;Matematika&#32;I.&#32;-&#32;Analízis&#32;I.&#32;(NMXAN1HBNE)&#32;&#32;-&#32;NIK_EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páratlan&#32;hét&#32;(Dr&#32;Vajda&#32;István)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Makroökonómia&#32;(GGXKG1HBNE)&#32;&#32;-&#32;KG2-EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Dr.&#32;Kiss&#32;Mariann)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Bevezetés&#32;a&#32;informatikába&#32;(NIXBI1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Tóthné&#32;Laufer&#32;Edit)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6871')">24</a></font></td><td title="[Óra]&#32;Diszkrét&#32;matematika&#32;és&#32;lineáris&#32;algebra&#32;I.&#32;(NMXDM1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páratlan&#32;hét&#32;(Szőke&#32;Magdolna)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Patronálás&#32;(NNIPATHBNE)&#32;&#32;-&#32;PAT_13&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Pick&#32;András&#32;György)&#32;(BA.F.02)Hely:&#32;BA.F.02&#10;[Óra]&#32;Matematika&#32;I.&#32;-&#32;Analízis&#32;I.&#32;(NMXAN1HBNE)&#32;&#32;-&#32;NIK_GY_13&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Dr.&#32;Kósi&#32;Krisztián)&#32;(BC.4.403)Hely:&#32;BC.4.403" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6872')">25</a></font></td><td title="[Óra]&#32;Szoftvertervezés&#32;és&#32;-fejlesztés&#32;I.&#32;(NIXSF1HBNE)&#32;&#32;-&#32;L16&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Fröhlich&#32;Martin&#32;Michel)&#32;(BA.2.14)Hely:&#32;BA.2.14" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6873')">26</a></font></td><td class="calendar_weekendDdystyle" align="center" bgcolor="#FEFEFE" width="14%"><font color="#282828"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6874')">27</a></font></td><td class="calendar_weekendDdystyle" align="center" bgcolor="#FEFEFE" width="14%"><font color="#282828"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6875')">28</a></font></td></tr><tr><td title="[Óra]&#32;Matematika&#32;I.&#32;-&#32;Analízis&#32;I.&#32;(NMXAN1HBNE)&#32;&#32;-&#32;NIK_EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páros&#32;hét&#32;(Dr&#32;Vajda&#32;István)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Szoftvertervezés&#32;és&#32;-fejlesztés&#32;I.&#32;(NIXSF1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páros&#32;hét&#32;(Dr.&#32;Vámossy&#32;Zoltán;Kiss&#32;Dániel)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6876')">29</a></font></td><td title="[Óra]&#32;Diszkrét&#32;matematika&#32;és&#32;lineáris&#32;algebra&#32;I.&#32;(NMXDM1HBNE)&#32;&#32;-&#32;G13&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Berta&#32;Gábor)&#32;(BC.2.203)Hely:&#32;BC.2.203&#10;[Óra]&#32;Bevezetés&#32;a&#32;informatikába&#32;(NIXBI1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Tóthné&#32;Laufer&#32;Edit)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Matematika&#32;I.&#32;-&#32;Analízis&#32;I.&#32;(NMXAN1HBNE)&#32;&#32;-&#32;NIK_GY_13&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Dr.&#32;Kósi&#32;Krisztián)&#32;(BC.4.401)Hely:&#32;BC.4.401" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6877')">30</a></font></td><td title="[Óra]&#32;Diszkrét&#32;matematika&#32;és&#32;lineáris&#32;algebra&#32;I.&#32;(NMXDM1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páros&#32;hét&#32;(Szőke&#32;Magdolna)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Makroökonómia&#32;(GGXKG1HBNE)&#32;&#32;-&#32;KG2-EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Dr.&#32;Kiss&#32;Mariann)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Bevezetés&#32;a&#32;informatikába&#32;(NIXBI1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Minden&#32;hét&#32;(Tóthné&#32;Laufer&#32;Edit)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax&#10;[Óra]&#32;Szoftvertervezés&#32;és&#32;-fejlesztés&#32;I.&#32;(NIXSF1HBNE)&#32;&#32;-&#32;EA&#32;&#32;-&#32;(Változó,&#32;lásd&#32;bővebb&#32;órarendi&#32;információ)&#32;&#32;Páros&#32;hét&#32;(Kiss&#32;Dániel;Dr.&#32;Vámossy&#32;Zoltán)&#32;(BA.1.32.Audmax)Hely:&#32;BA.1.32.Audmax" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6878')">31</a></font></td><td title="[Szünnap]&#32;&#32;&#32;&#32;&#10;[Szünnap]&#32;&#32;&#32;&#32;" class="SelectedDay" align="center" bgcolor="Silver" width="14%"><font color="White"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6879')">1</a></font></td><td class="calendar_othermonthdaystyle" align="center" bgcolor="#FAFAFA" width="14%"><font color="Gainsboro"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6880')">2</a></font></td><td class="calendar_othermonthdaystyle" align="center" bgcolor="#FAFAFA" width="14%"><font color="Gainsboro"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6881')">3</a></font></td><td class="calendar_othermonthdaystyle" align="center" bgcolor="#FAFAFA" width="14%"><font color="Gainsboro"><a style="color:Gainsboro" href="javascript:__doPostBack('upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$calendar','6882')">4</a></font></td></tr>
+	</table>
+<table width="186px" id="tableCheckedBoxs">
+<tr>
+<td>
+<input id="calendar_chkTime" type="checkbox" name="upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$chkTime" checked="checked" onclick="chkCalendarClicked(&#39;calendar_chkTime&#39;);" /><label for="calendar_chkTime">Órák</label>
+</td>
+<td>
+<input id="calendar_chkExam" type="checkbox" name="upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$chkExam" checked="checked" onclick="chkCalendarClicked(&#39;calendar_chkExam&#39;);" /><label for="calendar_chkExam">Vizsgák</label>
+</td>
+</tr>
+<tr>
+<td>
+<span class="aspNetDisabled"><input id="calendar_chkAppointment" type="checkbox" name="upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$chkAppointment" disabled="disabled" onclick="chkCalendarClicked(&#39;calendar_chkAppointment&#39;);" /><label for="calendar_chkAppointment">Találkozók</label></span>
+</td>
+<td>
+<input id="calendar_chkTask" type="checkbox" name="upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$chkTask" checked="checked" onclick="chkCalendarClicked(&#39;calendar_chkTask&#39;);" /><label for="calendar_chkTask">Feladatok</label>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<span class="aspNetDisabled"><input id="calendar_chkRegisterList" type="checkbox" name="upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$chkRegisterList" disabled="disabled" onclick="chkCalendarClicked(&#39;calendar_chkRegisterList&#39;);" /><label for="calendar_chkRegisterList">Feliratkozási listák</label></span>
+</td>
+</tr>
+
+<tr>
+<td colspan="2">
+<input id="calendar_chkKonzultacio" type="checkbox" name="upBoxes$upCalendar$gdgCalendar$ctl35$calendar$upPanel$chkKonzultacio" checked="checked" onclick="chkCalendarClicked(&#39;calendar_chkKonzultacio&#39;);" /><label for="calendar_chkKonzultacio">Konzultációk</label>
+</td>
+</tr>
+
+</table>
+
+</div>
+<div id="upBoxes_upCalendar_gdgCalendar_ctl35_calendar_upAppointment">
+	
+
+
+</div>
+
+</td>
+					</tr>
+					<tr>
+						<td class="GadgetFooterMenu"><span class="muveletek">Műveletek:</span><img class="gadgetmenuicon" alt="" src="App_Themes/New_Common_Images/outlook_icon.png" /><label></label><a id="upBoxes_upCalendar_gdgCalendar_gdgCalendar_calendaroutlookexport" class="GadgetMenuItem" title="Naptár&#32;export" href="javascript:__doPostBack(&#39;upBoxes$upCalendar$gdgCalendar$gdgCalendar_calendaroutlookexport&#39;,&#39;&#39;)">Naptár export</a></td>
+					</tr>
+				</table>
+				</td>
+				<td class="gadgetbodyright"></td>
+			</tr>
+			<tr>
+				<td class="GadgetFooterLeftCorner"></td>
+				<td colspan="2" class="GadgetFooter"></td>
+				<td class="GadgetFooterRightCorner"></td>
+			</tr>
+		</table>
+		</div></span>
+
+	</div>
+<div id="upBoxes_upForum">
+		
+
+
+	</div>
+</td>
+	
+<td id="upBoxes_CloseLeftBoxTD" class="CloseLeftBox" onclick="ShowLeftBoxes(this)" title="Panel&#32;bezárása">
+<div class="CloseLeftBox_table">
+</div>
+</td>
+	
+</tr>
+</table>
+
+</div>
+</td>
+<td class="function">
+
+<div id="upTimeSpent">
+	
+
+
+</div>
+<table class="function_table" role="main">
+<tr class="no_style">
+<td class="no_style" style="height: 3px;"></td>
+<td class="no_style"></td>
+<td class="no_style"></td>
+<td class="no_style"></td>
+</tr>
+<tr id="function_tableheader" class="no_style">
+	<td class="FunctionHeaderLeftCorner"></td>
+	<td class="FunctionHeader">
+<table class="FunctionTable">
+<tr class="no_style">
+<td class="FunctionHeaderItem">
+<img id="mainfunctionarrow" alt="Kinyit/Becsuk" src="App_Themes/Skin_Neptun_GFX/right_arrow.png" alt="Kinyit/Becsuk" style="cursor: pointer;" />
+</td>
+<td class="FunctionHeaderTitle">
+<div id="upMenuCaption">
+		
+<h1 id="upMenuCaption_menucaption">Üzenetek</h1>
+
+	</div>
+</td>
+<td class="FunctionHeaderButton">
+
+</td>
+</tr>
+</table>
+</td>
+	<td class="FunctionHeaderRightCorner"></td>
+	<td class="right_side_space"></td>
+</tr>
+
+<tr>
+<td class="FunctionLeftSide"></td>
+<td class="main_search" role="search">
+<div id="upFilter">
+	
+<div id="upFilter_panFilter">
+		
+<div>
+			<table class="searchpanel">
+				<tr>
+					<td class="sp_header_left_top"></td>
+					<td class="sp_header_midle_top"></td>
+					<td class="sp_header_right_top"></td>
+				</tr>
+				<tr>
+					<td class="sp_header_left"></td>
+					<td class="sp_header_midle"><table width="100%">
+						<tr>
+							<td class="sp_headerimages"><img id="upFilter_searchpanel_collapsedimage" class="CollapsableImage" alt="Szűrések&#32;megjelenítése" src="App_Themes/Skin_Neptun_GFX/searchpanel_down.png" alt="Szűrések&#32;megjelenítése" style="cursor:pointer;" /><img id="upFilter_searchpanel_expandedimage" class="ExpandedImage" alt="Szűrések&#32;eltüntetése" src="App_Themes/Skin_Neptun_GFX/searchpanel_up.png" alt="Szűrések&#32;eltüntetése" style="cursor:pointer;" /></td>
+							<td class="sp_headertitle">Szűrések</td>
+							<td class="sp_headerseparator"></td>
+							<td class="sp_headerconditions"><table class="searchpanel_conditions">
+								<tr>
+									<td><span style='font-weight:bold'>Üzenet típusok:</span> Összes üzenet</td>
+								</tr>
+							</table>
+							</td>
+							<td id="upFilter_headerbuttons" class="sp_headerbuttons"><input role="button" type="submit" name="upFilter$collapsedsearchbutton" value="Listázás" onclick="DoValidateGroup(&#39;&#39;);" id="upFilter_collapsedsearchbutton" class="button" /><p id=upFilter_collapsedsearchbutton_hiddenlabel class ='hiddenforlabel'></p></td>
+						</tr>
+					</table>
+					</td>
+					<td class="sp_header_right"></td>
+				</tr>
+				<tr>
+					<td class="sp_footerleftcorner"></td>
+					<td class="sp_footerbody"></td>
+					<td class="sp_footerrightcorner"></td>
+				</tr>
+				<tr id="upFilter_searchpanel_tablebody">
+					<td class="sp_bodyleftside"></td>
+					<td class="sp_parentbody"><div id="upFilter_c_messages_searchpanel_animation" class="gridanimation" style="display:&#32;none;"><img src="/hallgato/WebResource.axd?d=rqCeulgblH4KgtXUGh6R6TdydYUUm4yBvxQEMqXwqilo-U6Buf7LD8ELeezkIBUcZaqV_K_LuAHrIRGmjHfz0LBTdVri7nRV8nkxh9kTY0kQwV1Cd8n7xEgkYuxSPqMRzET8jzAgUioRFnpfM2TUa4qSXLxsk2wzRYgro2EYZ06IBV2GmOchFOBuqgwPPepZ0&amp;t=636741092612822308" /></div><div id="upFilter_searchpanel_body" class="searchpanel_body"><table width="100%" cellSpacing="0px" cellPadding="0px">
+						<tr>
+							<td class="sp_afterheaderleftside"></td>
+							<td class="sp_afterheader"></td>
+							<td class="sp_afterheaderrightside"></td>
+						</tr>
+						<tr>
+							<td class="sp_childbodyleftside"></td>
+							<td class="sp_body"><table id="upFilter_bodytable" width="100%" cellSpacing="0px" cellPadding="0px">
+								<tr>
+									<td class="tableRowName">Üzenet típusok:</td>
+									<td class="tableRowData">
+<span id="upFilter_rblMessageTypes"><input id="upFilter_rblMessageTypes_0" type="radio" name="upFilter$rblMessageTypes" value="Egyedi&#32;üzenetek" /><label for="upFilter_rblMessageTypes_0">Egyedi üzenetek</label><br /><input id="upFilter_rblMessageTypes_1" type="radio" name="upFilter$rblMessageTypes" value="Automatikus&#32;üzenetek" /><label for="upFilter_rblMessageTypes_1">Automatikus üzenetek</label><br /><input id="upFilter_rblMessageTypes_2" type="radio" name="upFilter$rblMessageTypes" value="Összes&#32;üzenet" checked="checked" /><label for="upFilter_rblMessageTypes_2">Összes üzenet</label></span>
+</td>
+								</tr>
+								<tr class="nostyle">
+									<td></td>
+									<td id="upFilter_footerbutton" class="sp_footerbuttonbody"><input role="button" type="submit" name="upFilter$expandedsearchbutton" value="Listázás" onclick="DoValidateGroup(&#39;&#39;);" id="upFilter_expandedsearchbutton" class="button" /><p id=upFilter_expandedsearchbutton_hiddenlabel class ='hiddenforlabel'></p></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</table>
+							</td>
+							<td class="sp_childbodyrightside"></td>
+						</tr>
+						<tr>
+							<td colspan="3" class="nostyle"><table class="nostyle" width="100%">
+								<tr class="nostyle">
+									<td class="sp_footerleftcorner"></td>
+									<td class="sp_footerbody"></td>
+									<td class="sp_footerrightcorner"></td>
+								</tr>
+							</table>
+							</td>
+						</tr>
+					</table>
+					</div></td>
+					<td class="sp_bodyrightside"></td>
+				</tr>
+			</table>
+
+		</div>
+	</div>
+
+</div>
+</td>
+<td class="FunctionRightSide"></td>
+<td class="right_side_space"></td>
+</tr>
+<tr>
+<td class="FunctionLeftSide"></td>
+<td>
+<div id="upFunctionCommandLineTop">
+	
+<div id="upFunctionCommandLineTop_div_line_top" class="mainFunctionCommandTop">
+</div>
+
+</div>
+<table cellpadding="0" cellspacing="0" border="0" class="mainFunctionCommand">
+<tr>
+<td>
+<div id="upMuveletek">
+	
+<div id="upMuveletek_panMuveletek">
+		<span id="upMuveletek_label_Muveletek_Main" class="FunctionCommandTitle">Műveletek:</span>
+	</div>
+
+</div>
+</td>
+<td>
+<div id="upFavouriteCommand">
+	
+<div id="upFavouriteCommand_panFavouriteCommand">
+		
+
+	</div>
+
+</div>
+</td>
+<td>
+<div id="upFunctionCommand">
+	
+<div id="upFunctionCommand_panFunctionCommand">
+		
+<span><div style="display:inline-block;">
+			<a id="upFunctionCommand_lbtn_new" class="mainfunction_item" href="javascript:__doPostBack(&#39;upFunctionCommand$lbtn_new&#39;,&#39;&#39;)">Új üzenet</a>
+		</div></span>
+	</div>
+
+</div>
+</td>
+</tr>
+</table>
+<div id="upFunctionCommandLineBottom">
+	
+<div id="upFunctionCommandLineBottom_div_line_bottom" class="mainFunctionCommandBottom">
+</div>
+
+</div>
+</td>
+<td class="FunctionRightSide"></td>
+<td class="right_side_space"></td>
+</tr>
+<tr class="no_style">
+<td id="function_table_leftside" class="FunctionLeftSide"></td>
+
+<td id="function_table_body" class="no_style" style="padding-top:&#32;5px;">
+<div id="upFunction">
+	
+
+<div id="upFunction_c_messages_upMain">
+		
+<label></label><a id="c_messages_lbnDocumentDownload" title="&amp;nbsp;" href="javascript:__doPostBack(&#39;upFunction$c_messages$upMain$lbnDocumentDownload&#39;,&#39;&#39;)"></a><input type="hidden" name="upFunction$c_messages$upMain$hfDocumentId" id="upFunction_c_messages_upMain_hfDocumentId" />
+<div id="upFunction_c_messages_upMain_upFilter">
+			
+<span id="c_messages_searchpanel"><input type="hidden" name="upFunction$c_messages$upMain$upFilter$searchpanel$searchpanel_state" id="upFunction_c_messages_upMain_upFilter_searchpanel_searchpanel_state" value="expanded" /></span>
+
+		</div>
+<div id="upFunction_c_messages_upMain_upGrid">
+			
+<div id='c_messages_gridMessages_gridtopdiv'><div id ='c_messages_gridMessages_gridmaindiv' type='ajaxgrid' instanceid='A1' class=' gridmaindiv' onclick='A1.HandleClick(event)' onmouseover='A1.OnMouseOver(event)' onmouseout='A1.OnMouseOut(event)' onmousedown='A1.OnMouseDown(event)' onmouseup='A1.OnMouseUp(event)' onkeydown='A1.OnKeyDown(event)' onkeypress='A1.OnKeyPress(event)' onkeyup='A1.OnKeyUp(event)'  onBlur='' onfocus=''><div id= 'c_messages_gridMessages_animation' class='gridanimation' style='display:none'><img id="imganimation" src="/hallgato/WebResource.axd?d=rqCeulgblH4KgtXUGh6R6TdydYUUm4yBvxQEMqXwqilo-U6Buf7LD8ELeezkIBUcZaqV_K_LuAHrIRGmjHfz0LBTdVri7nRV8nkxh9kTY0kQwV1Cd8n7xEgkYuxSPqMRzET8jzAgUioRFnpfM2TUa4qSXLxsk2wzRYgro2EYZ06IBV2GmOchFOBuqgwPPepZ0&t=636741092612822308" alt="Animáció" onBlur="" onfocus=""></div><table id="c_messages_gridMessages_grid" cellpadding=2 cellspacing=1 class=captiontable  role='presentation'><tr><td class='caption'>Üzenetek listája</td><td class='exceltd'><img id="c_messages_gridMessages_imexcel" class="img_excel" src="/hallgato/WebResource.axd?d=IJtDh9a6-j0BleBrYcGVz30TZkgRJQSaAShHhg6kgG2Nb6kK2pOhCVjB3lhIVSv__i7pCLgzEwN6ayLofOsKI0Ukr9xTLZvCvmLp1nC2AJpM55ba4m4rmelbNvRe_AlmExYUKXPDfqs_cOTjcN4mGEWrngYygr-AG-PABXrkkY_zgp1wAkRwtECD1AqqwlX70&t=636741092612822308" tabindex="0" srccollapse="/hallgato/WebResource.axd?d=IJtDh9a6-j0BleBrYcGVz30TZkgRJQSaAShHhg6kgG2Nb6kK2pOhCVjB3lhIVSv__i7pCLgzEwN6ayLofOsKI0Ukr9xTLZvCvmLp1nC2AJpM55ba4m4rmelbNvRe_AlmExYUKXPDfqs_cOTjcN4mGEWrngYygr-AG-PABXrkkY_zgp1wAkRwtECD1AqqwlX70&t=636741092612822308" srcexpand="/hallgato/WebResource.axd?d=oKfIP8dBvJ6zhoTqV9Qlqbm2lWZ4yKegdGpneCNGau8vWt5bj6wpdNJSXpt_LkK3_MMsP9VQLZyMgvymnXuljdk-RAdzA1WLc4h4oetW-V4xiLdnx7dj6b1lz8iOxYwpLw72he6PJYDRcLFTne-W5xjoMM2dYLm4q64sJvQB4ukRKN9j1NVRvIRoRCwpcUip0&t=636741092612822308" title="Exportálás excelbe" onmouseover="A1.ChangeImage(this,true,'excel');" onmouseout="A1.ChangeImage(this,false,'excel');" alt="Excel letöltés" onBlur="" onfocus="" onclick='' ></td><td class='printtd'><img id="c_messages_gridMessages_imgprint" class="img_print" src="/hallgato/WebResource.axd?d=T7Lgn4KcyfMMn3WjFDYOOnWnmw5PNLRWKwBqGPxuy6eBMgcWaYpRcg4JL7wwQ-Kkvmk3Kw9Lr9WKFalognuIGWRWrrXIbG6RVw3dOanlmNuZaV5hz9I6KxvrFBbjKcQpw0Mwq9fYpI7Sc-40kJt2N0S5oL_usuoDRI4hQK0tBsvIOP9ddYxaDbZFaGmp3pUg0&t=636741092612822308" srccollapse="/hallgato/WebResource.axd?d=T7Lgn4KcyfMMn3WjFDYOOnWnmw5PNLRWKwBqGPxuy6eBMgcWaYpRcg4JL7wwQ-Kkvmk3Kw9Lr9WKFalognuIGWRWrrXIbG6RVw3dOanlmNuZaV5hz9I6KxvrFBbjKcQpw0Mwq9fYpI7Sc-40kJt2N0S5oL_usuoDRI4hQK0tBsvIOP9ddYxaDbZFaGmp3pUg0&t=636741092612822308" srcexpand="/hallgato/WebResource.axd?d=vipneyHsWM0NI3jq7HjaIuhAwR1tU85VB0vWQfC5Tjat7JQQ--GELTzoL03clw2mLA19FhSKtWPd03QAqAdP8dlPYEAlEZgaeI24yYxgg9CcV-lVkV59QsZwu0ffjdcfrsBOpAsau9U1XWCjEoDuPKfNUGfWS6xDsfhDzGVufkiZmOP5ztTAnwaKkjSl8kZ-0&t=636741092612822308" title="Nyomtatás" onclick="A1.Print('c_messages_gridMessages_grid_body_div','Üzenetek listája [Nyomtatási kép]','','');" onmouseover="A1.ChangeImage(this,true,'print');" onmouseout="A1.ChangeImage(this,false,'print');" alt="Nyomtatás" onBlur="" onfocus="" ></td><td class='fixheadertd'><img id="c_messages_gridMessages_imgpin" class='img_pin' pined='false' src="/hallgato/WebResource.axd?d=iWtlIfu0_RyzCvNdsnF2j4RWVL-WD0dewAPjBZoCgBk5RX011CyuZvVc3AKflR0lqvpDinzSv-M_xahLzqVIAFVGrAOYefVw-AJovUheih8L_wQUZsy_a7DHHh0lgBJ2llINy2bd2cHHLAJl1uuFM-g6eK5EsiOZ_8Us6Iyz6g3Ifp6R80W5GlMiz4l5LiEf0&t=636741092612822308" srccollapse="/hallgato/WebResource.axd?d=iWtlIfu0_RyzCvNdsnF2j4RWVL-WD0dewAPjBZoCgBk5RX011CyuZvVc3AKflR0lqvpDinzSv-M_xahLzqVIAFVGrAOYefVw-AJovUheih8L_wQUZsy_a7DHHh0lgBJ2llINy2bd2cHHLAJl1uuFM-g6eK5EsiOZ_8Us6Iyz6g3Ifp6R80W5GlMiz4l5LiEf0&t=636741092612822308" srcexpand="/hallgato/WebResource.axd?d=gl-jHwFpDl_WmdY-C8Upp41ji-Q7hRMTSjusgnOk-EHVUfXJXu15pDIEm0W049D3VE23XtKwC2D_Mk-QibYDDYh0QmmFi05XGxqtJhN1KJjQbfrwNqFrqbe0U90sdmyzCPuV_X_ngdkbvVy69wrK8ZLyKWje4KNTzDMtuUtiePygcpM0yDhgKo2emqd37wmc0&t=636741092612822308" title="Fejléc rögzítése" onclick='A1.Pin();' onmouseover="A1.ChangeImage(this,true,'pin');" onmouseout="A1.ChangeImage(this,false,'pin')" alt="Fix fejléc" onBlur="" onfocus="" ></td><td class='searchtd'><img id="imgsearch" class='img_search' src="/hallgato/WebResource.axd?d=68nkZiYhUEDDPfHgqWl9_n2KaINPhOYG79Xl37mgZZ1okyw7RPkbdFFaMhaqZ4z8LZU6jrXHMJRMmLPPq1OD-Y4XEIc4UmSjrUPqTZwbTozwcUWRM0LKPdJvxvXsmPmYhRXVj20j1ueKSdJtu_F7kA9bvoC9hulgYbyrtXjvqSXU2lW_hc9Ts3-GgP5_yxmx0&t=636741092612822308" srccollapse="/hallgato/WebResource.axd?d=68nkZiYhUEDDPfHgqWl9_n2KaINPhOYG79Xl37mgZZ1okyw7RPkbdFFaMhaqZ4z8LZU6jrXHMJRMmLPPq1OD-Y4XEIc4UmSjrUPqTZwbTozwcUWRM0LKPdJvxvXsmPmYhRXVj20j1ueKSdJtu_F7kA9bvoC9hulgYbyrtXjvqSXU2lW_hc9Ts3-GgP5_yxmx0&t=636741092612822308" srcexpand="/hallgato/WebResource.axd?d=BCGF565KV9G6pEZQS7zHw1KVqZlLjCji3QK5Qt8BCvIqWhoFwZKou3uzP4eCgmsODGosoqPIssx7QbtrJkL9qmP1fVQv2RdWg1E4n0s3LIPK5mLcKkVlbnO7-ktGUGXCJYy2eRP345Mwd3-HsPO_FvzW_B268BN2AQSodLFwaopsFsz42RDGYg41pKNGf4ay0&t=636741092612822308"  title="Keresés" onclick='A1.ShowSearch();' onmouseover="A1.ChangeImage(this,true,'search');" onmouseout="A1.ChangeImage(this,false,'search');" alt="Keresés" onBlur="" onfocus="" ></td></tr></table><table id='c_messages_gridMessages_searchtable' class='grid_searchtable' style='display:none'><tr><td class='grid_searchleft'><td class='grid_search_panel'><table class='grid_searchtableIn' align='right'><tr><td class='grid_searchcaption'><label for='c_messages_gridMessages_searchcolumn'>Keresés</label></td><td class='grid_searchcombo'><select id=c_messages_gridMessages_searchcolumn class='grid_Combo_Search'><option value=SenderName >Küldő</option><option value=Subject >Tárgy</option><option value=SendDate >Érkezés időpontja</option></select></td><td class='searchtextbox'><label for='c_messages_gridMessages_searchtext' class='hiddenforlabel'>Keresési feltételek</label><input type='text' id='c_messages_gridMessages_searchtext' value='' onkeydown='A1.SearchKeyDown(event)'/></td><td class='searchbutton_td'><input type='button' value='Keresés' id='c_messages_gridMessages_searchsubmit' class='grid_searchbutton' onclick='A1.Search()'/></td></tr></table></td><td class='grid_searchright'></tr></table><table class='grid_pagertable' cellPadding='4' cellSpacing='0'><tr class='grid_pagerrow'><td class='grid_pagerrow_left'></td><td class='grid_topfunctionpanel'><table class='grid_functiontable_top' align="left"><tr><td class='functionitem' NoWrap><span class="FunctionCommandTitle">Műveletek:</span><input type='button'  class='gridbutton' id ='function_delete0' value='Törlés' onclick="A1.SelectFunction('delete','chk','False','True','')" /></td></tr></table></td><td class='grid_pagerpanel'><table align='right'><tr><td class="pagerlink_disabled" >1</td><td class="pagerlink" onclick="A1.Paging('2')">2</td><td class="pagerlink" onclick="A1.Paging('3')">3</td><td class="pagerlink" onclick="A1.Paging('4')">4</td><td class="pagerlink" onclick="A1.Paging('5')">5</td><td>&nbsp;&nbsp;</td><td class="pagerlink_np_r" onclick="A1.Paging('2')"></td><td class="pagerlink_np_rmax" onclick="A1.Paging('22')"></td><td class='link_pagesize'><label for="c_messages_gridMessages_ddlPageSize">Oldalméret</label></td><td><select id=c_messages_gridMessages_ddlPageSize class='Combo' onchange=A1.Paging(1)><option value=20 selected=true>20</option> <option value=100 >100</option> <option value=200 >200</option> <option value=500 >500</option> </select></td></tr></table></td><td class='grid_pagerrow_right'></td></tr></table><div id='c_messages_gridMessages_grid_informaciossav' class='gridinformaciossav gridinformaciossavok' style ='display:none;'> <span id='infomessage'></span></div><div id='c_messages_gridMessages_grid_body_div' class='gridbodydiv'   ><table id='c_messages_gridMessages_bodytable' cellpadding=0 cellspacing=0 class='table_body responsive'><thead><tr id='c_messages_gridMessages_headerrow'><th class="header" ></th>   <th  id="head_chk" class="headerWithCheckboxEnabled headerWithCheckbox" colname='chk'  align="center"  ><div><span>Töröl</span><div class="checkbox_all"></div><input type="checkbox" id="chkall" onclick="A1.AllCheckBox(this.checked,'chk',true,1,this)"  /></div></th>   <th  id="head_attachmenticon" class="header" colname='attachmenticon'  align="center"  ><div><span></span></div></th>   <th  id="head_appointmenticon" class="header" colname='appointmenticon'  align="center"  ><div><span></span></div></th>   <th  id="head_SenderName" onclick="A1.SortColumn('SenderName',1)" class="header" colname='SenderName'  align="center"  ><div><span>Küldő</span></div></th>   <th  id="head_messageicon" class="header" colname='messageicon'  align="center"  ><div><span></span></div></th>   <th  id="head_Subject" onclick="A1.SortColumn('Subject',1)" class="header" colname='Subject'  align="center"  ><div><span>Tárgy</span></div></th>   <th  id="head_SendDate" onclick="A1.SortColumn('SendDate',1)" class="header_sorteddown" colname='SendDate'  align="center"  ><div><div><span>Érkezés időpontja</span><img src='App_Themes/Common_Images/AjaxGrid/sort_down.png' alt="Csökkenő sorrend" /></div></div></th></tr></thead><tbody class="scrollablebody"><tr  id="tr__439678344" ><td></td><td t="chks" n="chk" class="aligncenter" ><input type="checkbox" onclick="A1.Cv(this,'1');"/></td><td></td><td></td><td>Dr. Vámossy Zoltán</td><td><img src='App_Themes/New_Common_Images/message_read.png' alt='Elolvasott üzenet' /></td><td  ><span class="link" onclick="A1.Sel('439678344','Subject','1','False','False','null','');">Október 17. előadás ZH</span></td><td>2018.10.12. 18:28:21</td></tr><tr  id="tr__439657170" ><td></td><td t="chks" n="chk" class="aligncenter" ><input type="checkbox" onclick="A1.Cv(this,'1');"/></td><td></td><td></td><td>Schmuck Balázs</td><td><img src='App_Themes/New_Common_Images/message_read.png' alt='Elolvasott üzenet' /></td><td  ><span class="link" onclick="A1.Sel('439657170','Subject','1','False','False','null','');">NIK TO – információk</span></td><td>2018.10.12. 15:05:00</td></tr><tr  id="tr__439630013" ><td></td><td t="chks" n="chk" class="aligncenter" ><input type="checkbox" onclick="A1.Cv(this,'1');"/></td><td></td><td></td><td>Kiss Vivien</td><td><img src='App_Themes/New_Common_Images/message_read.png' alt='Elolvasott üzenet' /></td><td  ><span class="link" onclick="A1.Sel('439630013','Subject','1','False','False','null','');">Meghívó AUTOMOTIVE kiállításra az OE-n </span></td><td>2018.10.12. 12:44:38</td></tr><tr  id="tr__439393021" ><td></td><td t="chks" n="chk" class="aligncenter" ><input type="checkbox" onclick="A1.Cv(this,'1');"/></td><td></td><td></td><td>Tóthné Laufer Edit</td><td><img src='App_Themes/New_Common_Images/message_read.png' alt='Elolvasott üzenet' /></td><td  ><span class="link" onclick="A1.Sel('439393021','Subject','1','False','False','null','');">Bevinf ZH beosztás</span></td><td>2018.10.10. 12:51:50</td></tr><tr  id="tr__439083332" ><td></td><td t="chks" n="chk" class="aligncenter" ><input type="checkbox" onclick="A1.Cv(this,'1');"/></td><td></td><td></td><td>Dr Vajda István</td><td><img src='App_Themes/New_Common_Images/message_read.png' alt='Elolvasott üzenet' /></td><td  ><span class="link" onclick="A1.Sel('439083332','Subject','1','False','False','null','');">vizsga felkészítő</span></td><td>2018.10.08. 7:47:47</td></tr><tr  id="tr__438673746" ><td></td><td t="chks" n="chk" class="aligncenter" ><input type="checkbox" onclick="A1.Cv(this,'1');"/></td><td></td><td></td><td>Fröhlich Martin Michel</td><td><img src='App_Themes/New_Common_Images/message_read.png' alt='Elolvasott üzenet' /></td><td  ><span class="link" onclick="A1.Sel('438673746','Subject','1','False','False','null','');">Kis ZH eredmények</span></td><td>2018.10.05. 15:55:22</td></tr><tr  id="tr__438391624" ><td></td><td t="chks" n="chk" class="aligncenter" ><input type="checkbox" onclick="A1.Cv(this,'1');"/></td><td></td><td></td><td>Vincze Adrienn</td><td><img src='App_Themes/New_Common_Images/message_read.png' alt='Elolvasott üzenet' /></td><td  ><span class="link" onclick="A1.Sel('438391624','Subject','1','False','False','null','');">Októberi nyelvi szintfelmérő felhívás</span></td><td>2018.10.03. 15:14:52</td></tr><tr  id="tr__438192684" ><td></td><td t="chks" n="chk" class="aligncenter" ><input type="checkbox" onclick="A1.Cv(this,'1');"/></td><td></td><td></td><td>Tóthné Laufer Edit</td><td><img src='App_Themes/New_Common_Images/message_read.png' alt='Elolvasott üzenet' /></td><td  ><span class="link" onclick="A1.Sel('438192684','Subject','1','False','False','null','');">Bevinf elmarad</span></td><td>2018.10.01. 17:08:51</td></tr><tr  id="tr__438029566" ><td></td><td t="chks" n="chk" class="aligncenter" ><input type="checkbox" onclick="A1.Cv(this,'1');"/></td><td></td><td></td><td>Fröhlich Martin Michel</td><td><img src='App_Themes/New_Common_Images/message_read.png' alt='Elolvasott üzenet' /></td><td  ><span class="link" onclick="A1.Sel('438029566','Subject','1','False','False','null','');">Kis ZH eredmények</span></td><td>2018.09.28. 20:40:25</td></tr><tr  id="tr__437619263" ><td></td><td t="chks" n="chk" class="aligncenter" ><input type="checkbox" onclick="A1.Cv(this,'1');"/></td><td></td><td></td><td>Fröhlich Martin Michel</td><td><img src='App_Themes/New_Common_Images/message_read.png' alt='Elolvasott üzenet' /></td><td  ><span class="link" onclick="A1.Sel('437619263','Subject','1','False','False','null','');">Labor anyagok</span></td><td>2018.09.24. 16:33:46</td></tr><tr  id="tr__437208972" ><td></td><td t="chks" n="chk" class="aligncenter" ><input type="checkbox" onclick="A1.Cv(this,'1');"/></td><td></td><td></td><td>Bilicska Csaba</td><td><img src='App_Themes/New_Common_Images/message_read.png' alt='Elolvasott üzenet' /></td><td  ><span class="link" onclick="A1.Sel('437208972','Subject','1','False','False','null','');">Erasmus+ pályázat</span></td><td>2018.09.21. 12:44:49</td></tr><tr  id="tr__437193273" ><td></td><td t="chks" n="chk" class="aligncenter" ><input type="checkbox" onclick="A1.Cv(this,'1');"/></td><td></td><td></td><td>Bilicska Csaba</td><td><img src='App_Themes/New_Common_Images/message_read.png' alt='Elolvasott üzenet' /></td><td  ><span class="link" onclick="A1.Sel('437193273','Subject','1','False','False','null','');">K-MOOC kurzusok</span></td><td>2018.09.21. 12:32:45</td></tr><tr  id="tr__437190313" ><td></td><td t="chks" n="chk" class="aligncenter" ><input type="checkbox" onclick="A1.Cv(this,'1');"/></td><td></td><td></td><td>Bilicska Csaba</td><td><img src='App_Themes/New_Common_Images/message_read.png' alt='Elolvasott üzenet' /></td><td  ><span class="link" onclick="A1.Sel('437190313','Subject','1','False','False','null','');">Álláshirdetés</span></td><td>2018.09.21. 12:21:39</td></tr><tr  id="tr__436985312" ><td></td><td t="chks" n="chk" class="aligncenter" ><input type="checkbox" onclick="A1.Cv(this,'1');"/></td><td></td><td></td><td>Vincze Adrienn</td><td><img src='App_Themes/New_Common_Images/message_read.png' alt='Elolvasott üzenet' /></td><td  ><span class="link" onclick="A1.Sel('436985312','Subject','1','False','False','null','');">Álláslehetőség az Informatikai Osztályon</span></td><td>2018.09.19. 15:56:45</td></tr><tr  id="tr__436509714" ><td></td><td t="chks" n="chk" class="aligncenter" ><input type="checkbox" onclick="A1.Cv(this,'1');"/></td><td></td><td></td><td>Bilicska Csaba</td><td><img src='App_Themes/New_Common_Images/message_read.png' alt='Elolvasott üzenet' /></td><td  ><span class="link" onclick="A1.Sel('436509714','Subject','1','False','False','null','');">MatLab szoftver telepítése és aktiválása</span></td><td>2018.09.17. 10:30:31</td></tr><tr  id="tr__436489431" ><td></td><td t="chks" n="chk" class="aligncenter" ><input type="checkbox" onclick="A1.Cv(this,'1');"/></td><td></td><td></td><td>Schmuck Balázs</td><td><img src='App_Themes/New_Common_Images/message_read.png' alt='Elolvasott üzenet' /></td><td  ><span class="link" onclick="A1.Sel('436489431','Subject','1','False','False','null','');">Átsorolási szabály – Ideiglenes diákigazolvány igénylés</span></td><td>2018.09.17. 9:20:00</td></tr><tr  id="tr__436366332" ><td></td><td t="chks" n="chk" class="aligncenter" ><input type="checkbox" onclick="A1.Cv(this,'1');"/></td><td></td><td></td><td>Bilicska Csaba</td><td><img src='App_Themes/New_Common_Images/message_read.png' alt='Elolvasott üzenet' /></td><td  ><span class="link" onclick="A1.Sel('436366332','Subject','1','False','False','null','');">Mateking.hu oktatási segédanyaghoz hozzáférés</span></td><td>2018.09.14. 21:17:30</td></tr><tr  id="tr__435954694" ><td></td><td t="chks" n="chk" class="aligncenter" ><input type="checkbox" onclick="A1.Cv(this,'1');"/></td><td></td><td></td><td>Schmuck Balázs</td><td><img src='App_Themes/New_Common_Images/message_read.png' alt='Elolvasott üzenet' /></td><td  ><span class="link" onclick="A1.Sel('435954694','Subject','1','False','False','null','');">Duális képzési lehetőség</span></td><td>2018.09.11. 12:10:28</td></tr><tr  id="tr__435912477" ><td></td><td t="chks" n="chk" class="aligncenter" ><input type="checkbox" onclick="A1.Cv(this,'1');"/></td><td></td><td></td><td>Füredi Dominik</td><td><img src='App_Themes/New_Common_Images/message_read.png' alt='Elolvasott üzenet' /></td><td  ><span class="link" onclick="A1.Sel('435912477','Subject','1','False','False','null','');">Félévnyitó Gólya Party</span></td><td>2018.09.11. 10:12:47</td></tr><tr  id="tr__435829643" ><td></td><td t="chks" n="chk" class="aligncenter" ><input type="checkbox" onclick="A1.Cv(this,'1');"/></td><td></td><td></td><td>Vincze Adrienn</td><td><img src='App_Themes/New_Common_Images/message_read.png' alt='Elolvasott üzenet' /></td><td  ><span class="link" onclick="A1.Sel('435829643','Subject','1','False','False','null','');">Rendszeres szociális ösztöndíj pályázat</span></td><td>2018.09.10. 15:21:40</td></tr></tbody></table></div><div id='c_messages_gridMessages_divgridbottom' class='griddivbottom'><table id='c_messages_gridMessages_tablebottom' class='tablebottom'><tr><td class="grid_footerleftcorner"></td><td class='grid_RowCount'>Találatok száma:1-20/437  (16 ms)</td><td class='grid_bottomfunctionpanel'><table class='grid_functiontable_bottom' align="right"><tr><td class='functionitem' NoWrap><span class="FunctionCommandTitle">Műveletek:</span><input type='button'  class='gridbutton' id ='function_delete1' value='Törlés' onclick="A1.SelectFunction('delete','chk','False','True','')" /></td></tr></table></td><td class="grid_footerrightcorner"></td></tr></table></div></div></div><div id="c_messages_gridMessages">
+				
+
+			</div>
+
+		</div>
+
+	</div>
+<div id="upFunction_c_messages_upModalAdd">
+		
+
+
+	</div>
+<div id="upFunction_c_messages_upModal">
+		
+
+
+
+	</div>
+
+
+</div>
+</td>
+
+<td id="function_table_rightside" class="FunctionRightSide"></td>
+
+<td id="function_table_space" class="right_side_space"></td>
+
+</tr>
+<tr id="function_tablefooter" class="no_style">
+	<td class="FunctionFooterLeftCorner"></td>
+	<td class="FunctionFooter"></td>
+	<td class="FunctionFooterRightCorner"></td>
+	<td class="right_side_space"></td>
+</tr>
+
+</table>
+</td>
+</tr>
+</table>
+<table class="footer_table" border="0">
+<tr class="footer">
+<td class="footer_left"></td>
+<td class="footer_mid" role="contentinfo">
+<a href="http://www.gfx.hu" target="_blank">
+<img id="logo_designer" alt="Design&#32;logo" src="App_Themes/New_Common_Images/gfx_logo.jpg" alt="Design&#32;logo" />
+</a>
+</td>
+<td class="footer_menu">
+<table cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td>
+<a id="lnkHelp" href="help/hweb_hu.pdf" target="_blank">Segítség</a>
+</td>
+<td>
+<a id="lnkFunctionHelp" href="help/Help.aspx?dic=Hallgatoi&amp;help=c_messages_hu" target="_blank">Súgó</a>
+</td>
+<td>
+<a id="hlSiteMap" href="main.aspx?ctrl=sitemap">Oldaltérkép</a>
+</td>
+<td>
+
+</td>
+<td>
+
+</td>
+<td>
+<a id="hlSendError" href="mailto:support@neptun.uni-obuda.hu">Hiba/Igénybejelentés</a>
+</td>
+</tr>
+</table>
+</td>
+<td class="footer_sda_logo">
+<a href="http://www.sdainformatika.hu" target="_blank">
+<img id="SDAImage1" alt="SDA&#32;logo" src="App_Themes/New_Common_Images/footer_sda_logo.jpg" alt="SDA&#32;logo" />
+</a>
+</td>
+<td class="footer_right"></td>
+</tr>
+</table>
+<div id="upPwdExpiredWarning">
+	
+
+
+
+
+</div>
+
+<div id="upPasswordChangerMsg">
+	
+
+
+
+</div>
+<div id="upRequiredMessageReader">
+	
+
+
+</div>
+<div id="upReadMessageModal">
+	
+
+
+</div>
+<div id="upNickNameModal">
+	
+
+
+</div>
+<div id="TrainingUpdatePanel1">
+	
+
+
+</div>
+<div id="RoleUpdatePanel1">
+	
+
+
+</div>
+<div id="upSystemParams">
+	
+
+
+
+</div>
+<div id="upOutlookExport">
+	
+
+
+</div>
+<div id="upEditLabel">
+	
+
+
+</div>
+<div id="upRoleRequestComment">
+	
+
+
+</div>
+<div id="panelSessionEndBackGround" class="modalBackground" style="display: none; width: 100%; height: 100%; position: absolute; top: 0px; left: 0px; z-index: 10005px;">
+</div>
+<div id="panelSPGridBackGround" class="modalSPGridBackground" style="display: none;">
+</div>
+<div id="modalpanelAttentionSessionEnd" style="display: none;">
+<table class="modaltableSessionTimeout" border="0">
+<tbody>
+<tr>
+<td class="modalheaderleftcorner">&nbsp;
+</td>
+<td class="modalheadercell">
+<div style="width: 100%;" id="upFunction_c_messages_upModal_titleupFunction_c_messages_upModal_modalextenderAddMessage">
+<table class="modalpanel_header_NoMove" border="0">
+<tbody>
+<tr>
+<td id="upFunction_c_messages_upModal_titleupFunction_c_messages_upModal_modalextenderAddMessage__coltitle"
+class="modalpanel_header_caption"></td>
+<td class="modalpanel_header_closeimage pointer"></td>
+<td class="modalpanel_header_fullscreenimage pointer"></td>
+<td class="modalpanel_header_closeimage pointer">
+<label for="modalpopup_close" class="hiddenforlabel">
+Figyelmeztetés bezárás</label>
+<input type="image" src="App_Themes/Skin_Neptun_Gfx/modalpopup_close.gif" onclick="javascript: DoCloseModalPopup(false); return false;"
+style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px"
+value="" alt="Figyelmeztetés bezárás" id="modalpopup_close" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</td>
+<td class="modalheaderrightcorner"></td>
+</tr>
+<tr>
+<td class="modalbodyleft"></td>
+<td class="modalbody">
+<div id="modalpanelcontentupFunction" class="modalpanelcontent_noscrollbar_noheight">
+<div>
+<div id="userctrlupFunction">
+<div class="containerpanel">
+<div style="padding: 10px;">
+
+<div style="position: relative; padding-top: 10px; padding-bottom: 5px; text-align: center;
+border: solid black 0px;">
+<span id="attentionSessionEnd_lblMessage">Figyelem! A rendelkezésre álló munkamenet</span>
+<span id="attentionSessionEnd_lblCountDown" class="lblCountDownTimerNumber" style="color: Red; font-weight: bold;"></span>
+<span id="attentionSessionEnd_lblMessage2">másodperc múlva lejár. Amennyiben ezt újra kívánja indítani, kérjük kattintson a RENDBEN gombra.</span>
+</div>
+<div class="containerpanel" style="position: relative; padding-top: 10px; text-align: center;
+border: solid black 0px; width: 100%;">
+<table class="containerpaneltable" align="center">
+<tr>
+<td align="center">
+<table style="width:180px;">
+<tr>
+<td>
+<input type="button" class="button" onclick="javascript:DoCloseModalPopup(true);return false;"
+value='RENDBEN' />
+</td>
+<td>
+<input type="button" class="button" onclick="javascript:DoCloseModalPopup(false);return false;"
+value='Vissza' />
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<!-- ESC gombra szintén session-t hosszabbít-->
+<script language="javascript" type="text/javascript">
+$(document).keydown(function(e) {
+if (e.keyCode == 27) { DoCloseModalPopup(true); return false; }
+});
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+<td class="modalbodyright"></td>
+</tr>
+<tr>
+<td class="modalfooterleftcorner"></td>
+<td class="modalfooter"></td>
+<td class="modalfooterrightcorner_NoResize"></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="progress" class="modalBckgroundMain" style="display: none">
+<div id="imgdiv" class="progressimagediv">
+<img id="Image2" alt="Folyamatban" src="App_Themes/New_Common_Images/loading.gif" alt="Folyamatban" />
+</div>
+</div>
+<div id="customtextprogress" class="modalBckgroundMain" style="display: none">
+<div id="customtextprogressdiv">
+<img id="SDAImage2" alt="Folyamatban" src="App_Themes/New_Common_Images/loading.gif" alt="Folyamatban" /><br />
+<br />
+<span id="lbCustomTextProgress"></span>
+</div>
+</div>
+<div id="transparentprogress" class="transparentBg" style="display:none">
+<div id="transparentprogressdiv" />
+</div>
+<div id="upDetail">
+
+</div>
+<div id="filedownload">
+	
+<label></label><a id="filedownload_lbnDocumentDownload" title="&amp;nbsp;" href="javascript:__doPostBack(&#39;filedownload$lbnDocumentDownload&#39;,&#39;&#39;)"></a><input type="hidden" name="filedownload$hfDocumentId" id="filedownload_hfDocumentId" />
+
+</div>
+</fieldset>
+
+
+<script type="text/javascript">
+//<![CDATA[
+function OpenHelp(url){window.open(url, '_blank');}var menu1 = new menubar('mb1', false);function CallCampusErrorMessage(){DialogConfirmation('Figyelem!','A szolgáltatás nem elérhető! </br> Kérem forduljon a Tanulmányi Osztályhoz!','Rendben','Mégsem','btnGoToCampus2','warning.png','Rendben','null');}function OpenCampusWindow() {window.open('https://campus.rufusz.hu/microsoftdownload/Links.aspx?s=n2xi2ulldeqsmbjxg1u4tmgi', '_blank');}function OpenUnipollWindow() {window.open('https://unipoll.hu/Survey.aspx?surveyid=133913591&lng=hu-HU&myparam=31hwpzS1CxU3169lLntW6byVyKZzcHTo4MvCZ22mQqpEbFTAgTqEcw==', '_blank');}//]]>
+</script>
+<script type='text/javascript'>var ariaobject = new AriaObject('calendar_chkTime', false, null);</script><script type='text/javascript'>var ariaobject = new AriaObject('calendar_chkExam', false, null);</script><script type='text/javascript'>var ariaobject = new AriaObject('calendar_chkAppointment', false, null);</script><script type='text/javascript'>var ariaobject = new AriaObject('calendar_chkTask', false, null);</script><script type='text/javascript'>var ariaobject = new AriaObject('calendar_chkRegisterList', false, null);</script><script type='text/javascript'>var ariaobject = new AriaObject('calendar_chkKonzultacio', false, null);</script><script type='text/javascript'>var A1= new AjaxGrid('upFunction$c_messages$upMain$upGrid$gridMessages','c_messages_gridMessages','A1','False','','','False','False','App_Themes/Common_Images/AjaxGrid/menu.png','False','False','PersonMessageID','ID','SendDate DESC','','Vertical','True','Igen','Nem, az összeset','Kérdés','Csak az adott oldalt szeretné exportálni?','Összes kijelölése','alatti','True','Figyelem','Rendben','Biztosan törli?','Nem','Válasszon ki legalább egyet!','-1','A kiválasztható sorok maximális száma: -1','Csak az adott oldalt szeretné nyomtatni?','1','Másik oldalra lapozáskor az előző oldalra felvitt értékek elvesznek. Kívánja folytatni?');</script>
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.add_init(function() {
+    $create(SDA.Neptun.WebControls.SDAGadget, {"BodyID":"upBoxes_upRSS_gdgRSS_gdgRSS_body","ChooseColorID":"upBoxes_upRSS_gdgRSS_gdgRSS_ColorBtn","CloseButtonID":"upBoxes_upRSS_gdgRSS_gdgRSS_CloseBtn","DivChooseColorID":"upBoxes_upRSS_gdgRSS_gdgRSS_divChooseColor","GadgetContainerUniqueID":null,"GadgetID":"upBoxes_upRSS_gdgRSS_gdgRSS","GadgetTableID":"upBoxes_upRSS_gdgRSS_ctl20","GadgetType":"Nincs_beallitva","IsRefresh":false}, null, null, $get("upBoxes_upRSS_gdgRSS"));
+});
+Sys.Application.add_init(function() {
+    $create(SDA.Neptun.WebControls.SDAGadget, {"BodyID":"upBoxes_upMessage_gdgMessage_gdgMessage_body","ChooseColorID":"upBoxes_upMessage_gdgMessage_gdgMessage_ColorBtn","CloseButtonID":"upBoxes_upMessage_gdgMessage_gdgMessage_CloseBtn","DivChooseColorID":"upBoxes_upMessage_gdgMessage_gdgMessage_divChooseColor","GadgetContainerUniqueID":null,"GadgetID":"upBoxes_upMessage_gdgMessage_gdgMessage","GadgetTableID":"upBoxes_upMessage_gdgMessage_ctl20","GadgetType":"Nincs_beallitva","IsRefresh":false}, null, null, $get("upBoxes_upMessage_gdgMessage"));
+});
+Sys.Application.add_init(function() {
+    $create(SDA.Neptun.WebControls.SDAGadget, {"BodyID":"upBoxes_upCalendar_gdgCalendar_gdgCalendar_body","ChooseColorID":"upBoxes_upCalendar_gdgCalendar_gdgCalendar_ColorBtn","CloseButtonID":"upBoxes_upCalendar_gdgCalendar_gdgCalendar_CloseBtn","DivChooseColorID":"upBoxes_upCalendar_gdgCalendar_gdgCalendar_divChooseColor","GadgetContainerUniqueID":null,"GadgetID":"upBoxes_upCalendar_gdgCalendar_gdgCalendar","GadgetTableID":"upBoxes_upCalendar_gdgCalendar_ctl20","GadgetType":"Nincs_beallitva","IsRefresh":false}, null, null, $get("upBoxes_upCalendar_gdgCalendar"));
+});
+Sys.Application.add_init(function() {
+    $create(SDA.Neptun.WebControls.SDASearchPanel, {"AnimationID":"upFilter_c_messages_searchpanel_animation","CollapseImageClientID":"upFilter_searchpanel_collapsedimage","ExpandedImageClientID":"upFilter_searchpanel_expandedimage","FooterButtonID":"upFilter_footerbutton","HeaderButtonID":"upFilter_headerbuttons","HiddenFieldID":"upFunction_c_messages_upMain_upFilter_searchpanel_searchpanel_state","IsInit":"true","SearchPanelCollapsed":false,"TableBodyID":"upFilter_searchpanel_body"}, null, null, $get("c_messages_searchpanel"));
+});
+//]]>
+</script>
+</form>
+</body>
+</html>

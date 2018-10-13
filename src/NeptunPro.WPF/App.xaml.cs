@@ -16,10 +16,14 @@ namespace NeptunPro.WPF
             string password = "";
 
             if (password.Equals(""))
-                throw new Exception("Fill up Your Username, please!");
+                throw new Exception("Fill up Your Password, please!");
 
             await loginPage.GetMaxTryNumber();
             await loginPage.LogIn(new LoginCredentials(userName, password));
+
+
+            var messagesPage = new MessagesPage();
+            var messsages = await messagesPage.Load();
 
             Current.Shutdown();
         }
