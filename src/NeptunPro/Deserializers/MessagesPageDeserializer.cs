@@ -7,6 +7,9 @@ namespace NeptunPro.Deserializers
 {
     public static class MessagesPageDeserializer
     {
+        /// <summary>
+        /// Extract <see cref="Message"/> objects from the given source code (from the InBox)
+        /// </summary>
         public static List<Message> InBox(string sourceCode)
         {
             var doc = new HtmlDocument();
