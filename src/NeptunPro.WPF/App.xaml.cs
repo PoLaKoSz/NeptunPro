@@ -25,6 +25,8 @@ namespace NeptunPro.WPF
             var messagesPage = new MessagesPage();
             var messsages = await messagesPage.Load();
 
+            var specificMessage = await messagesPage.GetMessage(messsages[0]);
+
             Current.Shutdown();
         }
     }

@@ -1,5 +1,6 @@
 ﻿using HtmlAgilityPack;
 using NeptunPro.Models;
+using NeptunPro.Models.XHR.Requests;
 using System;
 using System.Collections.Generic;
 
@@ -23,6 +24,30 @@ namespace NeptunPro.Deserializers
             return ExtractMessages(messageTableNode);
         }
 
+        public static PostMessageForm GetHiddenData(PostMessageForm message, string sourceCode)
+        {
+            var doc = new HtmlDocument();
+            doc.LoadHtml(sourceCode);
+
+            message.EventValidation = GetHiddenFieldValue(doc, "__EVENTVALIDATION");
+            message.ViewState = GetHiddenFieldValue(doc, "__VIEWSTATE");
+            message.ViewStateGenerator = GetHiddenFieldValue(doc, "__VIEWSTATEGENERATOR");
+
+            return message;
+        }
+
+
+        private static string GetHiddenFieldValue(HtmlDocument document, string name)
+        {
+            HtmlNode fieldNode = document.DocumentNode.SelectSingleNode("//input[@type=\"hidden\"][@name=\"" + name + "\"]");
+
+            if (fieldNode != null)
+            {
+                return fieldNode.GetAttributeValue("value", "");
+            }
+
+            return "";
+        }
 
         private static List<Message> ExtractMessages(HtmlNode messageTableNode)
         {
