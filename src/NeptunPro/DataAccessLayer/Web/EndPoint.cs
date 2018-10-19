@@ -16,7 +16,8 @@ namespace NeptunPro.DataAccessLayer.Web
             var handler = new HttpClientHandler();
 
             _client = new HttpClient(handler, disposeHandler: true);
-            _client.DefaultRequestHeaders.Add("Accept", "application/json");
+            _client.DefaultRequestHeaders.Add("Accept", "*/*");
+            _client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0");
         }
 
         public EndPoint(Uri baseAddress)
