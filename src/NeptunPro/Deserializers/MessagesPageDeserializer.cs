@@ -15,7 +15,7 @@ namespace NeptunPro.Deserializers
             var doc = new HtmlDocument();
             doc.LoadHtml(sourceCode);
 
-            var messageTableNode = doc.DocumentNode.SelectSingleNode("//div[@id=\"c_messages_gridMessages_grid_body_div\"]/table[@id=\"c_messages_gridMessages_bodytable\"]/tbody[@class=\"scrollablebody\"]");
+            var messageTableNode = doc.DocumentNode.SelectSingleNode("/html[1]/body[1]/form[1]/fieldset[1]/table[2]/tr[1]/td[3]/table[1]/tr[5]/td[2]/div[1]/div[1]/div[2]/div[1]/div[1][@id=\"c_messages_gridMessages_gridmaindiv\"]/ div[3][@id=\"c_messages_gridMessages_grid_body_div\"]/table[1][@id=\"c_messages_gridMessages_bodytable\"]/tbody[1][@class=\"scrollablebody\"]");
 
             if (messageTableNode == null)
                 return new List<Message>();
