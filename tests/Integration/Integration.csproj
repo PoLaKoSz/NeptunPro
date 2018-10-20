@@ -21,6 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="StaticResources\InBox_DetailedMessage.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="StaticResources\InBox_HasMessages.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

@@ -23,6 +23,27 @@ namespace NeptunPro.Deserializers
             return ExtractMessages(messageTableNode);
         }
 
+        /// <summary>
+        /// Update the paramter <see cref="Message"/> with the message body
+        /// </summary>
+        public static void Api(string sourceCode, Message message)
+        {
+            var doc = new HtmlDocument();
+            doc.LoadHtml(sourceCode);
+
+            HtmlNode messageBodyNode = doc.DocumentNode.SelectSingleNode("/div[5]/div[1]/div[1]/div[1]/div[1]/div[3]/span[1]/html[1]/body[1]");
+
+            if (messageBodyNode != null)
+            {
+                foreach (var paragraph in messageBodyNode.SelectNodes(".//p"))
+                {
+                    message.Text += paragraph.InnerText + "\n";
+                }
+            }
+
+            message.Text = message.Text.Substring(0, message.Text.Length - 1);
+        }
+
 
         private static List<Message> ExtractMessages(HtmlNode messageTableNode)
         {

@@ -59,5 +59,26 @@ namespace NeptunPro.Tests.Integration.Deserializers
 
             CollectionAssert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void Api_Method__Should_Return_Completed_Message()
+        {
+            var expected = new Message(440387024, "Fröhlich Martin Michel", "4. kis zh eredmények", new DateTime(2018, 10, 19, 19, 39, 41, DateTimeKind.Utc))
+            {
+                Text = "Kedves Hallgatók!\n" +
+                "A negyedik kis zh eredményeit felraktam a moodle rendszerbe, a pdf frissítve lett, valamint a feltöltés helyén látjátok a megjegyzéseket. Akinek kérdése van, e-mailben felteheti. A nagy zh pontos tematikájával a jövő hét folyamán kaptok egy e-mailt. \n" +
+                "Kellemes hétvégét, jó gyakorlást kívánok!\n" +
+                "Üdv,\n" +
+                "M"
+            };
+
+            string sourceCode = File.ReadAllText(Path.Combine(Constants.ResourceFolder, "InBox_DetailedMessage.html"));
+
+            var actual = new Message(440387024, "Fröhlich Martin Michel", "4. kis zh eredmények", new DateTime(2018, 10, 19, 19, 39, 41, DateTimeKind.Utc));
+
+            MessagesPageDeserializer.Api(sourceCode, actual);
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
