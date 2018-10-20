@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NeptunPro.EndPoints
 {
-    public class MessagesPage : EndPoint
+    public class MessagesPage : SecureEndPoint
     {
         public MessagesPage()
             : base(new Uri("https://neptun.uni-obuda.hu/hallgato/main.aspx")) { }
@@ -21,11 +21,11 @@ namespace NeptunPro.EndPoints
         /// <returns>Collection of <see cref="Message"/> object which only has an ID, Sender, Subject and Title property</returns>
         public async Task<List<Message>> Load()
         {
-            string _sourceCode = await base.GetAsync(base.BaseAddress);
+            //string _sourceCode = await base.GetAsync(base.BaseAddress);
 
-            System.IO.File.WriteAllText("saved.html", _sourceCode, System.Text.Encoding.UTF8);
+            //System.IO.File.WriteAllText("saved.html", _sourceCode, System.Text.Encoding.UTF8);
 
-            //_sourceCode = System.IO.File.ReadAllText("saved.html");
+            string _sourceCode = System.IO.File.ReadAllText("saved.html");
 
             return MessagesPageDeserializer.InBox(_sourceCode);
         }
@@ -39,11 +39,11 @@ namespace NeptunPro.EndPoints
             var xhrMessageModel = new PostMessageForm();
             xhrMessageModel.SetID(message);
 
-            var _sourceCode = await base.PostAsync(base.BaseAddress, xhrMessageModel);
+            //var _sourceCode = await base.PostAsync(base.BaseAddress, xhrMessageModel);
 
-            System.IO.File.WriteAllText("message_api.html", _sourceCode, System.Text.Encoding.UTF8);
+            //System.IO.File.WriteAllText("message_api.html", _sourceCode, System.Text.Encoding.UTF8);
 
-            //_sourceCode = System.IO.File.ReadAllText("saved.html");
+            string _sourceCode = System.IO.File.ReadAllText("saved.html");
 
             return message;
         }

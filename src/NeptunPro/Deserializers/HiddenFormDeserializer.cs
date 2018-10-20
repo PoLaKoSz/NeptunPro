@@ -5,7 +5,7 @@ namespace NeptunPro.Deserializers
 {
     public class HiddenFormDeserializer
     {
-        public static void UpdateHiddenData(PostForm postForm, string sourceCode)
+        public static void FromWholePage(PostForm postForm, string sourceCode)
         {
             var doc = new HtmlDocument();
             doc.LoadHtml(sourceCode);
@@ -13,6 +13,11 @@ namespace NeptunPro.Deserializers
             postForm.EventValidation = GetHiddenFieldValue(doc, "__EVENTVALIDATION");
             postForm.ViewState = GetHiddenFieldValue(doc, "__VIEWSTATE");
             postForm.ViewStateGenerator = GetHiddenFieldValue(doc, "__VIEWSTATEGENERATOR");
+        }
+
+        public static void FromApiResponse(PostForm postForm, string sourceCode)
+        {
+
         }
 
 

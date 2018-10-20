@@ -1,5 +1,4 @@
-﻿using NeptunPro.Deserializers;
-using NeptunPro.Models.XHR.Requests;
+﻿using NeptunPro.Models.XHR.Requests;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -8,10 +7,13 @@ using System.Threading.Tasks;
 
 namespace NeptunPro.DataAccessLayer.Web
 {
+    /// <summary>
+    /// Simple web access layer only for the bare minimum. Most EndPoints should use
+    /// <see cref="SecureEndPoint"/> instead.
+    /// </summary>
     public abstract class EndPoint : IDisposable
     {
         private static readonly HttpClient _client;
-        private static readonly PostForm _postForm;
 
         protected readonly Uri BaseAddress;
 
@@ -24,8 +26,6 @@ namespace NeptunPro.DataAccessLayer.Web
             _client = new HttpClient(handler, disposeHandler: true);
             _client.DefaultRequestHeaders.Add("Accept", "*/*");
             _client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0");
-
-            _postForm = new PostForm();
         }
 
         public EndPoint(Uri baseAddress)
@@ -57,19 +57,13 @@ namespace NeptunPro.DataAccessLayer.Web
         /// such as network connectivity, DNS failure, server certificate validation or timeout.</exception>
         protected async Task<string> PostAsync(Uri requestUri, PostForm postForm)
         {
-            postForm.UpdateWith(_postForm);
-
             string xhrForm = JsonConvert.SerializeObject(postForm);
 
             Dictionary<string, string> formVariables = JsonConvert.DeserializeObject<Dictionary<string, string>>(xhrForm);
 
             var formContent = new FormUrlEncodedContent(formVariables);
 
-            string sourceCode = await PostAsync(requestUri, formContent);
-
-            HiddenFormDeserializer.UpdateHiddenData(_postForm, sourceCode);
-
-            return sourceCode;
+            return await PostAsync(requestUri, formContent);
         }
 
         /// <summary>
@@ -83,9 +77,7 @@ namespace NeptunPro.DataAccessLayer.Web
         {
             var response = await _client.PostAsync(requestUri, httpContent);
 
-            string sourceCode = await response.Content.ReadAsStringAsync();
-
-            return sourceCode;
+            return await response.Content.ReadAsStringAsync();
         }
 
 
