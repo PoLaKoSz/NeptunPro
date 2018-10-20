@@ -30,9 +30,7 @@ namespace NeptunPro.EndPoints
         /// <returns>Collection of <see cref="Message"/> object which only has an ID, Sender, Subject and Title property</returns>
         public async Task<List<Message>> Load()
         {
-            var response = await _client.GetAsync(base.BaseAddress);
-
-            _sourceCode = await response.Content.ReadAsStringAsync();
+            _sourceCode = await base.GetAsync(base.BaseAddress);
 
             System.IO.File.WriteAllText("saved.html", _sourceCode, System.Text.Encoding.UTF8);
 
@@ -44,7 +42,7 @@ namespace NeptunPro.EndPoints
         /// <summary>
         /// Get more details for the parameter <see cref="Message"/>
         /// </summary>
-        /// <returns><see cref="Message"/> with the Text property</returns>
+        /// <returns><see cref="Message"/> with the filled Text property</returns>
         public async Task<Message> GetMessage(Message message)
         {
             var xhrMessageModel = new PostMessageForm();
@@ -52,15 +50,7 @@ namespace NeptunPro.EndPoints
 
             MessagesPageDeserializer.GetHiddenData(xhrMessageModel, _sourceCode);
 
-            string xhrForm = JsonConvert.SerializeObject(xhrMessageModel);
-
-            Dictionary<string, string> formVariables = JsonConvert.DeserializeObject<Dictionary<string, string>>(xhrForm);
-
-            var formContent = new FormUrlEncodedContent(formVariables);
-
-            var response = await _client.PostAsync(base.BaseAddress, formContent);
-
-            _sourceCode = await response.Content.ReadAsStringAsync();
+            var response = await base.PostAsync(base.BaseAddress, xhrMessageModel);
 
             System.IO.File.WriteAllText("message_api.html", _sourceCode, System.Text.Encoding.UTF8);
 

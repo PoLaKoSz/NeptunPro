@@ -17,10 +17,7 @@ namespace NeptunPro.EndPoints
 
         public async Task GetMaxTryNumber()
         {
-            // Content-Type: application/json; charset=utf-8
-            var response = await _client.PostAsync(new Uri(base.BaseAddress, "GetMaxTryNumber"), new StringContent("", Encoding.UTF8, "application/json"));
-
-            var responseContent = response.Content.ReadAsStringAsync();
+            var responseContent = await base.PostAsync(new Uri(base.BaseAddress, "GetMaxTryNumber"), new StringContent("", Encoding.UTF8, "application/json"));
         }
 
         public async Task LogIn(LoginCredentials loginCredentials)
@@ -31,12 +28,11 @@ namespace NeptunPro.EndPoints
 
         private async Task CheckLoginEnable(LoginCredentials loginCredentials)
         {
-            var json = JsonConvert.SerializeObject(loginCredentials);
+            string json = JsonConvert.SerializeObject(loginCredentials);
 
             var stringContent = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await _client.PostAsync(new Uri(base.BaseAddress, "CheckLoginEnable"), stringContent);
-            var responseContent = response.Content.ReadAsStringAsync();
+            string responseContent = await base.PostAsync(new Uri(base.BaseAddress, "CheckLoginEnable"), stringContent);
         }
     }
 }
