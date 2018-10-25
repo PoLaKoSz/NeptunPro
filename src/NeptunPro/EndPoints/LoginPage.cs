@@ -1,5 +1,6 @@
 ﻿using NeptunPro.DataAccessLayer.Web;
 using NeptunPro.Models;
+using NeptunPro.Models.XHR.Responses;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http;
@@ -15,9 +16,11 @@ namespace NeptunPro.EndPoints
 
 
 
-        public async Task GetMaxTryNumber()
+        public async Task<MaxLoginResponse> GetMaxTryNumber()
         {
-            var responseContent = await base.PostAsync(new Uri(base.BaseAddress, "GetMaxTryNumber"), new StringContent("", Encoding.UTF8, "application/json"));
+            var response = await base.PostAsync(new Uri(base.BaseAddress, "GetMaxTryNumber"), new StringContent("", Encoding.UTF8, "application/json"));
+
+            return JsonConvert.DeserializeObject<MaxLoginResponse>(response);
         }
 
         public async Task LogIn(LoginCredentials loginCredentials)

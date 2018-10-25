@@ -18,7 +18,7 @@ namespace NeptunPro.WPF
             if (password.Equals(""))
                 throw new Exception("Fill up Your Password, please!");
 
-            await loginPage.GetMaxTryNumber();
+            var maxTry = await loginPage.GetMaxTryNumber();
             await loginPage.LogIn(new LoginCredentials(userName, password));
 
 
