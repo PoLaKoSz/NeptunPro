@@ -1,4 +1,5 @@
 ﻿using NeptunPro.DataAccessLayer.Web;
+using NeptunPro.Deserializers;
 using NeptunPro.Models;
 using NeptunPro.Models.XHR.Responses;
 using Newtonsoft.Json;
@@ -23,19 +24,23 @@ namespace NeptunPro.EndPoints
             return JsonConvert.DeserializeObject<MaxLoginResponse>(response);
         }
 
-        public async Task LogIn(LoginCredentials loginCredentials)
+        public async Task<bool> LogIn(LoginCredentials loginCredentials)
         {
-            await CheckLoginEnable(loginCredentials);
+            var loginResponse = await CheckLoginEnable(loginCredentials);
+
+            return loginResponse.IsSuccess == true && loginResponse.ErrorMessage.Equals("Sikeres bejelentkezés");
         }
 
 
-        private async Task CheckLoginEnable(LoginCredentials loginCredentials)
+        private async Task<LoginResponse> CheckLoginEnable(LoginCredentials loginCredentials)
         {
             string json = JsonConvert.SerializeObject(loginCredentials);
 
             var stringContent = new StringContent(json, Encoding.UTF8, "application/json");
 
-            string responseContent = await base.PostAsync(new Uri(base.BaseAddress, "CheckLoginEnable"), stringContent);
+            string response = await base.PostAsync(new Uri(base.BaseAddress, "CheckLoginEnable"), stringContent);
+
+            return InvalidAjaxResponseDeserializer.Fix<LoginResponse>(response);
         }
     }
 }
