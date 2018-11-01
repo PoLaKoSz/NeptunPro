@@ -5,12 +5,12 @@ using System.Collections.Generic;
 
 namespace NeptunPro.Deserializers
 {
-    internal class MessagesPageDeserializer : Logger
+    public class MessagesPageDeserializer : Logger
     {
         /// <summary>
         /// Extract <see cref="Message"/> objects from the given source code (from the InBox)
         /// </summary>
-        internal static List<Message> InBox(string sourceCode)
+        public static List<Message> InBox(string sourceCode)
         {
             var doc = new HtmlDocument();
             doc.LoadHtml(sourceCode);
@@ -26,7 +26,7 @@ namespace NeptunPro.Deserializers
         /// <summary>
         /// Update the paramter <see cref="Message"/> with the message body
         /// </summary>
-        internal static void Api(string sourceCode, Message message)
+        public static void Api(string sourceCode, Message message)
         {
             var doc = new HtmlDocument();
             doc.LoadHtml(sourceCode);

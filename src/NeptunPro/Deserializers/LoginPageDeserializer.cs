@@ -5,9 +5,9 @@ using System.Text.RegularExpressions;
 
 namespace NeptunPro.Deserializers
 {
-    internal class LoginPageDeserializer : Logger
+    public class LoginPageDeserializer : Logger
     {
-        internal static NeptunBuildDetails BuildDetails(string sourceCode)
+        public static NeptunBuildDetails BuildDetails(string sourceCode)
         {
             int outputVersion = 0;
             DateTime outputDate = new DateTime(1999, 12, 31);
@@ -19,7 +19,7 @@ namespace NeptunPro.Deserializers
 
             if (messageTableNode == null)
             {
-
+                Log.Error("Couldn't find build version node!");
                 return new NeptunBuildDetails(outputVersion, outputDate);
             }
 
