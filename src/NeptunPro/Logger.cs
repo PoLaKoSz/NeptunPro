@@ -14,10 +14,13 @@ namespace NeptunPro
         {
             var config = new LoggingConfiguration();
 
-            var logfile = new FileTarget("logfile") { FileName = "file.txt" };
-            var logconsole = new ConsoleTarget("logconsole");
+            var logfile = new FileTarget("logfile")
+            {
+                FileName = "file.txt",
+                Layout = "${longdate} ${level} ${message} ${exception}"
+            };
 
-            config.AddRuleForAllLevels("logfile");
+            config.AddRuleForAllLevels(logfile);
 
             LogManager.Configuration = config;
 
