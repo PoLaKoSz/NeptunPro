@@ -6,7 +6,7 @@ namespace NeptunPro.Deserializers
     /// <summary>
     /// When an AJAX response come with a {"d" : "<something>"} this class will take care of it
     /// </summary>
-    internal class InvalidAjaxResponseDeserializer : Log
+    internal class InvalidAjaxResponseDeserializer : Logger
     {
         internal static T Fix<T>(string ajaxResponse)
         {

@@ -3,7 +3,7 @@ using NeptunPro.Models.XHR.Requests;
 
 namespace NeptunPro.Deserializers
 {
-    internal class HiddenFormDeserializer : Log
+    internal class HiddenFormDeserializer : Logger
     {
         internal static void FromWholePage(PostForm postForm, string sourceCode)
         {

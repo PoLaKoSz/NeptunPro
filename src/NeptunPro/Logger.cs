@@ -4,13 +4,13 @@ using NLog.Targets;
 
 namespace NeptunPro
 {
-    public abstract class Log
+    public abstract class Logger
     {
-        internal readonly static Logger Instance;
+        internal readonly static NLog.Logger Log;
 
 
 
-        static Log()
+        static Logger()
         {
             var config = new LoggingConfiguration();
 
@@ -21,7 +21,7 @@ namespace NeptunPro
 
             LogManager.Configuration = config;
 
-            Instance = LogManager.GetCurrentClassLogger();
+            Log = LogManager.GetCurrentClassLogger();
         }
     }
 }

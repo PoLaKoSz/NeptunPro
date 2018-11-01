@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace NeptunPro.Deserializers
 {
-    internal class MessagesPageDeserializer : Log
+    internal class MessagesPageDeserializer : Logger
     {
         /// <summary>
         /// Extract <see cref="Message"/> objects from the given source code (from the InBox)

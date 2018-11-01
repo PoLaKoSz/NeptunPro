@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace NeptunPro.Deserializers
 {
-    internal class LoginPageDeserializer : Log
+    internal class LoginPageDeserializer : Logger
     {
         internal static NeptunBuildDetails BuildDetails(string sourceCode)
         {
