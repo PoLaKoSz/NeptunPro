@@ -30,6 +30,7 @@ namespace NeptunPro.Deserializers
         }
 
 
+        /// <exception cref="NodeNotFoundException">Given string can't be parsed</exception>
         private static NeptunBuildDetails ExtractBuildVersion(string text)
         {
             Regex regex = new Regex(@"Build: (?<buildNumber>\d+) \((?<buildDate>\d+.\d+.\d+.)\)");
