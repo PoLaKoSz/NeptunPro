@@ -7,36 +7,45 @@ namespace NeptunPro.Deserializers
 {
     public class LoginPageDeserializer : Logger
     {
+        /// <summary>
+        /// Extract Build details from the LoginPage
+        /// </summary>
+        /// <param name="sourceCode">Full source code of the LoginPage</param>
+        /// <exception cref="NodeNotFoundException">Webpage structure changed</exception>
+        /// <exception cref="NodeNotFoundException">Data format changed on the Webpage</exception>
         public static NeptunBuildDetails BuildDetails(string sourceCode)
         {
-            int outputVersion = 0;
-            DateTime outputDate = new DateTime(1999, 12, 31);
-
             HtmlDocument doc = new HtmlDocument();
             doc.LoadHtml(sourceCode);
 
-            HtmlNode messageTableNode = doc.DocumentNode.SelectSingleNode("/html/body/form/table/tr[2]/td/table/tr/td[2]/div/table/tr[2]/td/span[@id=\"lblVersion\" and @class=\"szovegversion\"]");
+            HtmlNode buildVersionNode = doc.DocumentNode.SelectSingleNode("/html/body/form/table/tr[2]/td/table/tr/td[2]/div/table/tr[2]/td/span[@id=\"lblVersion\" and @class=\"szovegversion\"]");
 
-            if (messageTableNode == null)
+            if (buildVersionNode == null)
             {
                 Log.Error("Couldn't find build version node!");
-                return new NeptunBuildDetails(outputVersion, outputDate);
+                throw new NodeNotFoundException();
             }
 
+            return ExtractBuildVersion(buildVersionNode.InnerText);
+        }
+
+
+        private static NeptunBuildDetails ExtractBuildVersion(string text)
+        {
             Regex regex = new Regex(@"Build: (?<buildNumber>\d+) \((?<buildDate>\d+.\d+.\d+.)\)");
-            MatchCollection matchCollection = regex.Matches(messageTableNode.InnerText);
+            MatchCollection matchCollection = regex.Matches(text);
 
             try
             {
-                outputVersion = int.Parse(matchCollection[0].Groups[1].Value);
-                outputDate = DateTime.Parse(matchCollection[0].Groups[2].Value);
+                return new NeptunBuildDetails(
+                    int.Parse(matchCollection[0].Groups[1].Value),
+                    DateTime.Parse(matchCollection[0].Groups[2].Value));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                Log.Error("Couldn't extract Neptun build details from {text}", text);
+                throw new FormatException("Neptun build details is not in the correct format", ex);
             }
-
-            return new NeptunBuildDetails(outputVersion, outputDate);
         }
     }
 }

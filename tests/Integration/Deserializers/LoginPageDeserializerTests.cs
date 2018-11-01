@@ -14,8 +14,6 @@ namespace NeptunPro.Tests.Integration.Deserializers
         {
             string sourceCode = File.ReadAllText(Path.Combine(Constants.ResourceFolder, "LoginPage.html"));
 
-            sourceCode = "";
-
             var actual = LoginPageDeserializer.BuildDetails(sourceCode);
 
             var expected = new NeptunBuildDetails(455, new DateTime(2018, 07, 19));
