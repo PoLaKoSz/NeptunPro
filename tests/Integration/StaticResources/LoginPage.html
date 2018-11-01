@@ -1,0 +1,690 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+ARIA 1.0//EN" "http://www.w3.org/WAI/ARIA/schemata/xhtml-aria-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="hu">
+<head><title>
+	Neptun.Net Hallgato_15
+</title><meta http-equiv="X-UA-Compatible" content="IE=10" /><meta content="Microsoft&#32;Visual&#32;Studio&#32;.NET&#32;7.1" name="GENERATOR" /><meta content="C#" name="CODE_LANGUAGE" /><meta content="JavaScript" name="vs_defaultClientScript" /><meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema" /><link id="Link1" rel="shortcut&#32;icon" href="../favicon.ico" type="image/x-icon" /><link id="Link2" rel="icon" href="../favicon.ico" type="image/ico" />
+<script>
+document.msCapsLockWarningOff = true;
+</script>
+<link href="../App_Themes/Skin_Neptun_Login/Custom/Hallgato/_Style_Neptun_Login_Custom.css" type="text/css" rel="stylesheet" /><link href="../App_Themes/Skin_Neptun_Login/Custom/Oktato/_Style_Neptun_Login_Custom.css" type="text/css" rel="stylesheet" /><link href="../App_Themes/Skin_Neptun_Login/jquery.widget.css" type="text/css" rel="stylesheet" /><link href="../App_Themes/Skin_Neptun_Login/jquery-ui.css" type="text/css" rel="stylesheet" /><link href="../App_Themes/Skin_Neptun_Login/Style_Neptun_Login.css" type="text/css" rel="stylesheet" /><link href="/hallgato/WebResource.axd?d=C1singZisMC2VkViaWrJROIo0TOs7rbzjzV63C3AmqnDbuZDAor5OftQIShErjhSTSspADn5K6lVy8HPYgI-FbQNbX9aPCyzMUMOcikDxghjlqI0YSqWAMaaZVnHK1-cmqigVEc5_XbMhzwkUpS0jy2QVqs-7LfcymjTQmQPw4Y1&amp;t=636764414104222039" type="text/css" rel="stylesheet" /><link href="/hallgato/WebResource.axd?d=SXc670jV9pmqcFiqJ_mm__marwzk0dTb9EmhdArLGP_j36VN53Wfq8V5RcEWMAO_S65CwUzF6dysF2sAe2zouhkkZRxT6EMUT2UuGfpkoKQXPpgxuLqpP2U9-v3KGMag_x1FtFnRawRm41ng-6QdaK4nI5IyFTdlUw3hES_qRrV-h91Ogq4RekZIeuYqhi1yoPtuNrOvM9H0Ji_N0Y8fbRQOhUrxcopBg1Wbw-j_B1U1&amp;t=636764414287940193" type="text/css" rel="stylesheet" /></head>
+<body id="bodyLogin" orgid="hallgato_default" role="application">
+<form method="post" action="./" onsubmit="javascript:return WebForm_OnSubmit();" onkeypress="javascript:return WebForm_FireDefaultButton(event, 'btnSubmit')" id="Form1" autocomplete="off" class="formcss">
+<div class="aspNetHidden">
+<input type="hidden" name="ToolkitScriptManager1_HiddenField" id="ToolkitScriptManager1_HiddenField" value="" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEyMTkyOTAwNjgPZBYCAgEPFgIeBW9yZ2lkBRBoYWxsZ2F0b19kZWZhdWx0FgICAQ9kFgYCAQ8WBh4JaW5uZXJodG1sBQ5UZXN6dCByZW5kc3plch4Fc3R5bGUFkQN3aWR0aDo0MCU7ZmlsdGVyOmFscGhhKG9wYWNpdHk9OTApO2JhY2tncm91bmQtY29sb3I6IGdyYXk7DQogICAgICAgICAgICBjb2xvcjogcmVkOw0KICAgICAgICAgICAgbGVmdDogMzAlOw0KICAgICAgICAgICAgb3BhY2l0eTogMC43Ow0KICAgICAgICAgICAgLW1vei1vcGFjaXR5OiAwLjc7DQogICAgICAgICAgICB6LWluZGV4OiA1NTU1NTU7DQogICAgICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7DQogICAgICAgICAgICBmb250LXNpemU6IDMwcHg7DQogICAgICAgICAgICBmb250LXdlaWdodDogYm9sZDsNCiAgICAgICAgICAgIHBvc2l0aW9uOiBmaXhlZDsNCiAgICAgICAgICAgIHRvcDogMHB4Ow0KICAgICAgICAgICAgbWFyZ2luOiBhdXRvOw0KICAgICAgICAgICAgY3Vyc29yOiBwb2ludGVyOx4Hb25jbGljawWMAXRyeXtpZiAoJCgnLnN5c3RlbXR5cGUnKS5jc3MoJ3RvcCcpID09ICcwcHgnKXsgJCgnLnN5c3RlbXR5cGUnKS5jc3MoeyB0b3A6ICczOHB4JyB9KTt9ZWxzZXskKCcuc3lzdGVtdHlwZScpLmNzcyh7IHRvcDogJzBweCcgfSk7fX1jYXRjaChlKXt9ZAIJD2QWAgIBDw8WAh4EVGV4dAUbVsOhbHTDoXMgc3plcmtlc3p0w7UgbcOzZHJhZGQCCw8WAh8ABRBoYWxsZ2F0b19kZWZhdWx0FgpmD2QWAmYPZBYCAgMPDxYCHwQFD8OTYnVkYWkgRWd5ZXRlbWRkAgEPZBYCZg9kFhoCAQ8WAh8ABRBoYWxsZ2F0b19kZWZhdWx0ZAIHDw8WAh8EBQpIYWxsZ2F0w7NpZGQCCQ8PFgQfBAUPSGFsbGdhdG9fMTUoNzQpHgdUb29sVGlwBRtIYWxsZ2F0b18xNSg3NCBzemFiYWQgaGVseSlkZAILDxYCHwQFBk55ZWx2OmQCDQ9kFgYCAQ8PFgQfBQUGTWFneWFyHghJbWFnZVVybAUmfi9BcHBfVGhlbWVzL0NvbW1vbl9JbWFnZXMvZmxhZ19odS5wbmdkZAICDw8WBB8FBQdFbmdsaXNoHwYFJn4vQXBwX1RoZW1lcy9Db21tb25fSW1hZ2VzL2ZsYWdfZW4ucG5nFgYeCm9ubW91c2VvdXQFKmphdmFzY3JpcHQ6bGFuZ21vdXNlb3V0KCdidG5MYW5nXzEnLCc1MCcpOx4Lb25tb3VzZW92ZXIFJmphdmFzY3JpcHQ6bGFuZ21vdXNlb3ZlcignYnRuTGFuZ18xJyk7HwIFNmZpbHRlcjphbHBoYShvcGFjaXR5PTUwKTtvcGFjaXR5OjAuNTstbW96LW9wYWNpdHk6MC41O2QCAw8PFgQfBQUHRGV1dHNjaB8GBSZ+L0FwcF9UaGVtZXMvQ29tbW9uX0ltYWdlcy9mbGFnX2RlLnBuZxYGHwcFKmphdmFzY3JpcHQ6bGFuZ21vdXNlb3V0KCdidG5MYW5nXzInLCc1MCcpOx8IBSZqYXZhc2NyaXB0Omxhbmdtb3VzZW92ZXIoJ2J0bkxhbmdfMicpOx8CBTZmaWx0ZXI6YWxwaGEob3BhY2l0eT01MCk7b3BhY2l0eTowLjU7LW1vei1vcGFjaXR5OjAuNTtkAg8PDxYCHwQFDEF6b25vc8OtdMOzOmRkAhEPDxYEHhVWYWxpZGF0b3JJc0FscmVhZHlTZXRoHgpJc1JlcXVpcmVkaGRkAhUPFgIeCENzc0NsYXNzBTRhamF4X192YWxpZGF0b3JjYWxsb3V0XyBhamF4X192YWxpZGF0b3JjYWxsb3V0X2xvZ2luZAIXDw8WAh8EBQhKZWxzesOzOmRkAhkPDxYEHwloHwpoZGQCGw8WBB4HTWVzc2FnZQUTQSBDYXBzIExvY2sgYWt0w612IR4OSGlwZUJlaGF2aW9kSUQFIkhvdmVySW5mb1BhbmVsRXh0ZW5kZXJfQ0xXcGFzc3dvcmQWAmYPFgIfCwUXYWpheF9fdmFsaWRhdG9yY2FsbG91dF9kAh0PFgIfAAUQaGFsbGdhdG9fZGVmYXVsdBYEAgEPFgIeB1Zpc2libGVoZAIDDw8WAh8EBQ5CZWplbGVudGtlesOpc2RkAh8PFgIfAAUQaGFsbGdhdG9fZGVmYXVsdBYGAgEPDxYCHwQFIkJ1aWxkOiA0NTUgKDIwMTguMDcuMTkuKSBQMjAxODEwMjlkZAIDDxYCHwQFGVTDoW1vZ2F0b3R0IGLDtm5nw6lzesWRazpkAgUPFgIfBAVDTWljcm9zb2Z0IEludGVybmV0IEV4cGxvcmVyIDEwLjArIDsgTW96aWxsYSBGaXJlZm94IDsgR29vZ2xlIENocm9tZWQCAg9kFgJmD2QWBAIBDxAPFgIfBAUsTmUgaGFzem7DoWxqb24gaWRlaWdsZW5lcyBpbnRlcm5ldCBmw6FqbG9rYXRkZGRkAgMPDxYCHwQFViogQWxhcMOpcnRlbG1lemV0dCBqZWxzesOzOjxicj5zesO8bGV0w6lzaSBkw6F0dW0gw4nDicOJw4lISE5OPGJyPmZvcm3DoXR1bWJhbiBtZWdhZHZhZGQCAw9kFgJmD2QWEAIBDw8WAh8EBQxGcmlzcyBow61yZWtkZAIDDw8WAh8EBRlMZXTDtmx0aGV0xZEgZG9rdW1lbnR1bW9rZGQCBQ8PFgIfBAUOSGFzem5vcyBsaW5rZWtkZAIHD2QWAmYPZBYCAgEPPCsACQEADxYEHghEYXRhS2V5cxYAHgtfIUl0ZW1Db3VudGZkZAILD2QWAmYPZBYCAgEPDxYMHg1Jbml0aWFsSGVpZ2h0AqwCHgxJbml0aWFsV2lkdGgC9AMeFEhpZGVGdWxsU2NyZWVuQnV0dG9uZx4RbV9WYW5Kb2dvc3VsdHNhZ2FnHg1mcm9tQmFzaWNQYWdlaB8OZ2QWAmYPZBYCZg9kFgJmD2QWAmYPZBYCZg9kFgICAQ8PFgQeOnVwTG9naW5XYWl0X3VwcG9wdXBMb2dpbldhaXRfY3RsMDJfbG9naW5fd2FpdDFfSXNGaXJzdExvYWRoHg5Jc0luTW9kYWxQb3B1cGdkFgQCBQ8WAh8EBSbDgWxsYXBvdDogVsOhcmFrb3rDoXMgc3phYmFkIGhlbHlyZS4uLmQCBw8WAh8EBQprw61zw6lybGV0ZAIND2QWAmYPZBYCAgEPDxYOHg9IaWRlQ2xvc2VCdXR0b25nHxECyAEfEgKQAx8TZx8UZx8VaB8OZ2QWAmYPZBYCZg9kFgJmD2QWAmYPZBYCZg9kFgICAQ8PFgQeOnVwQXV0b0xvZ2luX3VwcG9wdXBBdXRvTG9naW5fY3RsMDJfYXV0b19sb2dpbjFfSXNGaXJzdExvYWRoHxdnZBYEAgUPFgIfBAVRw5ZuIGF1dG9tYXRpa3VzYW4ga2lsw6lwdGV0w6lzcmUga2Vyw7xsIGEgcmVuZHN6ZXJixZFsLCBoYSBhIHN6w6FtbMOhbMOzIGxlasOhcjogZAIHDxYCHwQFQEhhIHN6ZXJldG7DqSBmb2x5dGF0bmkgYSB2w6FyYWtvesOhc3Qga2F0dGludHNvbiBheiBJZ2VuIGdvbWJyYSFkAg8PZBYCZg9kFgICAQ88KwAJAQAPFgQfDxYAHxACAWQWAmYPZBYGAgEPFgQeA2FsdAUhc3phbWxha2VyZXNpLW55aWxhdGtvemF0LTIwMTMuZG9jHgNzcmMFJEFwcF9UaGVtZXMvQ29tbW9uX0ltYWdlcy9kb2NfZG9jLnBuZ2QCAw8WBh4EaHJlZgVOQ29tbW9uQ29udHJvbHMvU2F2ZUZpbGVEaWFsb2cuYXNweD9UeXBlPSZpZD0yNTU0NjQ3NDkmRnVuYz1Mb2dpbkRvY3VtZW50YXRpb25zHwEFIXN6YW1sYWtlcmVzaS1ueWlsYXRrb3phdC0yMDEzLmRvYx4FdGl0bGUFGVN6w6FtbGFrw6lyxZEgbnlpbGF0a296YXRkAgQPFQEUMjAxMy4wOS4wMi4gMTE6MDA6MjhkAhEPZBYCZg9kFgICAQ88KwAJAQAPFgQfDxYAHxACBGQWCGYPZBYEAgMPDxYCHw5oZGQCBQ8WBB8cBVhodHRwczovL25lcHR1bi51bmktb2J1ZGEuaHUvc3lzdGVtL2ZpbGVzL25lcHR1bi1hZGF0a2V6ZWxlc2ktdGFqZWtvemF0YXRvLTIwMTgtMDgtMjUucGRmHx0FKk5lcHR1biBhZGF0a2V6ZWzDqXNpIHTDoWrDqWtvenRhdMOzIC0gR0RQUhYCZg8VASpOZXB0dW4gYWRhdGtlemVsw6lzaSB0w6Fqw6lrb3p0YXTDsyAtIEdEUFJkAgEPZBYEAgMPDxYCHw5oZGQCBQ8WBB8cBSNodHRwczovL25lcHR1bi51bmktb2J1ZGEuaHUvZWxlci90bx8dBSdUYW51bG3DoW55aSBPc3p0w6FseW9rIGVsw6lyaGV0xZFzw6lnZWkWAmYPFQEnVGFudWxtw6FueWkgT3N6dMOhbHlvayBlbMOpcmhldMWRc8OpZ2VpZAICD2QWBAIDDw8WAh8OaGRkAgUPFgQfHAUXaHR0cDovL3d3dy51bmktb2J1ZGEuaHUfHQUiw5NidWRhaSBFZ3lldGVtIGvDtnpwb250aSBob25sYXBqYRYCZg8VAQ/Dk2J1ZGFpIEVneWV0ZW1kAgMPZBYEAgMPDxYCHw5oZGQCBQ8WBB8cBRpodHRwOi8vbmVwdHVuLnVuaS1vYnVkYS5odR8dBR/Dk2J1ZGFpIEVneWV0ZW0gTmVwdHVuIGhvbmxhcGphFgJmDxUBDU5lcHR1biBob25sYXBkAgQPZBYCZg8WAh8ABRBoYWxsZ2F0b19kZWZhdWx0ZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAwUJYnRuTGFuZ18wBQlidG5MYW5nXzEFCWJ0bkxhbmdfMgsf45zBm/Wt8Lf/YlmkxZJ2SNV3KBLiSRCir7MEKGuN" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['Form1'];
+if (!theForm) {
+    theForm = document.Form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/hallgato/WebResource.axd?d=1S7oml10h39u6oYUtSIFFoWF-BuHcCDdvuOvHZ8p-cSv96IBZ3mpVekLlFNLBB95gprI5PFIEtxBH55R9C93ZToc8VixxibNuhaEI7_ekqc1&amp;t=636681675604795562" type="text/javascript"></script>
+
+
+<script src="/hallgato/WebResource.axd?d=6LWezaPo_MD7eosANwudDEuzNauTXQMB1v1wF7Ua_du6C3FFteih5uwdjyZXCaZuq_XDKGitD9im5mroDOsX-iRiqtJiD5foSPlbMNGVL1B3ad-QOXeQD5WvSfvgODV9bYQ_xH00OfQIo16OH8iyoJu27gTHWmSDlhlWzQmltOsb6hsJGFkZYvSwGFPw7PR4lh5LhR02cgnzieGyQd5gbw2&amp;t=636764414287940193" type="text/javascript"></script>
+<script src="/hallgato/ScriptResource.axd?d=I-j0-s3UHg3GYhkEVs5MVmbGiVKiKj_9G04CGMvItXDkBcH99k7_T2-UH_aLeG7QBqVla2kcE3cdGqKpjnewsnvl6m1TS5ggXtYxhgG4j1n4eSYJr_UgUfk1xiEAuGg2kFEnO5eb9sVjl0xHzqpf8H9rBpnJlrT_M9Sdea3wMkk1&amp;t=ffffffffab5b37cd" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+var __cultureInfo = {"name":"hu-HU","numberFormat":{"CurrencyDecimalDigits":2,"CurrencyDecimalSeparator":",","IsReadOnly":false,"CurrencyGroupSizes":[3],"NumberGroupSizes":[3],"PercentGroupSizes":[3],"CurrencyGroupSeparator":" ","CurrencySymbol":"Ft","NaNSymbol":"nem szám","CurrencyNegativePattern":8,"NumberNegativePattern":1,"PercentPositivePattern":1,"PercentNegativePattern":1,"NegativeInfinitySymbol":"mínusz végtelen","NegativeSign":"-","NumberDecimalDigits":2,"NumberDecimalSeparator":",","NumberGroupSeparator":" ","CurrencyPositivePattern":3,"PositiveInfinitySymbol":"végtelen","PositiveSign":"+","PercentDecimalDigits":2,"PercentDecimalSeparator":",","PercentGroupSeparator":" ","PercentSymbol":"%","PerMilleSymbol":"‰","NativeDigits":["0","1","2","3","4","5","6","7","8","9"],"DigitSubstitution":1},"dateTimeFormat":{"AMDesignator":"de.","Calendar":{"MinSupportedDateTime":"\/Date(-62135596800000)\/","MaxSupportedDateTime":"\/Date(253402297199999)\/","AlgorithmType":1,"CalendarType":1,"Eras":[1],"TwoDigitYearMax":2029,"IsReadOnly":false},"DateSeparator":".","FirstDayOfWeek":1,"CalendarWeekRule":0,"FullDateTimePattern":"yyyy. MMMM d. H:mm:ss","LongDatePattern":"yyyy. MMMM d.","LongTimePattern":"H:mm:ss","MonthDayPattern":"MMMM d.","PMDesignator":"du.","RFC1123Pattern":"ddd, dd MMM yyyy HH\u0027:\u0027mm\u0027:\u0027ss \u0027GMT\u0027","ShortDatePattern":"yyyy.MM.dd.","ShortTimePattern":"H:mm","SortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd\u0027T\u0027HH\u0027:\u0027mm\u0027:\u0027ss","TimeSeparator":":","UniversalSortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd HH\u0027:\u0027mm\u0027:\u0027ss\u0027Z\u0027","YearMonthPattern":"yyyy. MMMM","AbbreviatedDayNames":["V","H","K","Sze","Cs","P","Szo"],"ShortestDayNames":["V","H","K","Sze","Cs","P","Szo"],"DayNames":["vasárnap","hétfő","kedd","szerda","csütörtök","péntek","szombat"],"AbbreviatedMonthNames":["jan.","febr.","márc.","ápr.","máj.","jún.","júl.","aug.","szept.","okt.","nov.","dec.",""],"MonthNames":["január","február","március","április","május","június","július","augusztus","szeptember","október","november","december",""],"IsReadOnly":false,"NativeCalendarName":"Gergely-naptár","AbbreviatedMonthGenitiveNames":["jan.","febr.","márc.","ápr.","máj.","jún.","júl.","aug.","szept.","okt.","nov.","dec.",""],"MonthGenitiveNames":["január","február","március","április","május","június","július","augusztus","szeptember","október","november","december",""]},"eras":[1,"i.sz.",null,0]};//]]>
+</script>
+
+<script src="/hallgato/ScriptResource.axd?d=zgvCmPbObHgx0c988rDR-iv-C_lw3Bh0qdGsJ-6DDNqu5Tq1DVRpCfC4B6IiAybag_k90si3t8atk4P0xB80vAKpKBetZ74iZ2aeTP_FiMvbLlwpGzzbwuGHAU5aBVGE0&amp;t=ffffffffa5177bee" type="text/javascript"></script>
+<script src="/hallgato/ScriptResource.axd?d=2FbETJP6kH6oKF5Hdrp7chljKyaU9oo5H0ATA1zzhRtwzBq3erhD2GRMowyBeAizylKx9qXWeGOkv8m3xMHFcGa0_jTV4dsw7_R04q08hDBQ93hwMsbiC-nH_VZsnStLILvo2dNUrKgkqYAU8D3leQ2&amp;t=ffffffffa5177bee" type="text/javascript"></script>
+<script src="../javascript/jquery.min.js" type="text/javascript"></script>
+<script src="../javascript/jquery.ui.min.sda.js" type="text/javascript"></script>
+<script src="../javascript/jquery.ui.min.js" type="text/javascript"></script>
+<script src="../javascript/jquery.dialogextend.js" type="text/javascript"></script>
+<script src="../javascript/neptun.js" type="text/javascript"></script>
+<script src="../javascript/login.js" type="text/javascript"></script>
+<script src="../javascript/neptun2.js" type="text/javascript"></script>
+<script src="../javascript/SDAModal.js" type="text/javascript"></script>
+<script src="../javascript/webkit.js" type="text/javascript"></script>
+<script src="/hallgato/ScriptResource.axd?d=i6gEJyb5I2iEnVtMLmqoquXx6cez8_XG9PAtv1Sd5B-nLGsp6r120OflOC_XP-7gw-AtpWtjm2PkgUr6A2pMi4kpbrNxldHWNLAgOLuOL_HIPMl4Q77TLgpheXAVyfSU0&amp;t=ffffffffa5177bee" type="text/javascript"></script>
+<script src="/hallgato/ScriptResource.axd?d=KuYPQSvGgan-TxUBkppN8vM5Z4O3VR4b8sSarfu2nqoUQb3aYAm8s0c5svaq7p8q-ZfUfLAsL7VfHTSJaQowQKMss2jqPnhIa2V_jiHZAWf9iNcH2s5Wb7WJotvn-VdAf6JJtvElvJZSj4ruyuuJaA2&amp;t=ffffffffa5177bee" type="text/javascript"></script>
+<script src="/hallgato/ScriptResource.axd?d=1lt_u28ikuCWpwvYgpuhXeEd-lh8UsxPY0HwbP6hMm3sBIypCGb2__EDYVssZPLuRNLQ0jr8qDeQaavPGUw9lfVAoqTdjYk-85kLQKLOAjDQnqIQapqBBrEsk4-ei3pPNSHOVZ5rv0IlgSSjo4yFcQ2&amp;t=ffffffffa5177bee" type="text/javascript"></script>
+<script src="/hallgato/ScriptResource.axd?d=OmiLf_98n8RbiRTBDj4SFg4yK-JVPNetP8QgxdCz04f-ggUkBc-_ub83Dlq1FAksoUJE_8-RMWxU1RWSlybf1LR1oC6zucXLAg2dQ6VM-IiHDzQ3oR9_cyy6imeDAYWq1AbELnWGWDcchJfiGUD7xw2&amp;t=ffffffffa5177bee" type="text/javascript"></script>
+<script src="/hallgato/ScriptResource.axd?d=BqHXvWKcNGVskEpwesaReHFlHn19MUjvtnUKDeQhg3A0NgUh9nc69aySr_LJObJYDIvAU0ULGTWDvvexmQBuQju_lKr53bMK507sMbqNwwoVLqLHbRCYsKBiUrf0ZcOD7Fc5R_io48kRHAsH318Nxg2&amp;t=ffffffffa5177bee" type="text/javascript"></script>
+<script src="/hallgato/ScriptResource.axd?d=nMRsvLEdpsnRNRshtExpBRHWjVxKWaLKpGjbyfo8IvtS2pSuXwscF4oCivcpRk7ewzLqfs0m6MmKwsPzz1bHqD3WlXSKIIBHv6i24MraTy8Nqn1SlsmjmIolhinGe1b6MTaEsJtYYPpqmP0Jjddzcw2&amp;t=ffffffffa5177bee" type="text/javascript"></script>
+<script src="/hallgato/ScriptResource.axd?d=mCmdQ1D6DCRQ0314XsN6Xu94jnfYaFWdrTPyTesHGivNhTIkaNVsfDcSKGV83h_BWt8MRVnjlyIP0etdkCISsus66INVsT5iuKxepYIt-00rT19u5ocUaO7QFpyEg0ifQhj_I-0OlgmH114ZwjAqrZOBL06dTkTPozLWLgKsyeFO8pM5VHUoPY_8g3rBOFlMnQbVi0Ylf1mzNa8gPeaOGg2&amp;t=ffffffffa61bbcaa" type="text/javascript"></script>
+<script src="/hallgato/ScriptResource.axd?d=pnmfUbTkVOTggAxHzrbn76MuFp7GgQnE4o2DKWA9TqrVmvqtslC0Z648-lkcbK17v5b0W3DMCdViFGuOxcPQkxHyTcn0pKSNGouPtO_Rj9TaBpHM4m7FSsRoHccB1jhf4U0-EO3IYtoiCtyKonbWjk32T8Pkb0TA8Eh_sxHiGDA1&amp;t=ffffffffa5177bee" type="text/javascript"></script>
+<script src="/hallgato/ScriptResource.axd?d=eZ6C-PzfnahgVqgY9u0XcYJeHdSkbYnoEdlZCPt2ub27hAsEJ_1fEC5xPGzeerK4wMpSEJ2dm77Wnp5NTt4CTeMlaDSwmW3OKNevjGLYNWeA1s3Jr-72GXa18RkzRtpbPNs4TcnIRJpLKYBCx437o_7IUZ2askLvAwmAtNKy2ewHiegXCRwG9YK7P23ZFX7HOcpMI6E4Yfq95fh-y6kbPDABXKlkqp93UJMt8kHNd401&amp;t=ffffffffa61bbcaa" type="text/javascript"></script>
+<script src="/hallgato/ScriptResource.axd?d=uHgu3Wv9wihfBh9Dj0oM26upgupcvzbYVbYJdfPKFOXLGZ1fwkle_dF9lAZGf7iP1P4RrGk-cs82OKB3Pph8lTuLJtwn_3F7St3u-YjJ5NeFipdE-W7mwjB1Ds3YVoIc8ZU9sm37ok9GCihKh_pGqlE05we68qPDgbmbshd9W0yoX49_2IFD1YinnY0IFh9vogA1CLQEk2hxRe95kaQWQA2&amp;t=ffffffffa61bbcaa" type="text/javascript"></script>
+<script src="/hallgato/ScriptResource.axd?d=cJoSSmQVWgHMm7g7e9FuzXHfjEad60hjjVhaDhYSkgrmIZyS2r8X1tzRLt5v3ijX7RIwRWfTJjchJdRXHNAaa3SXwuUcPiL9Jw7m8nPHOgh0unQ7LuHB8iOrCg47VMA_2piY7gYyA4Kmx2M_rFo1N8hwQEtA5DfUGGxAa_JUkK0RXakGyG2aMrWppk6viA-9CpW3-14b3vmwhSGlbodDMw2&amp;t=ffffffffa61bbcaa" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+var PageMethods = function() {
+PageMethods.initializeBase(this);
+this._timeout = 0;
+this._userContext = null;
+this._succeeded = null;
+this._failed = null;
+}
+PageMethods.prototype = {
+_get_path:function() {
+ var p = this.get_path();
+ if (p) return p;
+ else return PageMethods._staticInstance.get_path();},
+CheckLoginEnable:function(user,pwd,UserLogin,GUID,captcha,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'CheckLoginEnable',false,{user:user,pwd:pwd,UserLogin:UserLogin,GUID:GUID,captcha:captcha},succeededCallback,failedCallback,userContext); },
+SavePopupState:function(state,PopupID,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SavePopupState',false,{state:state,PopupID:PopupID},succeededCallback,failedCallback,userContext); },
+HasScreenReader:function(has,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'HasScreenReader',false,{has:has},succeededCallback,failedCallback,userContext); },
+GetMaxTryNumber:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetMaxTryNumber',false,{},succeededCallback,failedCallback,userContext); },
+CancelLoginFromJS:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'CancelLoginFromJS',false,{},succeededCallback,failedCallback,userContext); }}
+PageMethods.registerClass('PageMethods',Sys.Net.WebServiceProxy);
+PageMethods._staticInstance = new PageMethods();
+PageMethods.set_path = function(value) { PageMethods._staticInstance.set_path(value); }
+PageMethods.get_path = function() { return PageMethods._staticInstance.get_path(); }
+PageMethods.set_timeout = function(value) { PageMethods._staticInstance.set_timeout(value); }
+PageMethods.get_timeout = function() { return PageMethods._staticInstance.get_timeout(); }
+PageMethods.set_defaultUserContext = function(value) { PageMethods._staticInstance.set_defaultUserContext(value); }
+PageMethods.get_defaultUserContext = function() { return PageMethods._staticInstance.get_defaultUserContext(); }
+PageMethods.set_defaultSucceededCallback = function(value) { PageMethods._staticInstance.set_defaultSucceededCallback(value); }
+PageMethods.get_defaultSucceededCallback = function() { return PageMethods._staticInstance.get_defaultSucceededCallback(); }
+PageMethods.set_defaultFailedCallback = function(value) { PageMethods._staticInstance.set_defaultFailedCallback(value); }
+PageMethods.get_defaultFailedCallback = function() { return PageMethods._staticInstance.get_defaultFailedCallback(); }
+PageMethods.set_enableJsonp = function(value) { PageMethods._staticInstance.set_enableJsonp(value); }
+PageMethods.get_enableJsonp = function() { return PageMethods._staticInstance.get_enableJsonp(); }
+PageMethods.set_jsonpCallbackParameter = function(value) { PageMethods._staticInstance.set_jsonpCallbackParameter(value); }
+PageMethods.get_jsonpCallbackParameter = function() { return PageMethods._staticInstance.get_jsonpCallbackParameter(); }
+PageMethods.set_path("../Login.aspx");
+PageMethods.CheckLoginEnable= function(user,pwd,UserLogin,GUID,captcha,onSuccess,onFailed,userContext) {PageMethods._staticInstance.CheckLoginEnable(user,pwd,UserLogin,GUID,captcha,onSuccess,onFailed,userContext); }
+PageMethods.SavePopupState= function(state,PopupID,onSuccess,onFailed,userContext) {PageMethods._staticInstance.SavePopupState(state,PopupID,onSuccess,onFailed,userContext); }
+PageMethods.HasScreenReader= function(has,onSuccess,onFailed,userContext) {PageMethods._staticInstance.HasScreenReader(has,onSuccess,onFailed,userContext); }
+PageMethods.GetMaxTryNumber= function(onSuccess,onFailed,userContext) {PageMethods._staticInstance.GetMaxTryNumber(onSuccess,onFailed,userContext); }
+PageMethods.CancelLoginFromJS= function(onSuccess,onFailed,userContext) {PageMethods._staticInstance.CancelLoginFromJS(onSuccess,onFailed,userContext); }
+//]]>
+</script>
+
+<script src="/hallgato/WebResource.axd?d=Rtvor_M9uMOfFREOjaMToE5XF-vtLnOa1MeLK957M14pdAOo6zBp4VRb5wnnGw7twNuLOP73sZZZs1Sy8IfrN-Al_X1N1jAygIXgKEvs7os1&amp;t=636681675604795562" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="61E21017" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdABFiQIlUezULtupoJ9qQ2iJCHl8If4luAnaogv2O4iwx1xS9s+lAAHhPV7JVic78gGdBT0+B3Goccy3Z0lKGYBwYR+Io6nsrkDewtwTHT2x2qXMA26A6sfwMmUUM+W8+znbs3sD92uL2cjoccklq+PhKC9FX9U6tKAfzyai9H9PaYSsuqkYWpM9tKpoVWBxJE/s85pbWlDO2hADfoPXD/5tdBnPKDuXMHhxkEGy0+ZxBY11OwIWOpIXh39VKzpNKBoVHdUPp/kNc89dnr1MqGng0GtBH8BTnwHCoyIdartQv4bb3FzwvI1KB3B3GtXnJv2eJ7C1zlyvzvElu8roiou22gYzfLxPOo9lYQd9IdmXJlPmqfGjEOPbsnuIrClPN445Y0FffsXrqMJSZWa2pDEGs" />
+</div>
+
+<div id="loginWaitBackground" style="display: none; z-index: 22222;" class="ui-widget-overlay ui-front">
+<div id="loginWaitAnimation" style="width: 66px; height: 66px; background: url('App_Themes/Common_Images/gadget_loader.gif') 50% 50% no-repeat;"></div>
+</div>
+<input name="progressalerttype" type="hidden" id="progressalerttype" value="progress" />
+<script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ToolkitScriptManager1', 'Form1', ['fupScript','','fupListNews','','fupNewsDetails','','fupLoginWait','','fupAutoLogin','','fupListDocuments','','fupListLinks','','fupView','','fupDetail','','fupLoginWait$uppopupLoginWait','','fupLoginWait$uppopupLoginWait$upFooterpopupLoginWait','','fupAutoLogin$uppopupAutoLogin','','fupAutoLogin$uppopupAutoLogin$upFooterpopupAutoLogin',''], [], [], 90, '');
+//]]>
+</script>
+
+<div id="upScript">
+	
+
+</div>
+<div id="pnlValtas" class="valtasszerkesztesre">
+	
+<label></label>
+
+</div>
+<table id="tableMain" cellspacing="0" cellpadding="0" class="login_background_table" orgid="hallgato_default" border="0">
+	<tr>
+		<td id="tdIstitute" class="login_top_side" orgid="" height="90" colspan="4" align="center" valign="bottom">
+<div>
+<div id="sr_detect" >
+                                              <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="1" height="1" id="srdetect" align="middle">
+                                                  <param name="allowScriptAccess" value="sameDomain"/>
+                                                  <param name="bgcolor" value="#FFFFFF" />
+                                                  <param name="movie" value="/hallgato/WebResource.axd?d=YwWNcXajB6dRPZP6KTW8OVMHQXBpkGM7uadVVWpZKORc5d3Pr5yvgtNnSOkwZ0HLgqMptxB0FreMtwyXKppv0anpUrqJYPxpULbK-1iIUQipNYn1dzbahWpG_iyyfli6Sowblck7b_PKAPPszzUUcR5ER6axe467hLQHH3ZBM8Z0k_qT5qrqKVGeZzdQKhUsXTd56WjX_-qvCY5XqqOZbg2&t=636764414287940193" />
+                                                  <param name="scale" value="noborder" />
+
+                                           <embed swliveconnect="true" 
+                                            src="/hallgato/WebResource.axd?d=YwWNcXajB6dRPZP6KTW8OVMHQXBpkGM7uadVVWpZKORc5d3Pr5yvgtNnSOkwZ0HLgqMptxB0FreMtwyXKppv0anpUrqJYPxpULbK-1iIUQipNYn1dzbahWpG_iyyfli6Sowblck7b_PKAPPszzUUcR5ER6axe467hLQHH3ZBM8Z0k_qT5qrqKVGeZzdQKhUsXTd56WjX_-qvCY5XqqOZbg2&t=636764414287940193"
+                                             name="srdetect" 
+                                             width="1" 
+                                             height="1"
+                                             allowScriptAccess="sameDomain" 
+                                             type="application/x-shockwave-flash" 
+                                             pluginspage="http://www.macromedia.com/go/getflashplayer" />
+                                           
+                                            </object>
+                                            </div>
+</div>
+<div style="width: 764px; height: 20px; border: 0px solid red; vertical-align: bottom;
+text-align: left;">
+<span orgid="hallgato_default" id="lblInstitute">Óbudai Egyetem</span>
+</div>
+</td>
+	</tr>
+	<tr class="no_style">
+		<td class="login_center" align="center">
+<table class="table_center" border="0">
+<tr class="no_style">
+<td class="login_left_side">
+<table class="no_style" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td height="12" colspan="2" class="login_top_side">
+<div style="vertical-align: bottom; text-align: left;">
+</div>
+</td>
+</tr>
+<tr class="tr_Logo">
+<td id="td_Logo" class="login_logo" colspan="2" orgid="hallgato_default">
+</td>
+		
+</tr>
+<tr>
+<td style="height:21px;text-align:left" colspan="2">
+<div class="validator" style="padding-left:15px;">
+<span id="lblError"></span>
+</div>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<table cellpadding="0" cellspacing="0" width="100%" border="0">
+<tr>
+<td class="login_moduletype">
+<label></label>
+<span orgid="hallgato_default" id="lblModuleType">Hallgatói</span>
+&nbsp;<span id="lblServerName" title="Hallgato_15(74&#32;szabad&#32;hely)" class="freeplaces">Hallgato_15(74)</span>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td height="8" class="login_line" colspan="2">
+</td>
+</tr>
+<tr>
+<td class="login_label" align="right">
+Nyelv:
+</td>
+<td id="td_Zaszlok" class="login_input_zaszlok">
+<input type="image" name="btnLang_0" id="btnLang_0" title="Magyar" src="./App_Themes/Common_Images/flag_hu.png" src="../App_Themes/Common_Images/flag_hu.png" alt="Magyar" onclick="javascript:dochangeLanguage(&#39;0&#39;,&#39;1038&#39;);return&#32;false;WebForm_DoPostBackWithOptions(new&#32;WebForm_PostBackOptions(&quot;btnLang_0&quot;,&#32;&quot;&quot;,&#32;true,&#32;&quot;&quot;,&#32;&quot;&quot;,&#32;false,&#32;false))" /><input type="image" name="btnLang_1" id="btnLang_1" title="English" src="./App_Themes/Common_Images/flag_en.png" onmouseout="javascript:langmouseout(&#39;btnLang_1&#39;,&#39;50&#39;);" onmouseover="javascript:langmouseover(&#39;btnLang_1&#39;);" src="../App_Themes/Common_Images/flag_en.png" alt="English" onclick="javascript:dochangeLanguage(&#39;1&#39;,&#39;1033&#39;);return&#32;false;WebForm_DoPostBackWithOptions(new&#32;WebForm_PostBackOptions(&quot;btnLang_1&quot;,&#32;&quot;&quot;,&#32;true,&#32;&quot;&quot;,&#32;&quot;&quot;,&#32;false,&#32;false))" style="filter:alpha(opacity=50);opacity:0.5;-moz-opacity:0.5;" /><input type="image" name="btnLang_2" id="btnLang_2" title="Deutsch" src="./App_Themes/Common_Images/flag_de.png" onmouseout="javascript:langmouseout(&#39;btnLang_2&#39;,&#39;50&#39;);" onmouseover="javascript:langmouseover(&#39;btnLang_2&#39;);" src="../App_Themes/Common_Images/flag_de.png" alt="Deutsch" onclick="javascript:dochangeLanguage(&#39;2&#39;,&#39;1031&#39;);return&#32;false;WebForm_DoPostBackWithOptions(new&#32;WebForm_PostBackOptions(&quot;btnLang_2&quot;,&#32;&quot;&quot;,&#32;true,&#32;&quot;&quot;,&#32;&quot;&quot;,&#32;false,&#32;false))" style="filter:alpha(opacity=50);opacity:0.5;-moz-opacity:0.5;" /></td>
+		
+</tr>
+<tr>
+<td class="login_label" align="right">
+<label for="user" id="lblUsername">Azonosító:</label>
+</td>
+<td class="login_input" align="right">
+<input name="user" type="text" id="user" style="height:15px;width:166px;" />
+<span id="loginValidator" style="display:none;"></span>
+<input type="hidden" name="vcelogin_ClientState" id="vcelogin_ClientState" />
+</td>
+</tr>
+<tr>
+<td class="login_label" align="right">
+<label for="pwd" id="lblPwd">Jelszó:</label>
+</td>
+<td class="login_input" align="right">
+<input name="pwd" type="password" id="pwd" style="height:15px;width:166px;" />
+<input type="hidden" name="HoverInfoPanelExtender_CLWpassword_ClientState" id="HoverInfoPanelExtender_CLWpassword_ClientState" />
+</td>
+</tr>
+<tr class="tr_LeftImage">
+<td id="td_LeftImage" class="login_left_image" colspan="2" orgid="hallgato_default">
+<table cellpadding="0" cellspacing="0" class="no_style" style="vertical-align: top;
+height: 100%;" width="100%" border="0">
+
+<tr class="no_style_left">
+<td class="login_button_td" colspan="2">
+<input orgid="hallgato_default" role="button" type="button" name="btnSubmit" value="Bejelentkezés" onclick="docheck();return&#32;false;__doPostBack(&#39;btnSubmit&#39;,&#39;&#39;)" id="btnSubmit" class="login_button" /><p id=btnSubmit_hiddenlabel class ='hiddenforlabel'></p>
+</td>
+</tr>
+<tr class="no_style">
+<td align="right" colspan="2">
+<span id="RFValid" style="color:DarkRed;font-weight:bold;visibility:hidden;"></span>
+<br />
+<a id="linkOldNeptun"></a>
+</td>
+</tr>
+</table>
+</td>
+		
+</tr>
+</table>
+</td>
+<td class="login_right_side">
+<div id="div_login_right_side" orgid="hallgato_default">
+<table cellpadding="0" cellspacing="0" class="no_style" width="100%" border="0">
+<tr class="no_style">
+<td height="250" >
+</td>
+</tr>
+<tr class="no_style">
+<td class="login_info_version">
+<span id="lblVersion" class="szovegversion">Build: 455 (2018.07.19.) P20181029</span>
+</td>
+</tr>
+<tr class="no_style">
+<td class="login_info_text">
+Támogatott böngészők:
+<br />
+Microsoft Internet Explorer 10.0+ ; Mozilla Firefox ; Google Chrome
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</td>
+	</tr>
+	<tr class="no_style">
+		<td height="30px">
+<table border="0" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td align="right" colspan="2" class="szoveg" nowrap="noWrap">
+
+</td>
+<td class="szovegnote" align="right" height="20">
+
+</td>
+</tr>
+</table>
+</td>
+	</tr>
+	<tr>
+		<td class="info_table_center_container_td">
+<div id="info_table_center_container_div">
+<table class="info_table_center" border="0">
+<tr class="no_style">
+<td class="login_content_news">
+<img alt="" src="App_Themes/Login_Images/login_content_image1.jpg" />
+<span id="lblHirek">Friss hírek</span>
+</td>
+<td class="no_style">
+</td>
+<td class="login_content_docs">
+<img alt="" src="App_Themes/Login_Images/login_content_image1.jpg" />
+<span id="lblDokumentumok">Letölthető dokumentumok</span>
+</td>
+<td class="no_style">
+</td>
+<td class="login_content_links">
+<img alt="" src="App_Themes/Login_Images/login_content_image1.jpg" />
+<span id="lblLinkek">Hasznos linkek</span>
+</td>
+</tr>
+<tr class="no_style">
+<td class="no_style_left">
+<div id="upListNews">
+			
+
+
+		</div>
+<div id="upNewsDetails">
+			
+
+
+		</div>
+<div id="upLoginWait">
+			
+<div id="upLoginWait_popupLoginWait">
+				<div id="upLoginWait_uppopupLoginWait">
+					<div id="upLoginWait_uppopupLoginWait_divpopup" SDAModal="true" class="loginwaitbehaviour" style="display:none;"><div role="document">
+
+<style type="text/css">
+.style1
+{
+width: 100%;
+}
+</style>
+<script type="text/javascript">
+</script>
+<div id="loginwaitdiv"></div>
+<input name="upLoginWait$uppopupLoginWait$ctl02$login_wait1$loginhidden" type="hidden" id="upLoginWait_uppopupLoginWait_ctl02_login_wait1_loginhidden" />
+<table class="style1">
+<tr>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Állapot: Várakozás szabad helyre...(<span id="counter">0</span>.
+kísérlet)
+&nbsp;<span id="login_wait1_lblError" style="color:Red;"></span>
+</td>
+</tr>
+</table>
+
+</div><div id="upLoginWait_uppopupLoginWait_upFooterpopupLoginWait">
+						<div id="upLoginWait_uppopupLoginWait_upFooterpopupLoginWait_popupLoginWait_footer" class="ui-dialog-footerbar&#32;ui-widget-header&#32;ui-corner-all&#32;ui-helper-clearfix">
+							<input name="upLoginWait$uppopupLoginWait$upFooterpopupLoginWait$footerbtn_popupLoginWait_Vissza2" type="button" id="upLoginWait_uppopupLoginWait_upFooterpopupLoginWait_footerbtn_popupLoginWait_Vissza2" value="Vissza" class="ui-button&#32;ui-widget&#32;ui-state-default&#32;ui-corner-all&#32;ui-button-text-only" onclick="Cancel(&#39;loginwaitbehaviour&#39;);" />
+						</div>
+					</div></div><input name="upLoginWait$uppopupLoginWait$_data" type="hidden" id="upLoginWait_uppopupLoginWait__data" value="Visible:true" class="popupLoginWait" />
+				</div>
+			</div>
+
+		</div>
+<div id="upAutoLogin">
+			
+<div id="upAutoLogin_popupAutoLogin">
+				<div id="upAutoLogin_uppopupAutoLogin">
+					<div id="upAutoLogin_uppopupAutoLogin_divpopup" SDAModal="true" class="autologinbehaviour" style="display:none;"><div role="document">
+
+<style type="text/css">
+.style1
+{
+width: 100%;
+}
+</style>
+<script type="text/javascript">
+</script>
+<div id="autologindiv"></div>
+<input name="upAutoLogin$uppopupAutoLogin$ctl02$auto_login1$autologinhidden" type="hidden" id="upAutoLogin_uppopupAutoLogin_ctl02_auto_login1_autologinhidden" />
+<table class="style1">
+<tr>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Ön automatikusan kiléptetésre kerül a rendszerből, ha a számláló lejár: (<span id="autocounter">0</span>)
+<br />
+Ha szeretné folytatni a várakozást kattintson az Igen gombra!
+</td>
+</tr>
+</table>
+</div><div id="upAutoLogin_uppopupAutoLogin_upFooterpopupAutoLogin">
+						<div id="upAutoLogin_uppopupAutoLogin_upFooterpopupAutoLogin_popupAutoLogin_footer" class="ui-dialog-footerbar&#32;ui-widget-header&#32;ui-corner-all&#32;ui-helper-clearfix">
+							<input name="upAutoLogin$uppopupAutoLogin$upFooterpopupAutoLogin$footerbtn_popupAutoLogin_yes" type="button" id="upAutoLogin_uppopupAutoLogin_upFooterpopupAutoLogin_footerbtn_popupAutoLogin_yes" value="Igen" class="ui-button&#32;ui-widget&#32;ui-state-default&#32;ui-corner-all&#32;ui-button-text-only" onclick="ContinueLogin(true);" /><input name="upAutoLogin$uppopupAutoLogin$upFooterpopupAutoLogin$footerbtn_popupAutoLogin_no" type="button" id="upAutoLogin_uppopupAutoLogin_upFooterpopupAutoLogin_footerbtn_popupAutoLogin_no" value="Nem" class="ui-button&#32;ui-widget&#32;ui-state-default&#32;ui-corner-all&#32;ui-button-text-only" onclick="ContinueLogin(false);" />
+						</div>
+					</div></div><input name="upAutoLogin$uppopupAutoLogin$_data" type="hidden" id="upAutoLogin_uppopupAutoLogin__data" value="Visible:true" class="popupAutoLogin" />
+				</div>
+			</div>
+
+		</div>
+</td>
+<td class="login_content_separator">
+<div class="login_content_separator_div"></div>
+</td>
+<td class="no_style_left">
+<div id="upListDocuments">
+			
+<table id="dataListDocuments" cellspacing="0" style="width:100%;border-collapse:collapse;">
+				<tr>
+					<td>
+<table class="table_left_docs" border="0" cellspacing="0" border="0">
+<tr>
+<td class="login_docs">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" border="0">
+<tr>
+<td style="width: 20px; padding-right: 10px;">
+<img src="../App_Themes/Common_Images/doc_doc.png" id="dataListDocuments_ctl00_imgFileType" alt="szamlakeresi-nyilatkozat-2013.doc" />
+</td>
+<td style="width: 100%">
+<a href="../CommonControls/SaveFileDialog.aspx?Type=&id=255464749&Func=LoginDocumentations" id="dataListDocuments_ctl00_linkDownload" target="_top" title="Számlakérő&#32;nyilatkozat">szamlakeresi-nyilatkozat-2013.doc</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="login_docs_date">
+(
+2013.09.02. 11:00:28
+)
+</td>
+</tr>
+</table>
+</td>
+				</tr>
+			</table>
+
+		</div>
+</td>
+<td class="login_content_separator">
+<div class="login_content_separator_div"></div>
+</td>
+<td class="no_style_left">
+<div id="upListLinks">
+			
+<table id="dataListLinks" cellspacing="0" style="width:100%;border-collapse:collapse;">
+				<tr>
+					<td>
+<table class="table_left" border="0">
+<tr>
+<td class="login_links">
+<img src="../App_Themes/Login_Images/login_link_image.jpg" id="dataListLinks_ctl00_linkImage" alt="" />
+
+<a href="https://neptun.uni-obuda.hu/system/files/neptun-adatkezelesi-tajekozatato-2018-08-25.pdf" id="dataListLinks_ctl00_linkLinks" target="_blank" title="Neptun&#32;adatkezelési&#32;tájékoztató&#32;-&#32;GDPR">
+Neptun adatkezelési tájékoztató - GDPR</a>
+</td>
+</tr>
+</table>
+</td>
+				</tr><tr>
+					<td>
+<table class="table_left" border="0">
+<tr>
+<td class="login_links">
+<img src="../App_Themes/Login_Images/login_link_image.jpg" id="dataListLinks_ctl01_linkImage" alt="" />
+
+<a href="https://neptun.uni-obuda.hu/eler/to" id="dataListLinks_ctl01_linkLinks" target="_blank" title="Tanulmányi&#32;Osztályok&#32;elérhetőségei">
+Tanulmányi Osztályok elérhetőségei</a>
+</td>
+</tr>
+</table>
+</td>
+				</tr><tr>
+					<td>
+<table class="table_left" border="0">
+<tr>
+<td class="login_links">
+<img src="../App_Themes/Login_Images/login_link_image.jpg" id="dataListLinks_ctl02_linkImage" alt="" />
+
+<a href="http://www.uni-obuda.hu" id="dataListLinks_ctl02_linkLinks" target="_blank" title="Óbudai&#32;Egyetem&#32;központi&#32;honlapja">
+Óbudai Egyetem</a>
+</td>
+</tr>
+</table>
+</td>
+				</tr><tr>
+					<td>
+<table class="table_left" border="0">
+<tr>
+<td class="login_links">
+<img src="../App_Themes/Login_Images/login_link_image.jpg" id="dataListLinks_ctl03_linkImage" alt="" />
+
+<a href="http://neptun.uni-obuda.hu" id="dataListLinks_ctl03_linkLinks" target="_blank" title="Óbudai&#32;Egyetem&#32;Neptun&#32;honlapja">
+Neptun honlap</a>
+</td>
+</tr>
+</table>
+</td>
+				</tr>
+			</table>
+
+		</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+	</tr>
+	<tr class="tr_Footer">
+		<td id="td_Footer" class="login_footer" orgid="hallgato_default">
+</td>
+	</tr>
+</table>
+
+<div id="progress" class="modalBckgroundMain" style="display: none">
+<div id="imgdiv" class="progressimagediv">
+<img id="Image2" alt="" src="../App_Themes/New_Common_Images/loading.gif" />
+</div>
+</div>
+<div id="upView">
+
+</div>
+<span id="txtlcid" style="visibility: hidden;"></span>
+<div id="upDetail">
+
+</div>
+<script type="text/javascript">
+var tableLogin = $get('tableLogin');
+if (tableLogin) {
+tableLogin.style['display'] = 'block';
+}
+if (document.forms.length > 0)
+document.forms[0].user.focus();
+</script>
+<script type="text/javascript">
+<!--
+var submitCount = 0;
+function SubmitCheck(ctrl, withvalidate) {
+//ctrl = a hivo control
+//withvalidate = futtason validatet is
+if (withvalidate) {
+if (typeof (Page_Validators) != "undefined") {
+var isvalid = Page_ClientValidate();
+if (isvalid == false) {
+return false;
+}
+}
+}
+else {
+//ha nem kell validalni akkor kikapcsolom ezt
+Page_BlockSubmit = false;
+}
+if (submitCount == 0) {
+var lcidValue = document.getElementById('txtlcid').innerText;
+submitCount++;
+switch (lcidValue) {
+//magyar
+case "1038":
+ctrl.value = "\u004b\u00e9\u0072\u0065\u006d\u0020\u0076\u00e1\u0072\u006a\u006f\u006e\u002e\u002e\u002e"; //Kérem várjon...
+break;
+//angol
+case "1033":
+ctrl.value = "\u0050\u006c\u0065\u0061\u0073\u0065\u0020\u0077\u0061\u0069\u0074\u002e\u002e\u002e"
+break;
+//német
+case "1031":
+ctrl.value = "\u0057\u0061\u0072\u0074\u0065\u006e\u0020\u0053\u0069\u0065\u0020\u0062\u0069\u0074\u0074\u0065\u002e\u002e\u002e"
+break;
+//román
+case "1048":
+ctrl.value = "Română"
+break;
+//szerb
+case "3098":
+ctrl.value = "Srpski"
+break;
+//horvát
+case "1050":
+ctrl.value = "Hrvatski"
+break;
+//slovén
+case "1060":
+ctrl.value = "Slovenský"
+break;
+//szlovák
+case "1051":
+ctrl.value = "Slovak"
+break;
+//francia
+case "1036":
+ctrl.value = "Français"
+break;
+}
+}
+else {
+alert('Kérem várjon...');
+return false;
+}
+}
+// -->
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("loginValidator"), document.getElementById("RFValid"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var loginValidator = document.all ? document.all["loginValidator"] : document.getElementById("loginValidator");
+loginValidator.controltovalidate = "user";
+loginValidator.display = "None";
+loginValidator.enabled = "False";
+loginValidator.evaluationfunction = "CustomValidatorEvaluateIsValid";
+loginValidator.clientvalidationfunction = "userValidity";
+var RFValid = document.all ? document.all["RFValid"] : document.getElementById("RFValid");
+RFValid.controltovalidate = "user";
+RFValid.focusOnError = "t";
+RFValid.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+RFValid.initialvalue = "";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+var m_CheckBrowserVersionEnable = 'true';var m_MinVersionIE = '10.0';var m_MinVersionFirefox = '36.0';var m_MinVersionChrome = '40.0';var m_MinVersionLinuxFirefox = '21.0';var m_MinVersionMacFirefox = '21.0';var m_MinVersionMacChrome = '27.0';function OpenHelp(url){window.open(url, '_blank');}
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+         function CallCreateModal_loginwaitbehaviour()  {
+createModal('loginwaitbehaviour','upLoginWait_uppopupLoginWait_upFooterpopupLoginWait_popupLoginWait_footer','Belépés','upLoginWait$popupLoginWait','500','300','','','True','','False','False',false);}; function CallCreateModal_autologinbehaviour()  {
+createModal('autologinbehaviour','upAutoLogin_uppopupAutoLogin_upFooterpopupAutoLogin_popupAutoLogin_footer','Figyelem!','upAutoLogin$popupAutoLogin','400','200','','','True','','False','False',false);};WebForm_AutoFocus('btnSubmit');
+document.getElementById('loginValidator').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('loginValidator'));
+}
+Sys.Application.add_init(function() {
+    $create(SDA.Neptun.WebControls.ValidatorCalloutBehavior, {"ClientStateFieldID":"vcelogin_ClientState","classExtra":"ajax__validatorcallout_login","closeImageUrl":"/hallgato/WebResource.axd?d=CYXUqCShC3XuAwhSoR_EsWfUVmzK2uI-ptQ_ZxpENSOVhyJegK5rqdBN1meKXjRHfC2a3bdaCixviCFhPbUUdtCsm0qVKUSwNOMXCU_kKify3YP7EPJyjw6YsvYqU2rY9Y31b07cOARcPgSWLi36mg2\u0026t=636764414104222039","cssClass":"ajax__validatorcallout_ ajax__validatorcallout_login","id":"validlogin","warningIconImageUrl":"/hallgato/WebResource.axd?d=ruz3dA8Ti94-C-PDPsXlrLzQxANpGLmp5d4t9nVxigDSNFFEU4kpNS-pWS1g2GSJOS-NTYDd3VZnC6j1nHmFxXOWzskv1HMVGmXdku_wBZxmZpjM3s0rYMTRtBJbBhDgI6o06tqQhd5GtFUwg-eqJg2\u0026t=636764414104222039"}, null, null, $get("loginValidator"));
+});
+Sys.Application.add_init(function() {
+    $create(SDA.Neptun.WebControls.HoverInfoPanelBehavior, {"ClientStateFieldID":"HoverInfoPanelExtender_CLWpassword_ClientState","closeImageUrl":"/hallgato/WebResource.axd?d=CYXUqCShC3XuAwhSoR_EsWfUVmzK2uI-ptQ_ZxpENSOVhyJegK5rqdBN1meKXjRHfC2a3bdaCixviCFhPbUUdtCsm0qVKUSwNOMXCU_kKify3YP7EPJyjw6YsvYqU2rY9Y31b07cOARcPgSWLi36mg2\u0026t=636764414104222039","cssClass":"ajax__validatorcallout_","id":"HoverInfoPanelExtender_CLWpassword","message":"A Caps Lock aktív!","warningIconImageUrl":"/hallgato/WebResource.axd?d=ruz3dA8Ti94-C-PDPsXlrLzQxANpGLmp5d4t9nVxigDSNFFEU4kpNS-pWS1g2GSJOS-NTYDd3VZnC6j1nHmFxXOWzskv1HMVGmXdku_wBZxmZpjM3s0rYMTRtBJbBhDgI6o06tqQhd5GtFUwg-eqJg2\u0026t=636764414104222039"}, null, null, $get("pwd"));
+});
+Sys.Application.add_init(function() {
+    $create(SDA.Neptun.WebControls.SDACapsLockWarning, {"hipeBehaviodID":"HoverInfoPanelExtender_CLWpassword","id":"CLWpassword"}, null, null, $get("pwd"));
+});
+
+document.getElementById('RFValid').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('RFValid'));
+}
+//]]>
+</script>
+</form>
+</body>
+</html>

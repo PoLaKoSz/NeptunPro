@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NeptunPro.EndPoints;
 using NeptunPro.Models;
+using System;
 using System.Threading.Tasks;
 
 namespace NeptunPro.Tests.Regression.EndPoints
@@ -8,6 +9,18 @@ namespace NeptunPro.Tests.Regression.EndPoints
     [TestClass]
     public class LiveLoginPageTests : BaseRegressionTest
     {
+        [TestMethod]
+        public async Task Test_NeptunBuildNumber()
+        {
+            var loginPage = new LoginPage();
+
+            var expected = new NeptunBuildDetails(455, new DateTime(2018, 07, 19));
+
+            var actual = await loginPage.GetBuildDetails();
+
+            Assert.AreEqual(expected, actual);
+        }
+
         [TestMethod]
         public async Task Test_GetMaxTryNumber_Endpoint()
         {

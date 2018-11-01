@@ -17,6 +17,15 @@ namespace NeptunPro.EndPoints
 
 
 
+        public async Task<NeptunBuildDetails> GetBuildDetails()
+        {
+            var response = await base.GetAsync(base.BaseAddress);
+
+            System.IO.File.WriteAllText("index.html", response, Encoding.UTF8);
+
+            return LoginPageDeserializer.BuildDetails(response);
+        }
+
         public async Task<MaxLoginResponse> GetMaxTryNumber()
         {
             var response = await base.PostAsync(new Uri(base.BaseAddress, "GetMaxTryNumber"), new StringContent("", Encoding.UTF8, "application/json"));
