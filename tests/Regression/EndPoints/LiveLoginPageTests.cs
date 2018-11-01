@@ -48,10 +48,24 @@ namespace NeptunPro.Tests.Regression.EndPoints
         }
 
         [TestMethod]
-        public async Task Test_InValid_Login_Attemt()
+        public async Task Test_InValid_Login_Attemt__Too_Short_Credentials()
         {
             var loginPage = new LoginPage();
             var loginCredentials = new LoginCredentials("", "");
+
+            var loginResponse = await loginPage.Authenticate(loginCredentials);
+
+            Assert.IsFalse(loginResponse.IsSuccess);
+            Assert.AreEqual("Érvénytelen felhasználónév vagy jelszó.", loginResponse.ErrorMessage);
+            Assert.AreEqual("accounterror", loginResponse.ErrorCode);
+            Assert.AreEqual("", loginResponse.WarningMessage);
+        }
+
+        [TestMethod]
+        public async Task Test_InValid_Login_Attemt__Wrong_Username_And_Or_Password()
+        {
+            var loginPage = new LoginPage();
+            var loginCredentials = new LoginCredentials("BH6YG8", "dfgunrt7un5678n5678");
 
             var loginResponse = await loginPage.Authenticate(loginCredentials);
 
