@@ -21,27 +21,31 @@ namespace NeptunPro.Tests.Regression.EndPoints
         }
 
         [TestMethod]
-        public async Task Valid_Login_Attemt__Should_Return_True()
+        public async Task Test_Valid_Login_Attemt()
         {
             var loginPage = new LoginPage();
-
             var loginCredentials = new LoginCredentials(User.UserName, User.Password);
 
-            var actual = await loginPage.LogIn(loginCredentials);
+            var loginResponse = await loginPage.Authenticate(loginCredentials);
 
-            Assert.IsTrue(actual);
+            Assert.IsTrue(loginResponse.IsSuccess);
+            Assert.AreEqual("Sikeres bejelentkezés", loginResponse.ErrorMessage);
+            Assert.AreEqual("ok", loginResponse.ErrorCode);
+            Assert.AreEqual("", loginResponse.WarningMessage);
         }
 
         [TestMethod]
-        public async Task InValid_Login_Attemt__Should_Return_False()
+        public async Task Test_InValid_Login_Attemt()
         {
             var loginPage = new LoginPage();
-
             var loginCredentials = new LoginCredentials("", "");
 
-            var actual = await loginPage.LogIn(loginCredentials);
+            var loginResponse = await loginPage.Authenticate(loginCredentials);
 
-            Assert.IsFalse(actual);
+            Assert.IsFalse(loginResponse.IsSuccess);
+            Assert.AreEqual("Hibás jelszó vagy azonosító!", loginResponse.ErrorMessage);
+            Assert.AreEqual("accounterror", loginResponse.ErrorCode);
+            Assert.AreEqual("", loginResponse.WarningMessage);
         }
     }
 }

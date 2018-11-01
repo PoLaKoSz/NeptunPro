@@ -24,15 +24,12 @@ namespace NeptunPro.EndPoints
             return JsonConvert.DeserializeObject<MaxLoginResponse>(response);
         }
 
-        public async Task<bool> LogIn(LoginCredentials loginCredentials)
-        {
-            var loginResponse = await CheckLoginEnable(loginCredentials);
-
-            return loginResponse.IsSuccess == true && loginResponse.ErrorMessage.Equals("Sikeres bejelentkezés");
-        }
-
-
-        private async Task<LoginResponse> CheckLoginEnable(LoginCredentials loginCredentials)
+        /// <summary>
+        /// Authenticate to the Neptun system to have access every endpoint.
+        /// </summary>
+        /// <param name="loginCredentials">Username and Password</param>
+        /// <returns>Response from the server</returns>
+        public async Task<LoginResponse> Authenticate(LoginCredentials loginCredentials)
         {
             string json = JsonConvert.SerializeObject(loginCredentials);
 

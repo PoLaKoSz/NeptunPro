@@ -1,5 +1,6 @@
 ﻿using NeptunPro.EndPoints;
 using NeptunPro.Models;
+using NeptunPro.Models.XHR.Responses;
 using System;
 using System.Windows;
 
@@ -19,7 +20,12 @@ namespace NeptunPro.WPF
                 throw new Exception("Fill up Your Password, please!");
 
             var maxTry = await loginPage.GetMaxTryNumber();
-            bool isLoggedIn = await loginPage.LogIn(new LoginCredentials(userName, password));
+            var loginResponse = await loginPage.Authenticate(new LoginCredentials(userName, password));
+
+            if (!loginResponse.IsSuccess)
+            {
+
+            }
 
 
             var messagesPage = new MessagesPage();
