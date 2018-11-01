@@ -16,8 +16,12 @@ namespace NeptunPro
 
             var logfile = new FileTarget("logfile")
             {
-                FileName = "file.txt",
-                Layout = "${longdate} ${level} ${message} ${exception}"
+                Layout = "${longdate}\t${level}\t${message}\t${exception}",
+                FileName = "${basedir}/logs/logfile.txt",
+                ArchiveFileName = "${basedir}/logs/log.{#}.txt",
+                ArchiveEvery = FileArchivePeriod.Day,
+                ArchiveNumbering = ArchiveNumberingMode.DateAndSequence,
+                MaxArchiveFiles = 7
             };
 
             config.AddRuleForAllLevels(logfile);
