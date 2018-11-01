@@ -5,9 +5,9 @@ using System.Text.RegularExpressions;
 
 namespace NeptunPro.Deserializers
 {
-    public static class LoginPageDeserializer
+    internal class LoginPageDeserializer : Log
     {
-        public static NeptunBuildDetails BuildDetails(string sourceCode)
+        internal static NeptunBuildDetails BuildDetails(string sourceCode)
         {
             int outputVersion = 0;
             DateTime outputDate = new DateTime(1999, 12, 31);
@@ -18,7 +18,10 @@ namespace NeptunPro.Deserializers
             HtmlNode messageTableNode = doc.DocumentNode.SelectSingleNode("/html/body/form/table/tr[2]/td/table/tr/td[2]/div/table/tr[2]/td/span[@id=\"lblVersion\" and @class=\"szovegversion\"]");
 
             if (messageTableNode == null)
+            {
+
                 return new NeptunBuildDetails(outputVersion, outputDate);
+            }
 
             Regex regex = new Regex(@"Build: (?<buildNumber>\d+) \((?<buildDate>\d+.\d+.\d+.)\)");
             MatchCollection matchCollection = regex.Matches(messageTableNode.InnerText);

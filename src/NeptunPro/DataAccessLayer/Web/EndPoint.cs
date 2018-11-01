@@ -11,7 +11,7 @@ namespace NeptunPro.DataAccessLayer.Web
     /// Simple web access layer only for the bare minimum. Most EndPoints should use
     /// <see cref="SecureEndPoint"/> instead.
     /// </summary>
-    public abstract class EndPoint : IDisposable
+    public abstract class EndPoint : Log, IDisposable
     {
         private static readonly HttpClient _client;
 

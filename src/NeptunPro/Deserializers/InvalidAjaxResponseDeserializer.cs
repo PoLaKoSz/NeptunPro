@@ -6,9 +6,9 @@ namespace NeptunPro.Deserializers
     /// <summary>
     /// When an AJAX response come with a {"d" : "<something>"} this class will take care of it
     /// </summary>
-    public static class InvalidAjaxResponseDeserializer
+    internal class InvalidAjaxResponseDeserializer : Log
     {
-        public static T Fix<T>(string ajaxResponse)
+        internal static T Fix<T>(string ajaxResponse)
         {
             var jsonString = JsonConvert.DeserializeObject<InvalidJson>(ajaxResponse).RawJson;
 

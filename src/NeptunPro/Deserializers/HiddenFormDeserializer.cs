@@ -3,9 +3,9 @@ using NeptunPro.Models.XHR.Requests;
 
 namespace NeptunPro.Deserializers
 {
-    public class HiddenFormDeserializer
+    internal class HiddenFormDeserializer : Log
     {
-        public static void FromWholePage(PostForm postForm, string sourceCode)
+        internal static void FromWholePage(PostForm postForm, string sourceCode)
         {
             var doc = new HtmlDocument();
             doc.LoadHtml(sourceCode);
@@ -15,7 +15,7 @@ namespace NeptunPro.Deserializers
             postForm.ViewStateGenerator = GetHiddenFieldValue(doc, "__VIEWSTATEGENERATOR");
         }
 
-        public static void FromApiResponse(PostForm postForm, string sourceCode)
+        internal static void FromApiResponse(PostForm postForm, string sourceCode)
         {
 
         }
