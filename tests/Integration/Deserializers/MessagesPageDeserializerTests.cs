@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using HtmlAgilityPack;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NeptunPro.Deserializers;
 using NeptunPro.Models;
 using System;
@@ -11,11 +12,10 @@ namespace NeptunPro.Tests.Integration.Deserializers
     public class MessagesPageDeserializerTests
     {
         [TestMethod]
-        public void Incoming_Method__Should_Return_Empty_Collection_On_Error()
+        [ExpectedException(typeof(NodeNotFoundException))]
+        public void Incoming_Method__Should_Return_NodeNotFoundException()
         {
             var actual = MessagesPageDeserializer.InBox("invalid html");
-
-            CollectionAssert.AreEqual(new List<Message>(), actual);
         }
 
         [TestMethod]
@@ -61,7 +61,7 @@ namespace NeptunPro.Tests.Integration.Deserializers
         }
 
         [TestMethod]
-        public void Api_Method__Should_Return_Completed_Message()
+        public void Ajax_Method__Should_Return_Completed_Message()
         {
             var expected = new Message(440387024, "Fröhlich Martin Michel", "4. kis zh eredmények", new DateTime(2018, 10, 19, 19, 39, 41, DateTimeKind.Utc))
             {
@@ -76,7 +76,7 @@ namespace NeptunPro.Tests.Integration.Deserializers
 
             var actual = new Message(440387024, "Fröhlich Martin Michel", "4. kis zh eredmények", new DateTime(2018, 10, 19, 19, 39, 41, DateTimeKind.Utc));
 
-            MessagesPageDeserializer.Api(sourceCode, actual);
+            MessagesPageDeserializer.Ajax(sourceCode, actual);
 
             Assert.AreEqual(expected, actual);
         }

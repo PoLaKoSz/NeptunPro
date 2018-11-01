@@ -8,17 +8,22 @@ namespace NeptunPro.Deserializers
     public class MessagesPageDeserializer : Logger
     {
         /// <summary>
-        /// Extract <see cref="Message"/> objects from the given source code (from the InBox)
+        /// Extract <see cref="Message"/> objects from the given source code (from the InBox).
         /// </summary>
+        /// <exception cref="NodeNotFoundException">Webpage structure changed</exception>
+        /// <exception cref="NodeNotFoundException">Data format changed on the Webpage</exception>
         public static List<Message> InBox(string sourceCode)
         {
             var doc = new HtmlDocument();
             doc.LoadHtml(sourceCode);
 
-            var messageTableNode = doc.DocumentNode.SelectSingleNode("/html[1]/body[1]/form[1]/fieldset[1]/table[2]/tr[1]/td[3]/table[1]/tr[5]/td[2]/div[1]/div[1]/div[2]/div[1]/div[1][@id=\"c_messages_gridMessages_gridmaindiv\"]/ div[3][@id=\"c_messages_gridMessages_grid_body_div\"]/table[1][@id=\"c_messages_gridMessages_bodytable\"]/tbody[1][@class=\"scrollablebody\"]");
+            var messageTableNode = doc.DocumentNode.SelectSingleNode("/html[1]/body[1]/form[1]/fieldset[1]/table[2]/tr[1]/td[3]/table[1]/tr[5]/td[2]/div[1]/div[1]/div[2]/div[1]/div[1][@id=\"c_messages_gridMessages_gridmaindiv\"]/ div[3][@id=\"c_messages_gridMessages_grid_body_div\"]/table[1][@id=\"c_messages_gridMessages_bodytable\"]/tbody[@class=\"scrollablebody\"]");
 
             if (messageTableNode == null)
-                return new List<Message>();
+            {
+                Log.Error("Couldn't find the table node which should contains the messages!");
+                throw new NodeNotFoundException("Couldn't find the table node which should contains the messages.");
+            }
 
             return ExtractMessages(messageTableNode);
         }
@@ -26,22 +31,33 @@ namespace NeptunPro.Deserializers
         /// <summary>
         /// Update the paramter <see cref="Message"/> with the message body
         /// </summary>
-        public static void Api(string sourceCode, Message message)
+        /// <exception cref="NodeNotFoundException">Webpage structure changed</exception>
+        public static void Ajax(string sourceCode, Message message)
         {
             var doc = new HtmlDocument();
             doc.LoadHtml(sourceCode);
 
             HtmlNode messageBodyNode = doc.DocumentNode.SelectSingleNode("/div[5]/div[1]/div[1]/div[1]/div[1]/div[3]/span[1]/html[1]/body[1]");
 
-            if (messageBodyNode != null)
+            if (messageBodyNode == null)
+            {
+                Log.Error("Detailed message from Ajax call breaked the parser!");
+                throw new NodeNotFoundException("Detailed message breaked the parser.");
+            }
+
+            try
             {
                 foreach (var paragraph in messageBodyNode.SelectNodes(".//p"))
                 {
                     message.Text += paragraph.InnerText + "\n";
                 }
-            }
 
-            message.Text = message.Text.Substring(0, message.Text.Length - 1);
+                message.Text = message.Text.Substring(0, message.Text.Length - 1);
+            }
+            catch (Exception)
+            {
+                Log.Warn("Detailed message body from Ajax call {body} is empty!", messageBodyNode.InnerHtml);
+            }
         }
 
 
@@ -50,18 +66,37 @@ namespace NeptunPro.Deserializers
             var messages = new List<Message>();
             var messageNodes = messageTableNode.SelectNodes("./tr");
 
-            if (messageNodes == null ||
-                messageNodes[0].InnerText.Equals("Nincs találat"))
+            if (messageNodes != null
+                && messageNodes[0].InnerText.Equals("Nincs találat"))
                 return messages;
+
+            if (messageNodes == null)
+            {
+                Log.Error("Couldn't find the tr node which should contains the messages!");
+                throw new NodeNotFoundException("Couldn't find the tr node which should contains the messages.");
+            }
 
             foreach (var messageNode in messageNodes)
             {
-                int id = ExtractID(messageNode);
-                string sender = messageNode.SelectSingleNode("./td[5]").InnerText.Trim();
-                string subject = messageNode.SelectSingleNode("./td[7]/span").InnerText.Trim();
-                DateTime time = ExtractTime(messageNode);
+                try
+                {
+                    int id = ExtractID(messageNode);
+                    string sender = messageNode.SelectSingleNode("./td[5]").InnerText.Trim();
+                    string subject = messageNode.SelectSingleNode("./td[7]/span").InnerText.Trim();
+                    DateTime time = ExtractTime(messageNode);
 
-                messages.Add(new Message(id, sender, subject, time));
+                    messages.Add(new Message(id, sender, subject, time));
+                }
+                catch (NullReferenceException ex)
+                {
+                    Log.Error(ex, "Undetailed message HTML structure changed to {messageNode} so could be parsed!", messageNode.InnerHtml);
+                    throw new NodeNotFoundException("Couldn't parse undetailed message into object.", ex);
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Couldn't parse undetailed message {messageNode} into object!", messageNode.InnerHtml);
+                    throw new FormatException("Couldn't parse undetailed message into object.", ex);
+                }
             }
 
             return messages;

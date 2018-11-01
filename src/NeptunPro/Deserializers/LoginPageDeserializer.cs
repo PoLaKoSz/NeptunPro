@@ -23,7 +23,7 @@ namespace NeptunPro.Deserializers
             if (buildVersionNode == null)
             {
                 Log.Error("Couldn't find build version node!");
-                throw new NodeNotFoundException();
+                throw new NodeNotFoundException("Couldn't find build version node");
             }
 
             return ExtractBuildVersion(buildVersionNode.InnerText);
@@ -44,7 +44,7 @@ namespace NeptunPro.Deserializers
             }
             catch (Exception ex)
             {
-                Log.Error("Couldn't extract Neptun build details from {text}", text);
+                Log.Error("Couldn't extract Neptun build details from {text}!", text);
                 throw new FormatException("Neptun build details is not in the correct format", ex);
             }
         }
