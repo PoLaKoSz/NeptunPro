@@ -1,4 +1,4 @@
-﻿using NeptunPro.Deserializers;
+﻿using NeptunPro.Parsers;
 using NeptunPro.Models.XHR.Requests;
 using System;
 using System.Threading.Tasks;
@@ -36,7 +36,7 @@ namespace NeptunPro.DataAccessLayer.Web
         {
             string response = await base.GetAsync(requestUri);
 
-            HiddenFormDeserializer.FromWholePage(_geneticPostForm, response);
+            HiddenFormParser.FromWholePage(_geneticPostForm, response);
 
             return response;
         }
@@ -54,7 +54,7 @@ namespace NeptunPro.DataAccessLayer.Web
 
             string response = await base.PostAsync(requestUri, postForm);
 
-            HiddenFormDeserializer.FromApiResponse(_geneticPostForm, response);
+            HiddenFormParser.FromApiResponse(_geneticPostForm, response);
 
             return response;
         }

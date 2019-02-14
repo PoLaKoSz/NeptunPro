@@ -1,5 +1,5 @@
 ﻿using NeptunPro.DataAccessLayer.Web;
-using NeptunPro.Deserializers;
+using NeptunPro.Parsers;
 using NeptunPro.Models;
 using NeptunPro.Models.XHR.Responses;
 using Newtonsoft.Json;
@@ -23,7 +23,7 @@ namespace NeptunPro.EndPoints
 
             System.IO.File.WriteAllText("index.html", response, Encoding.UTF8);
 
-            return LoginPageDeserializer.BuildDetails(response);
+            return LoginPageParser.BuildDetails(response);
         }
 
         public async Task<MaxLoginResponse> GetMaxTryNumber()
@@ -46,7 +46,7 @@ namespace NeptunPro.EndPoints
 
             string response = await base.PostAsync(new Uri(base.BaseAddress, "CheckLoginEnable"), stringContent);
 
-            return InvalidAjaxResponseDeserializer.Fix<LoginResponse>(response);
+            return InvalidAjaxResponseParser.Fix<LoginResponse>(response);
         }
     }
 }

@@ -3,9 +3,9 @@ using NeptunPro.Models;
 using System;
 using System.Collections.Generic;
 
-namespace NeptunPro.Deserializers
+namespace NeptunPro.Parsers
 {
-    public class MessagesPageDeserializer : Logger
+    public class MessagesPageParser : Logger
     {
         /// <summary>
         /// Extract <see cref="Message"/> objects from the given source code (from the InBox).

@@ -2,12 +2,12 @@
 using Newtonsoft.Json;
 using System;
 
-namespace NeptunPro.Deserializers
+namespace NeptunPro.Parsers
 {
     /// <summary>
     /// When an AJAX response come with a {"d" : "<something>"} this class will take care of it
     /// </summary>
-    internal class InvalidAjaxResponseDeserializer : Logger
+    internal class InvalidAjaxResponseParser : Logger
     {
         /// <summary>
         /// Deserialize {"d" : "<something>"} string into C# object

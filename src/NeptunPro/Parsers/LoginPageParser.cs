@@ -3,9 +3,9 @@ using NeptunPro.Models;
 using System;
 using System.Text.RegularExpressions;
 
-namespace NeptunPro.Deserializers
+namespace NeptunPro.Parsers
 {
-    public class LoginPageDeserializer : Logger
+    public class LoginPageParser : Logger
     {
         /// <summary>
         /// Extract Build details from the LoginPage

@@ -1,9 +1,9 @@
 ﻿using HtmlAgilityPack;
 using NeptunPro.Models.XHR.Requests;
 
-namespace NeptunPro.Deserializers
+namespace NeptunPro.Parsers
 {
-    internal class HiddenFormDeserializer : Logger
+    internal class HiddenFormParser : Logger
     {
         internal static void FromWholePage(PostForm postForm, string sourceCode)
         {

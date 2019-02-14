@@ -1,5 +1,5 @@
 ﻿using NeptunPro.DataAccessLayer.Web;
-using NeptunPro.Deserializers;
+using NeptunPro.Parsers;
 using NeptunPro.Models;
 using NeptunPro.Models.XHR.Requests;
 using System;
@@ -27,7 +27,7 @@ namespace NeptunPro.EndPoints
 
             string _sourceCode = System.IO.File.ReadAllText("saved.html");
 
-            return MessagesPageDeserializer.InBox(_sourceCode);
+            return MessagesPageParser.InBox(_sourceCode);
         }
 
         /// <summary>
