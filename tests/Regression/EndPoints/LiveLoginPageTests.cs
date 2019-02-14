@@ -14,7 +14,7 @@ namespace NeptunPro.Tests.Regression.EndPoints
         {
             var loginPage = new LoginPage();
 
-            var expected = new NeptunBuildDetails(455, new DateTime(2018, 07, 19));
+            var expected = new NeptunBuildDetails(456, new DateTime(2018, 11, 25));
 
             var actual = await loginPage.GetBuildDetails();
 

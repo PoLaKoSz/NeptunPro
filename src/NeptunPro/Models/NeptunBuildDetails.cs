@@ -36,6 +36,11 @@ namespace NeptunPro.Models
             return true;
         }
 
+        public override string ToString()
+        {
+            return string.Format("{0} ({1})", Version, Date.ToString("yyyy.MM.dd."));
+        }
+
         public override int GetHashCode()
         {
             var hashCode = -682107832;
