@@ -21,8 +21,8 @@ namespace NeptunPro.Parsers
 
             if (messageTableNode == null)
             {
-                Log.Error("Couldn't find the table node which should contains the messages!");
-                throw new NodeNotFoundException("Couldn't find the table node which should contains the messages.");
+                Log.Info("Couldn't find the table node which should contains the messages!");
+                return new List<Message>();
             }
 
             return ExtractMessages(messageTableNode);
